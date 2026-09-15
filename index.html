@@ -23,6 +23,9 @@
     --glass-border:rgba(243,233,218,0.2);
   }
 
+  html{
+    overscroll-behavior-y:none;
+  }
   *{box-sizing:border-box;}
   body{
     background:var(--sky-fallback);
@@ -30,6 +33,7 @@
     font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
     margin:0;
     padding:0;
+    overscroll-behavior-y:none;
   }
 
   .sky-bg{
@@ -42,23 +46,10 @@
     filter:grayscale(1) blur(6px);
   }
 
-  .stage{
-    position:relative;
-    min-height:100vh;
-    max-width:480px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:64px 20px 48px;
-    overflow-x:hidden;
-  }
-
   .hero-photo{
     position:relative;
     z-index:1;
-    width:calc(100% + 40px);
-    margin:-64px -20px 28px;
+    width:100%;
     aspect-ratio:1/1;
     overflow:hidden;
     -webkit-mask-image:linear-gradient(to bottom, black calc(100% - 100px), transparent 100%);
@@ -69,6 +60,24 @@
     height:100%;
     object-fit:cover;
     display:block;
+  }
+  @media (min-width:600px){
+    .hero-photo{
+      aspect-ratio:auto;
+      height:min(60vh, 560px);
+    }
+  }
+
+  .stage{
+    position:relative;
+    min-height:100vh;
+    max-width:480px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 20px 48px;
+    overflow-x:hidden;
   }
 
   .page{
@@ -426,11 +435,11 @@
 
 <div class="sky-bg"></div>
 
-<div class="stage">
-  <div class="hero-photo">
-    <img src="covers/hero.png" alt="B Minor">
-  </div>
+<div class="hero-photo">
+  <img src="covers/hero.png" alt="B Minor">
+</div>
 
+<div class="stage">
   <div class="page">
 
     <h1>B Minor</h1>
