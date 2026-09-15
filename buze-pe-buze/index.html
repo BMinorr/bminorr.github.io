@@ -51,7 +51,7 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding:48px 20px 48px;
+    padding:0 20px 48px;
     overflow-x:hidden;
   }
   @media (min-width:700px){
@@ -71,12 +71,11 @@
   /* ---- cover art ---- */
   .cover{
     position:relative;
+    z-index:1;
     width:100%;
-    aspect-ratio:16/9;
-    border-radius:18px;
+    aspect-ratio:1/1;
     overflow:hidden;
-    margin-bottom:22px;
-    box-shadow:0 12px 32px rgba(0,0,0,0.28);
+    margin-bottom:28px;
   }
   .cover img{
     width:100%;
@@ -108,24 +107,9 @@
     font-size:clamp(38px, 10vw, 50px);
     line-height:1.05;
     letter-spacing:-0.01em;
-    margin:0 0 8px;
+    margin:0 0 36px;
     text-wrap:balance;
     text-align:center;
-  }
-
-  .artist{
-    margin:0 0 36px;
-    text-align:center;
-  }
-  .artist a{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--ink-dim);
-    text-decoration:none;
-    border-bottom:1px solid var(--ink-dim);
-    padding-bottom:1px;
   }
 
   .section-label{
@@ -235,16 +219,15 @@
 
 <div class="sky-bg"></div>
 
+<div class="cover">
+  <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
+  <span class="cover-tag">Out now</span>
+</div>
+
 <div class="stage">
   <div class="page">
 
-    <div class="cover">
-      <img src="../covers/buze-pe-buze.png" alt="buze pe buze cover art">
-      <span class="cover-tag">Out now</span>
-    </div>
-
     <h1>buze pe buze</h1>
-    <p class="artist"><a href="../">B Minor</a></p>
 
     <div class="section-label"><span>Listen</span></div>
     <div class="links">
@@ -277,14 +260,6 @@
           <img src="../covers/icons/youtube.webp" alt="">
         </span>
         <span class="link-label">YouTube</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-
-      <a class="link-row" href="https://soundcloud.com/bminour" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <img src="../covers/icons/soundcloud.webp" alt="">
-        </span>
-        <span class="link-label">SoundCloud</span>
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
     </div>
