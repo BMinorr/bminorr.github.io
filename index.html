@@ -1,0 +1,560 @@
+<title>B Minor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ink:#17120e;
+    --ink-dim:rgba(23,18,14,0.62);
+    --sky-fallback:#b7b7b7;
+    --surface-2:#2c221a;
+    --paper:#f3e9da;
+    --paper-dim:#c7b6a1;
+    --copper:#e08a45;
+    --ember:#c34f3c;
+    --line:rgba(243,233,218,0.14);
+    --glass:rgba(14,11,8,0.62);
+    --glass-hover:rgba(14,11,8,0.74);
+    --glass-border:rgba(243,233,218,0.2);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--sky-fallback);
+    color:var(--ink);
+    font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    margin:0;
+    padding:0;
+  }
+
+  .sky-bg{
+    position:fixed;
+    inset:-30px;
+    z-index:-1;
+    background-image:url(covers/sky.png);
+    background-size:cover;
+    background-position:center;
+    filter:grayscale(1) blur(6px);
+  }
+
+  .stage{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:64px 20px 48px;
+    overflow-x:hidden;
+  }
+
+  .hero-photo{
+    position:relative;
+    z-index:1;
+    width:calc(100% + 40px);
+    margin:-64px -20px 28px;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom, black calc(100% - 100px), transparent 100%);
+    mask-image:linear-gradient(to bottom, black calc(100% - 100px), transparent 100%);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .page{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:440px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+
+  /* ---- key signature chip ---- */
+  .keychip{
+    display:flex;
+    align-items:center;
+  }
+  .keychip svg{ display:block; }
+
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:900;
+    font-size:clamp(52px, 15vw, 72px);
+    line-height:1;
+    letter-spacing:-0.01em;
+    margin:0 0 12px;
+    text-wrap:balance;
+    text-align:center;
+  }
+
+  .tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin:0 0 36px;
+    text-align:center;
+  }
+  .tagline i{
+    font-style:normal;
+    margin:0 8px;
+  }
+
+  /* ---- section groups ---- */
+  .group{
+    width:100%;
+    margin-bottom:32px;
+  }
+  .section-label{
+    display:flex;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .section-label span{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+
+  /* ---- liquid glass surface, shared by every card/button ---- */
+  .spotlight-featured,
+  .spotlight-card,
+  .social-card,
+  .link-row{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* ---- spotlight: featured release ---- */
+  .spotlight-featured{
+    display:block;
+    width:100%;
+    padding:12px;
+    border-radius:18px;
+    text-decoration:none;
+    color:var(--paper);
+    margin-bottom:16px;
+    transition:background .18s ease;
+  }
+  .spotlight-featured:active,
+  .spotlight-featured:focus-visible{
+    background:var(--glass-hover);
+  }
+  .spotlight-featured-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .spotlight-featured-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .spotlight-featured-art svg.wave{ opacity:0.85; }
+  .spotlight-tag{
+    position:absolute;
+    top:12px;
+    left:12px;
+    padding:4px 10px;
+    border-radius:999px;
+    background:var(--glass-hover);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(10px) saturate(160%);
+    -webkit-backdrop-filter:blur(10px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
+    color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+  }
+  .spotlight-featured-play{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(23,18,14,0.55);
+    backdrop-filter:blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--paper);
+  }
+  .spotlight-featured-caption{
+    display:block;
+    margin:14px 2px 2px;
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    line-height:1.3;
+  }
+
+  /* ---- spotlight carousel ---- */
+  .spotlight-scroll{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:2px;
+    margin-right:-20px;
+    padding-right:20px;
+    scrollbar-width:none;
+  }
+  .spotlight-scroll::-webkit-scrollbar{ display:none; }
+
+  .spotlight-card{
+    flex:0 0 auto;
+    width:212px;
+    scroll-snap-align:start;
+    padding:9px;
+    border-radius:15px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+  }
+  .spotlight-card:active,
+  .spotlight-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .spotlight-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:10px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .spotlight-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .spotlight-art svg{ opacity:0.85; }
+  .spotlight-play{
+    position:absolute;
+    right:8px;
+    bottom:8px;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:rgba(23,18,14,0.55);
+    backdrop-filter:blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--paper);
+  }
+  .spotlight-caption{
+    display:block;
+    margin-top:9px;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    line-height:1.3;
+  }
+
+  /* ---- socials grid ---- */
+  .social-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .social-card{
+    display:block;
+    padding:9px;
+    border-radius:15px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+  }
+  .social-card:active,
+  .social-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .social-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:10px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .social-art svg{ width:42px; height:42px; opacity:0.32; }
+  .social-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .social-meta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:10px 2px 2px;
+  }
+  .social-meta .link-arrow{ margin-left:auto; }
+  .social-meta .link-icon{
+    width:28px;
+    height:28px;
+    border-radius:8px;
+  }
+  .social-meta span{
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+  }
+
+  /* ---- links ---- */
+  .links{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .link-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    padding:16px 18px;
+    border-radius:14px;
+    color:var(--paper);
+    text-decoration:none;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    transition:background .18s ease;
+  }
+  .link-row:active, .link-row:focus-visible{
+    background:var(--glass-hover);
+  }
+  .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
+
+  .link-icon{
+    width:38px;
+    height:38px;
+    flex:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .link-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .link-label{ flex:1; }
+  .link-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:400;
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--paper-dim);
+    margin-left:7px;
+  }
+
+  .link-arrow{
+    flex:none;
+    color:var(--paper-dim);
+  }
+
+  footer{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    color:var(--ink-dim);
+  }
+  footer p{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    line-height:1.7;
+    text-align:center;
+    margin:0;
+  }
+
+  @media (max-width:380px){
+    .link-row{ padding:14px 14px; font-size:15px; }
+  }
+</style>
+
+<div class="sky-bg"></div>
+
+<div class="stage">
+  <div class="hero-photo">
+    <img src="covers/hero.png" alt="B Minor">
+  </div>
+
+  <div class="page">
+
+    <h1>B Minor</h1>
+    <p class="tagline">Singer<i>/</i>Writer<i>/</i>Producer</p>
+
+    <section class="group">
+      <div class="section-label"><span>Spotlight</span></div>
+
+      <a class="spotlight-featured" href="https://ffm.to/buze" target="_blank" rel="noopener">
+        <div class="spotlight-featured-art">
+          <img src="covers/buze-pe-buze.png" alt="buze pe buze cover art">
+          <span class="spotlight-tag">Latest</span>
+          <span class="spotlight-featured-play" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+          </span>
+        </div>
+        <span class="spotlight-featured-caption">buze pe buze</span>
+      </a>
+
+      <div class="spotlight-scroll">
+        <a class="spotlight-card" href="https://youtu.be/JtY-4zHbpuU" target="_blank" rel="noopener">
+          <div class="spotlight-art">
+            <img src="covers/lately-w-rosu.png" alt="lately w/ Rosu cover art">
+            <span class="spotlight-play" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </span>
+          </div>
+          <span class="spotlight-caption">lately w/ Rosu</span>
+        </a>
+        <a class="spotlight-card" href="https://youtu.be/n1vDs9453Xs" target="_blank" rel="noopener">
+          <div class="spotlight-art">
+            <img src="covers/subliminal-tomos-giulia.avif" alt="subliminal w/ Tomos &amp; Giulia cover art">
+            <span class="spotlight-play" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
+            </span>
+          </div>
+          <span class="spotlight-caption">subliminal w/ Tomos &amp; Giulia</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="section-label"><span>Streaming</span></div>
+      <div class="links">
+        <a class="link-row" href="https://open.spotify.com/artist/5KAH5twb9qJLtX9ZAvQGzc" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">
+            <img src="covers/icons/spotify.webp" alt="">
+          </span>
+          <span class="link-label">Spotify</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+
+        <a class="link-row" href="https://music.apple.com/ro/artist/b-mi%C3%B1or/1596993264" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">
+            <img src="covers/icons/apple-music.webp" alt="">
+          </span>
+          <span class="link-label">Apple Music</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+
+        <a class="link-row" href="https://music.youtube.com/@bminorr" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">
+            <img src="covers/icons/youtube-music.webp" alt="">
+          </span>
+          <span class="link-label">YouTube Music</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+
+        <a class="link-row" href="https://www.youtube.com/@bminorr" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">
+            <img src="covers/icons/youtube.webp" alt="">
+          </span>
+          <span class="link-label">YouTube</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+
+        <a class="link-row" href="https://soundcloud.com/bminour" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">
+            <img src="covers/icons/soundcloud.webp" alt="">
+          </span>
+          <span class="link-label">SoundCloud<span class="link-sub">archive</span></span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="section-label"><span>Socials</span></div>
+      <div class="social-grid">
+        <a class="social-card" href="https://www.instagram.com/stephgramus" target="_blank" rel="noopener">
+          <div class="social-art">
+            <img src="covers/instagram.png" alt="Instagram">
+          </div>
+          <div class="social-meta">
+            <span class="link-icon" aria-hidden="true">
+              <img src="covers/icons/instagram.webp" alt="">
+            </span>
+            <span>Instagram</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+        </a>
+
+        <a class="social-card" href="https://www.tiktok.com/@bminour" target="_blank" rel="noopener">
+          <div class="social-art">
+            <img src="covers/tiktok.png" alt="TikTok">
+          </div>
+          <div class="social-meta">
+            <span class="link-icon" aria-hidden="true">
+              <img src="covers/icons/tiktok.webp" alt="">
+            </span>
+            <span>TikTok</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="keychip" aria-hidden="false">
+        <svg width="46" height="22" viewBox="0 0 46 22" aria-hidden="true">
+          <g stroke="var(--ink-dim)" stroke-width="1">
+            <line x1="0" y1="3" x2="46" y2="3"/>
+            <line x1="0" y1="7.5" x2="46" y2="7.5"/>
+            <line x1="0" y1="12" x2="46" y2="12"/>
+            <line x1="0" y1="16.5" x2="46" y2="16.5"/>
+            <line x1="0" y1="21" x2="46" y2="21"/>
+          </g>
+          <text x="10" y="8" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
+          <text x="24" y="17" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
+        </svg>
+      </div>
+      <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
+    </footer>
+
+  </div>
+</div>
