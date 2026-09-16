@@ -182,28 +182,15 @@
     margin-bottom:36px;
   }
   .about-row{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
     padding:15px 0;
     border-bottom:1px solid rgba(243,233,218,0.06);
-  }
-  .about-row:last-child{ border-bottom:none; }
-  .about-label{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--paper-dim);
-    flex:none;
-  }
-  .about-value{
     font-family:'Archivo',sans-serif;
     font-weight:600;
     font-size:15px;
     color:var(--paper);
+    text-align:left;
   }
+  .about-row:last-child{ border-bottom:none; }
 
   footer{
     width:100%;
@@ -291,12 +278,9 @@
       </a>
     </div>
 
-    <div class="section-label"><span>About this release</span></div>
+    <div class="section-label"><span>About</span></div>
     <div class="about-card">
-      <div class="about-row">
-        <span class="about-label">Released</span>
-        <span class="about-value">27.07.2023</span>
-      </div>
+      <div class="about-row">Released on 27.07.2023</div>
     </div>
 
     <footer>

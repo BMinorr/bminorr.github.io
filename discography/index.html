@@ -145,13 +145,6 @@
   }
   .marquee-track{ display:inline-flex; }
   .marquee-copy{ white-space:nowrap; padding-right:32px; }
-  .disco-caption.marquee .marquee-track{
-    animation:caption-scroll var(--marquee-duration, 8s) linear infinite;
-  }
-  @keyframes caption-scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
   .disco-meta{
     display:flex;
     align-items:center;
@@ -703,6 +696,7 @@
     el.appendChild(track);
     el.dataset.marqueeReady = '1';
   }
+  var marqueeCounter = 0;
   function measureMarquee(el){
     var track = el.querySelector('.marquee-track');
     var copy1 = el.querySelector('.marquee-copy');
@@ -710,11 +704,26 @@
     var extra = track.querySelectorAll('.marquee-copy');
     for(var i = 1; i < extra.length; i++) extra[i].remove();
     el.classList.remove('marquee');
+    track.style.animation = 'none';
+    if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
     var overflow = copy1.scrollWidth - el.clientWidth;
     if(overflow > 2){
       var copy2 = copy1.cloneNode(true);
       track.appendChild(copy2);
-      el.style.setProperty('--marquee-duration', Math.max(6, 4 + overflow / 18) + 's');
+      var scrollSeconds = Math.max(4, 3 + overflow / 18);
+      var pauseSeconds = 1;
+      var total = scrollSeconds + pauseSeconds;
+      var pausePct = (scrollSeconds / total) * 100;
+      var animName = 'marquee-anim-' + (marqueeCounter++);
+      var styleTag = document.createElement('style');
+      styleTag.textContent = '@keyframes ' + animName + '{' +
+        '0%{transform:translateX(0);}' +
+        pausePct.toFixed(3) + '%{transform:translateX(-50%);}' +
+        '100%{transform:translateX(-50%);}' +
+      '}';
+      document.head.appendChild(styleTag);
+      track._marqueeStyleTag = styleTag;
+      track.style.animation = animName + ' ' + total + 's linear infinite';
       el.classList.add('marquee');
     }
   }
