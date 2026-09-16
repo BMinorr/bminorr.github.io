@@ -259,6 +259,7 @@
   }
   footer p{
     font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
     font-size:11px;
     letter-spacing:0.08em;
     line-height:1.7;
@@ -711,7 +712,7 @@
       var copy2 = copy1.cloneNode(true);
       track.appendChild(copy2);
       var scrollSeconds = Math.max(4, 3 + overflow / 18);
-      var pauseSeconds = 1;
+      var pauseSeconds = 3;
       var total = scrollSeconds + pauseSeconds;
       var pausePct = (scrollSeconds / total) * 100;
       var animName = 'marquee-anim-' + (marqueeCounter++);
