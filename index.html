@@ -306,10 +306,23 @@
   .spotlight-card .explicit-tag{ width:12px; height:12px; font-size:7.5px; }
   .spotlight-caption{
     display:block;
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
     font-family:'Archivo',sans-serif;
     font-weight:600;
     font-size:13.5px;
     line-height:1.3;
+  }
+  .marquee-text{ display:inline-block; }
+  .spotlight-caption.marquee .marquee-text{
+    animation:marquee-scroll var(--marquee-duration, 6s) ease-in-out infinite;
+  }
+  @keyframes marquee-scroll{
+    0%, 10%{ transform:translateX(0); }
+    45%, 55%{ transform:translateX(var(--marquee-distance, 0px)); }
+    90%, 100%{ transform:translateX(0); }
   }
 
   /* ---- socials grid ---- */
@@ -692,5 +705,38 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function setupMarquee(el){
+    if (el.dataset.marqueeReady) return;
+    var text = el.textContent;
+    el.textContent = '';
+    var inner = document.createElement('span');
+    inner.className = 'marquee-text';
+    inner.textContent = text;
+    el.appendChild(inner);
+    el.dataset.marqueeReady = '1';
+  }
+  function measureMarquee(el){
+    var inner = el.querySelector('.marquee-text');
+    if(!inner) return;
+    el.classList.remove('marquee');
+    var overflow = inner.scrollWidth - el.clientWidth;
+    if(overflow > 2){
+      el.style.setProperty('--marquee-distance', (-(overflow + 4)) + 'px');
+      el.style.setProperty('--marquee-duration', Math.max(4, 3 + overflow / 40) + 's');
+      el.classList.add('marquee');
+    }
+  }
+  function refresh(){
+    document.querySelectorAll('.spotlight-caption').forEach(function(el){
+      setupMarquee(el);
+      measureMarquee(el);
+    });
+  }
+  refresh();
+  window.addEventListener('resize', refresh);
+})();
+</script>
 </body>
 </html>
