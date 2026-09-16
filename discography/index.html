@@ -185,7 +185,7 @@
   .disco-meta{
     display:flex;
     align-items:center;
-    gap:3px;
+    justify-content:space-between;
     margin-top:3px;
     font-family:'IBM Plex Mono',monospace;
     font-size:8.5px;
@@ -193,6 +193,11 @@
     text-transform:uppercase;
     color:var(--paper-dim);
     white-space:nowrap;
+  }
+  .disco-meta-left{
+    display:flex;
+    align-items:center;
+    gap:3px;
   }
   .disco-explicit{
     display:flex;
@@ -330,15 +335,16 @@
             <img src="../covers/contraste-square.jpg" alt="contraste cover art">
           </div>
           <span class="disco-caption">contraste</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>EP · 2024</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2024</span></span>
         </a>
         <a class="disco-card" href="../21-iunie/">
           <div class="disco-art">
             <img src="../covers/21-iunie-square.jpg" alt="21 iunie cover art">
           </div>
           <span class="disco-caption">21 iunie</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Album · 2024</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2024</span></span>
         </a>
+
       </div>
 
       <div class="disco-heading">Singles</div>
@@ -348,102 +354,111 @@
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
           </div>
           <span class="disco-caption">buze pe buze</span>
-          <span class="disco-meta">Single · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../cam-dor/">
           <div class="disco-art">
             <img src="../covers/cam-dor-square.jpg" alt="cam dor cover art">
           </div>
           <span class="disco-caption">cam dor</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Single · 2023</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2023</span></span>
         </a>
         <a class="disco-card" href="../henny/">
           <div class="disco-art">
             <img src="../covers/henny-square.jpg" alt="henny cover art">
           </div>
           <span class="disco-caption">henny</span>
-          <span class="disco-meta">Single · 2022</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2022</span></span>
         </a>
         <a class="disco-card" href="../majora/">
           <div class="disco-art">
             <img src="../covers/majora-square.jpg" alt="majora cover art">
           </div>
           <span class="disco-caption">majora</span>
-          <span class="disco-meta">Single · 2021</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2021</span></span>
         </a>
+
       </div>
 
       <div class="disco-heading">Features</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../lately/">
-          <div class="disco-art">
-            <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
-          </div>
-          <span class="disco-caption">lately w/ Rosu</span>
-          <span class="disco-meta">Feature · 2026</span>
-        </a>
         <a class="disco-card" href="../gone/">
           <div class="disco-art">
             <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
           </div>
           <span class="disco-caption">gone w/ Florinswag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../lately/">
+          <div class="disco-art">
+            <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
+          </div>
+          <span class="disco-caption">lately w/ Rosu</span>
+          <span class="disco-meta"><span class="disco-meta-left">Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
           </div>
           <span class="disco-caption">monroe w/ Richharddd</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../adr/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
           </div>
           <span class="disco-caption">a.d.r. w/ T Bag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../blitzkrieg/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="blitzkrieg w/ T Bag &amp; Asmo cover art">
           </div>
           <span class="disco-caption">blitzkrieg w/ T Bag &amp; Asmo</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../nu-fac-nimic/">
           <div class="disco-art">
             <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
           </div>
           <span class="disco-caption">nu fac nimic w/ Andy</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../spection/">
           <div class="disco-art">
             <img src="../covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
           </div>
           <span class="disco-caption">&#39;spection w/ Cerb</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
         <a class="disco-card" href="../referinta/">
           <div class="disco-art">
             <img src="../covers/referinta-square.png" alt="referinta w/ T Bag cover art">
           </div>
           <span class="disco-caption">referinta w/ T Bag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
         <a class="disco-card" href="../ce-nu-putem-fi/">
           <div class="disco-art">
             <img src="../covers/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ T Bag cover art">
           </div>
           <span class="disco-caption">ce nu putem fi w/ T Bag</span>
-          <span class="disco-meta">Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left">Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
+
       </div>
     </div>
 
     <div id="view-year" class="disco-view" hidden>
       <div class="disco-heading">2026</div>
       <div class="disco-grid">
+        <a class="disco-card" href="../gone/">
+          <div class="disco-art">
+            <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
+          </div>
+          <span class="disco-caption">gone w/ Florinswag</span>
+          <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
+        </a>
         <a class="disco-card" href="../buze-pe-buze/">
           <div class="disco-art">
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
@@ -458,13 +473,6 @@
           <span class="disco-caption">lately w/ Rosu</span>
           <span class="disco-meta">Feature</span>
         </a>
-        <a class="disco-card" href="../gone/">
-          <div class="disco-art">
-            <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
-          </div>
-          <span class="disco-caption">gone w/ Florinswag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
-        </a>
         <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
@@ -493,6 +501,7 @@
           <span class="disco-caption">nu fac nimic w/ Andy</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
         </a>
+
       </div>
 
       <div class="disco-heading">2025</div>
@@ -574,111 +583,112 @@
 
     <div id="view-flat" class="disco-view" hidden>
       <div class="disco-grid">
+        <a class="disco-card" href="../gone/">
+          <div class="disco-art">
+            <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
+          </div>
+          <span class="disco-caption">gone w/ Florinswag</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
+        </a>
         <a class="disco-card" href="../buze-pe-buze/">
           <div class="disco-art">
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
           </div>
           <span class="disco-caption">buze pe buze</span>
-          <span class="disco-meta">Single · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../lately/">
           <div class="disco-art">
             <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
           </div>
           <span class="disco-caption">lately w/ Rosu</span>
-          <span class="disco-meta">Feature · 2026</span>
-        </a>
-        <a class="disco-card" href="../gone/">
-          <div class="disco-art">
-            <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
-          </div>
-          <span class="disco-caption">gone w/ Florinswag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left">Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
           </div>
           <span class="disco-caption">monroe w/ Richharddd</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../adr/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
           </div>
           <span class="disco-caption">a.d.r. w/ T Bag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../blitzkrieg/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="blitzkrieg w/ T Bag &amp; Asmo cover art">
           </div>
           <span class="disco-caption">blitzkrieg w/ T Bag &amp; Asmo</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../nu-fac-nimic/">
           <div class="disco-art">
             <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
           </div>
           <span class="disco-caption">nu fac nimic w/ Andy</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2026</span></span>
         </a>
         <a class="disco-card" href="../spection/">
           <div class="disco-art">
             <img src="../covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
           </div>
           <span class="disco-caption">&#39;spection w/ Cerb</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
         <a class="disco-card" href="../referinta/">
           <div class="disco-art">
             <img src="../covers/referinta-square.png" alt="referinta w/ T Bag cover art">
           </div>
           <span class="disco-caption">referinta w/ T Bag</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
         <a class="disco-card" href="../ce-nu-putem-fi/">
           <div class="disco-art">
             <img src="../covers/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ T Bag cover art">
           </div>
           <span class="disco-caption">ce nu putem fi w/ T Bag</span>
-          <span class="disco-meta">Feature · 2025</span>
+          <span class="disco-meta"><span class="disco-meta-left">Feature</span><span class="disco-meta-year">2025</span></span>
         </a>
         <a class="disco-card" href="../contraste/">
           <div class="disco-art">
             <img src="../covers/contraste-square.jpg" alt="contraste cover art">
           </div>
           <span class="disco-caption">contraste</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>EP · 2024</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2024</span></span>
         </a>
         <a class="disco-card" href="../21-iunie/">
           <div class="disco-art">
             <img src="../covers/21-iunie-square.jpg" alt="21 iunie cover art">
           </div>
           <span class="disco-caption">21 iunie</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Album · 2024</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2024</span></span>
         </a>
         <a class="disco-card" href="../cam-dor/">
           <div class="disco-art">
             <img src="../covers/cam-dor-square.jpg" alt="cam dor cover art">
           </div>
           <span class="disco-caption">cam dor</span>
-          <span class="disco-meta"><span class="disco-explicit">E</span>Single · 2023</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2023</span></span>
         </a>
         <a class="disco-card" href="../henny/">
           <div class="disco-art">
             <img src="../covers/henny-square.jpg" alt="henny cover art">
           </div>
           <span class="disco-caption">henny</span>
-          <span class="disco-meta">Single · 2022</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2022</span></span>
         </a>
         <a class="disco-card" href="../majora/">
           <div class="disco-art">
             <img src="../covers/majora-square.jpg" alt="majora cover art">
           </div>
           <span class="disco-caption">majora</span>
-          <span class="disco-meta">Single · 2021</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2021</span></span>
         </a>
+
       </div>
     </div>
 

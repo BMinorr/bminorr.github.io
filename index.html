@@ -217,7 +217,7 @@
   .release-meta{
     display:flex;
     align-items:center;
-    gap:4px;
+    justify-content:space-between;
     margin:3px 2px 0;
     font-family:'IBM Plex Mono',monospace;
     font-size:11px;
@@ -225,6 +225,11 @@
     text-transform:uppercase;
     color:var(--paper-dim);
     white-space:nowrap;
+  }
+  .meta-left{
+    display:flex;
+    align-items:center;
+    gap:4px;
   }
   .explicit-tag{
     display:flex;
@@ -489,15 +494,6 @@
       </a>
 
       <div class="spotlight-scroll">
-        <a class="spotlight-card" href="lately/">
-          <div class="spotlight-art">
-            <img src="covers/lately-square.png" alt="lately w/ Rosu cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">lately w/ Rosu</span>
-          </div>
-          <span class="release-meta">Feature · 2026</span>
-        </a>
         <a class="spotlight-card" href="gone/">
           <div class="spotlight-art">
             <img src="covers/gone-square.png" alt="gone w/ Florinswag cover art">
@@ -505,7 +501,16 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">gone w/ Florinswag</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2026</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        </a>
+        <a class="spotlight-card" href="lately/">
+          <div class="spotlight-art">
+            <img src="covers/lately-square.png" alt="lately w/ Rosu cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">lately w/ Rosu</span>
+          </div>
+          <span class="release-meta"><span class="meta-left">Feature</span><span class="meta-year">2026</span></span>
         </a>
         <a class="spotlight-card" href="monroe/">
           <div class="spotlight-art">
@@ -514,7 +519,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">monroe w/ Richharddd</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2026</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
         </a>
         <a class="spotlight-card" href="adr/">
           <div class="spotlight-art">
@@ -523,7 +528,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">a.d.r. w/ T Bag</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2026</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
         </a>
         <a class="spotlight-card" href="blitzkrieg/">
           <div class="spotlight-art">
@@ -532,7 +537,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">blitzkrieg w/ T Bag &amp; Asmo</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2026</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
         </a>
         <a class="spotlight-card" href="nu-fac-nimic/">
           <div class="spotlight-art">
@@ -541,7 +546,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">nu fac nimic w/ Andy</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2026</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
         </a>
         <a class="spotlight-card" href="spection/">
           <div class="spotlight-art">
@@ -550,7 +555,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">&#39;spection w/ Cerb</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2025</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2025</span></span>
         </a>
         <a class="spotlight-card" href="referinta/">
           <div class="spotlight-art">
@@ -559,7 +564,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">referinta w/ T Bag</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Feature · 2025</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2025</span></span>
         </a>
         <a class="spotlight-card" href="ce-nu-putem-fi/">
           <div class="spotlight-art">
@@ -568,7 +573,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">ce nu putem fi w/ T Bag</span>
           </div>
-          <span class="release-meta">Feature · 2025</span>
+          <span class="release-meta"><span class="meta-left">Feature</span><span class="meta-year">2025</span></span>
         </a>
         <a class="spotlight-card" href="contraste/">
           <div class="spotlight-art">
@@ -577,7 +582,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">contraste</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>EP · 2024</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>EP</span><span class="meta-year">2024</span></span>
         </a>
         <a class="spotlight-card" href="21-iunie/">
           <div class="spotlight-art">
@@ -586,7 +591,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">21 iunie</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Album · 2024</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Album</span><span class="meta-year">2024</span></span>
         </a>
         <a class="spotlight-card" href="cam-dor/">
           <div class="spotlight-art">
@@ -595,7 +600,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">cam dor</span>
           </div>
-          <span class="release-meta"><span class="explicit-tag">E</span>Single · 2023</span>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2023</span></span>
         </a>
         <a class="spotlight-card" href="henny/">
           <div class="spotlight-art">
@@ -604,7 +609,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">henny</span>
           </div>
-          <span class="release-meta">Single · 2022</span>
+          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2022</span></span>
         </a>
         <a class="spotlight-card" href="majora/">
           <div class="spotlight-art">
@@ -613,7 +618,7 @@
           <div class="spotlight-title-row">
             <span class="spotlight-caption">majora</span>
           </div>
-          <span class="release-meta">Single · 2021</span>
+          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2021</span></span>
         </a>
       </div>
 
