@@ -169,6 +169,53 @@
     color:var(--paper-dim);
   }
 
+  .tracklist{
+    width:100%;
+    padding:2px 18px;
+    border-radius:14px;
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+  }
+  .track-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid var(--glass-border);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{
+    flex:none;
+    width:20px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--paper-dim);
+  }
+  .track-title{
+    flex:1;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--paper);
+  }
+  .explicit-tag{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:16px;
+    height:16px;
+    flex:none;
+    border:1px solid var(--paper-dim);
+    border-radius:3px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--paper-dim);
+  }
+
   footer{
     width:100%;
     display:flex;
@@ -252,6 +299,65 @@
         <span class="link-label">YouTube</span>
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
+    </div>
+
+    <div class="section-label"><span>Tracklist</span></div>
+    <div class="tracklist">
+      <div class="track-row">
+        <span class="track-num">1</span>
+        <span class="track-title">trunchiu'</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">2</span>
+        <span class="track-title">r.v.</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">3</span>
+        <span class="track-title">mister</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">4</span>
+        <span class="track-title">miseducare</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">5</span>
+        <span class="track-title">3p4</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">6</span>
+        <span class="track-title">tinnitus (feat. T Bag)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">7</span>
+        <span class="track-title">angoasa (feat. Tomos)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">8</span>
+        <span class="track-title">peplacfa</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">9</span>
+        <span class="track-title">heisenberg (feat. BPC &amp; Vatra)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">10</span>
+        <span class="track-title">cine?</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">11</span>
+        <span class="track-title">c'est la vie</span>
+        <span class="explicit-tag">E</span>
+      </div>
     </div>
 
     <footer>
