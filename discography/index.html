@@ -75,42 +75,12 @@
     font-size:clamp(38px, 10vw, 50px);
     line-height:1.05;
     letter-spacing:-0.01em;
-    margin:0 0 28px;
+    margin:0 0 24px;
     text-wrap:balance;
     text-align:center;
-  }
-
-  .view-toggle{
-    display:flex;
-    align-self:flex-start;
-    gap:3px;
-    padding:3px;
-    border-radius:999px;
-    background:rgba(14,11,8,0.4);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    margin-bottom:18px;
-  }
-  .view-toggle button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:30px;
-    height:27px;
-    border:none;
-    border-radius:999px;
-    background:transparent;
-    color:var(--paper-dim);
-    cursor:pointer;
     -webkit-tap-highlight-color:transparent;
-    transition:background .18s ease, color .18s ease;
-  }
-  .view-toggle button svg{ width:13px; height:13px; display:block; }
-  .view-toggle button[aria-pressed="true"]{
-    background:var(--glass-hover);
-    color:var(--paper);
+    user-select:none;
+    -webkit-user-select:none;
   }
 
   .disco-view[hidden]{ display:none; }
@@ -173,14 +143,14 @@
     font-size:12px;
     line-height:1.25;
   }
-  .marquee-text{ display:inline-block; }
-  .disco-caption.marquee .marquee-text{
-    animation:marquee-scroll var(--marquee-duration, 6s) ease-in-out infinite;
+  .marquee-track{ display:inline-flex; }
+  .marquee-copy{ white-space:nowrap; padding-right:32px; }
+  .disco-caption.marquee .marquee-track{
+    animation:caption-scroll var(--marquee-duration, 8s) linear infinite;
   }
-  @keyframes marquee-scroll{
-    0%, 10%{ transform:translateX(0); }
-    45%, 55%{ transform:translateX(var(--marquee-distance, 0px)); }
-    90%, 100%{ transform:translateX(0); }
+  @keyframes caption-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
   }
   .disco-meta{
     display:flex;
@@ -311,19 +281,7 @@
 <div class="stage">
   <div class="page">
 
-    <h1>Discography</h1>
-
-    <div class="view-toggle" role="tablist" aria-label="Sort discography">
-      <button type="button" data-view="type" aria-pressed="true" aria-label="Group by type">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10V4a2 2 0 0 1 2-2h6l12 12-8 8L2 10Z"/><circle cx="7" cy="7" r="1.2" fill="currentColor" stroke="none"/></svg>
-      </button>
-      <button type="button" data-view="year" aria-pressed="false" aria-label="Group by year">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
-      </button>
-      <button type="button" data-view="flat" aria-pressed="false" aria-label="Flat chronological list">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
-      </button>
-    </div>
+    <h1 id="disco-title">Discography</h1>
 
     <div id="view-type" class="disco-view">
       <div class="disco-heading">Albums &amp; EPs</div>
@@ -736,20 +694,27 @@
     if (el.dataset.marqueeReady) return;
     var text = el.textContent;
     el.textContent = '';
-    var inner = document.createElement('span');
-    inner.className = 'marquee-text';
-    inner.textContent = text;
-    el.appendChild(inner);
+    var track = document.createElement('span');
+    track.className = 'marquee-track';
+    var copy1 = document.createElement('span');
+    copy1.className = 'marquee-copy';
+    copy1.textContent = text;
+    track.appendChild(copy1);
+    el.appendChild(track);
     el.dataset.marqueeReady = '1';
   }
   function measureMarquee(el){
-    var inner = el.querySelector('.marquee-text');
-    if(!inner) return;
+    var track = el.querySelector('.marquee-track');
+    var copy1 = el.querySelector('.marquee-copy');
+    if(!track || !copy1) return;
+    var extra = track.querySelectorAll('.marquee-copy');
+    for(var i = 1; i < extra.length; i++) extra[i].remove();
     el.classList.remove('marquee');
-    var overflow = inner.scrollWidth - el.clientWidth;
+    var overflow = copy1.scrollWidth - el.clientWidth;
     if(overflow > 2){
-      el.style.setProperty('--marquee-distance', (-(overflow + 4)) + 'px');
-      el.style.setProperty('--marquee-duration', Math.max(4, 3 + overflow / 40) + 's');
+      var copy2 = copy1.cloneNode(true);
+      track.appendChild(copy2);
+      el.style.setProperty('--marquee-duration', Math.max(6, 4 + overflow / 18) + 's');
       el.classList.add('marquee');
     }
   }
@@ -760,19 +725,19 @@
     });
   }
 
-  var toggleButtons = document.querySelectorAll('.view-toggle button');
   var views = {
     type: document.getElementById('view-type'),
     year: document.getElementById('view-year'),
     flat: document.getElementById('view-flat')
   };
-  toggleButtons.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var target = btn.getAttribute('data-view');
-      toggleButtons.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      Object.keys(views).forEach(function(key){ views[key].hidden = key !== target; });
-      processCaptions(views[target]);
-    });
+  var order = ['type', 'year', 'flat'];
+  var current = 0;
+
+  document.getElementById('disco-title').addEventListener('click', function(){
+    current = (current + 1) % order.length;
+    var target = order[current];
+    Object.keys(views).forEach(function(key){ views[key].hidden = key !== target; });
+    processCaptions(views[target]);
   });
 
   processCaptions(views.type);

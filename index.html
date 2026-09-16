@@ -348,14 +348,14 @@
     font-size:13.5px;
     line-height:1.3;
   }
-  .marquee-text{ display:inline-block; }
-  .spotlight-caption.marquee .marquee-text{
-    animation:marquee-scroll var(--marquee-duration, 6s) ease-in-out infinite;
+  .marquee-track{ display:inline-flex; }
+  .marquee-copy{ white-space:nowrap; padding-right:32px; }
+  .spotlight-caption.marquee .marquee-track{
+    animation:caption-scroll var(--marquee-duration, 8s) linear infinite;
   }
-  @keyframes marquee-scroll{
-    0%, 10%{ transform:translateX(0); }
-    45%, 55%{ transform:translateX(var(--marquee-distance, 0px)); }
-    90%, 100%{ transform:translateX(0); }
+  @keyframes caption-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
   }
 
   /* ---- socials grid ---- */
@@ -677,20 +677,27 @@
     if (el.dataset.marqueeReady) return;
     var text = el.textContent;
     el.textContent = '';
-    var inner = document.createElement('span');
-    inner.className = 'marquee-text';
-    inner.textContent = text;
-    el.appendChild(inner);
+    var track = document.createElement('span');
+    track.className = 'marquee-track';
+    var copy1 = document.createElement('span');
+    copy1.className = 'marquee-copy';
+    copy1.textContent = text;
+    track.appendChild(copy1);
+    el.appendChild(track);
     el.dataset.marqueeReady = '1';
   }
   function measureMarquee(el){
-    var inner = el.querySelector('.marquee-text');
-    if(!inner) return;
+    var track = el.querySelector('.marquee-track');
+    var copy1 = el.querySelector('.marquee-copy');
+    if(!track || !copy1) return;
+    var extra = track.querySelectorAll('.marquee-copy');
+    for(var i = 1; i < extra.length; i++) extra[i].remove();
     el.classList.remove('marquee');
-    var overflow = inner.scrollWidth - el.clientWidth;
+    var overflow = copy1.scrollWidth - el.clientWidth;
     if(overflow > 2){
-      el.style.setProperty('--marquee-distance', (-(overflow + 4)) + 'px');
-      el.style.setProperty('--marquee-duration', Math.max(4, 3 + overflow / 40) + 's');
+      var copy2 = copy1.cloneNode(true);
+      track.appendChild(copy2);
+      el.style.setProperty('--marquee-duration', Math.max(6, 4 + overflow / 18) + 's');
       el.classList.add('marquee');
     }
   }
