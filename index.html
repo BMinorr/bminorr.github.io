@@ -140,7 +140,8 @@
   .spotlight-featured,
   .spotlight-card,
   .social-card,
-  .link-row{
+  .link-row,
+  .see-all-btn{
     background:var(--glass);
     border:1px solid var(--glass-border);
     backdrop-filter:blur(14px) saturate(160%);
@@ -244,41 +245,68 @@
     letter-spacing:0;
   }
 
-  /* ---- spotlight carousel ---- */
-  .spotlight-scroll{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding-bottom:2px;
-    margin-right:-20px;
-    padding-right:20px;
-    scrollbar-width:none;
-  }
-  .spotlight-scroll::-webkit-scrollbar{ display:none; }
-
-  .see-all-row{
+  /* ---- spotlight: 3 most recent ---- */
+  .spotlight-grid{
     width:100%;
-    display:flex;
-    justify-content:center;
-    margin-top:14px;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+    margin-bottom:16px;
   }
-  .see-all{
+
+  .see-all-btn{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:14px 18px 16px;
+    border-radius:14px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+    overflow:hidden;
+  }
+  .see-all-btn:active, .see-all-btn:focus-visible{
+    background:var(--glass-hover);
+  }
+  .see-all-covers{
+    width:100%;
+    height:32px;
+    overflow:hidden;
+    margin-bottom:10px;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+  .see-all-covers-track{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    width:max-content;
+    animation:covers-scroll 28s linear infinite;
+  }
+  .see-all-covers-track img{
+    width:32px;
+    height:32px;
+    border-radius:7px;
+    object-fit:cover;
+    display:block;
+    flex:none;
+  }
+  @keyframes covers-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  .see-all-label{
+    display:block;
+    width:100%;
+    text-align:center;
     font-family:'IBM Plex Mono',monospace;
     font-weight:700;
-    font-size:11.5px;
+    font-size:13px;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--ink-dim);
-    text-decoration:none;
-    border-bottom:1px solid var(--ink-dim);
-    padding-bottom:1px;
   }
 
   .spotlight-card{
-    flex:0 0 auto;
-    width:130px;
-    scroll-snap-align:start;
     padding:9px;
     border-radius:15px;
     text-decoration:none;
@@ -307,8 +335,8 @@
     display:block;
   }
   .spotlight-card .spotlight-title-row{ margin-top:9px; }
-  .spotlight-card .release-meta{ font-size:9.5px; letter-spacing:0.03em; }
-  .spotlight-card .explicit-tag{ width:12px; height:12px; font-size:7.5px; }
+  .spotlight-card .release-meta{ font-size:8px; letter-spacing:0.02em; }
+  .spotlight-card .explicit-tag{ width:11px; height:11px; font-size:7px; }
   .spotlight-caption{
     display:block;
     flex:1;
@@ -493,7 +521,7 @@
         <span class="release-meta">Single · 2026</span>
       </a>
 
-      <div class="spotlight-scroll">
+      <div class="spotlight-grid">
         <a class="spotlight-card" href="gone/">
           <div class="spotlight-art">
             <img src="covers/gone-square.png" alt="gone w/ Florinswag cover art">
@@ -521,110 +549,43 @@
           </div>
           <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
         </a>
-        <a class="spotlight-card" href="adr/">
-          <div class="spotlight-art">
-            <img src="covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">a.d.r. w/ T Bag</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
-        </a>
-        <a class="spotlight-card" href="blitzkrieg/">
-          <div class="spotlight-art">
-            <img src="covers/adr-square.png" alt="blitzkrieg w/ T Bag &amp; Asmo cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">blitzkrieg w/ T Bag &amp; Asmo</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
-        </a>
-        <a class="spotlight-card" href="nu-fac-nimic/">
-          <div class="spotlight-art">
-            <img src="covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">nu fac nimic w/ Andy</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
-        </a>
-        <a class="spotlight-card" href="spection/">
-          <div class="spotlight-art">
-            <img src="covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">&#39;spection w/ Cerb</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2025</span></span>
-        </a>
-        <a class="spotlight-card" href="referinta/">
-          <div class="spotlight-art">
-            <img src="covers/referinta-square.png" alt="referinta w/ T Bag cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">referinta w/ T Bag</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2025</span></span>
-        </a>
-        <a class="spotlight-card" href="ce-nu-putem-fi/">
-          <div class="spotlight-art">
-            <img src="covers/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ T Bag cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">ce nu putem fi w/ T Bag</span>
-          </div>
-          <span class="release-meta"><span class="meta-left">Feature</span><span class="meta-year">2025</span></span>
-        </a>
-        <a class="spotlight-card" href="contraste/">
-          <div class="spotlight-art">
-            <img src="covers/contraste-square.jpg" alt="contraste cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">contraste</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>EP</span><span class="meta-year">2024</span></span>
-        </a>
-        <a class="spotlight-card" href="21-iunie/">
-          <div class="spotlight-art">
-            <img src="covers/21-iunie-square.jpg" alt="21 iunie cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">21 iunie</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Album</span><span class="meta-year">2024</span></span>
-        </a>
-        <a class="spotlight-card" href="cam-dor/">
-          <div class="spotlight-art">
-            <img src="covers/cam-dor-square.jpg" alt="cam dor cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">cam dor</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2023</span></span>
-        </a>
-        <a class="spotlight-card" href="henny/">
-          <div class="spotlight-art">
-            <img src="covers/henny-square.jpg" alt="henny cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">henny</span>
-          </div>
-          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2022</span></span>
-        </a>
-        <a class="spotlight-card" href="majora/">
-          <div class="spotlight-art">
-            <img src="covers/majora-square.jpg" alt="majora cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">majora</span>
-          </div>
-          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2021</span></span>
-        </a>
       </div>
 
-      <div class="see-all-row">
-        <a class="see-all" href="discography/">See all discography</a>
-      </div>
+      <a class="see-all-btn" href="discography/">
+        <div class="see-all-covers" aria-hidden="true">
+          <div class="see-all-covers-track">
+            <img src="covers/henny-square.jpg" alt="">
+            <img src="covers/buze-pe-buze-square.png" alt="">
+            <img src="covers/spection-w-cerb.jpeg" alt="">
+            <img src="covers/contraste-square.jpg" alt="">
+            <img src="covers/monroe-square.png" alt="">
+            <img src="covers/cam-dor-square.jpg" alt="">
+            <img src="covers/referinta-square.png" alt="">
+            <img src="covers/lately-square.png" alt="">
+            <img src="covers/majora-square.jpg" alt="">
+            <img src="covers/adr-square.png" alt="">
+            <img src="covers/21-iunie-square.jpg" alt="">
+            <img src="covers/gone-square.png" alt="">
+            <img src="covers/ce-nu-putem-fi-square.jpg" alt="">
+            <img src="covers/nu-fac-nimic-square.png" alt="">
+            <img src="covers/henny-square.jpg" alt="">
+            <img src="covers/buze-pe-buze-square.png" alt="">
+            <img src="covers/spection-w-cerb.jpeg" alt="">
+            <img src="covers/contraste-square.jpg" alt="">
+            <img src="covers/monroe-square.png" alt="">
+            <img src="covers/cam-dor-square.jpg" alt="">
+            <img src="covers/referinta-square.png" alt="">
+            <img src="covers/lately-square.png" alt="">
+            <img src="covers/majora-square.jpg" alt="">
+            <img src="covers/adr-square.png" alt="">
+            <img src="covers/21-iunie-square.jpg" alt="">
+            <img src="covers/gone-square.png" alt="">
+            <img src="covers/ce-nu-putem-fi-square.jpg" alt="">
+            <img src="covers/nu-fac-nimic-square.png" alt="">
+          </div>
+        </div>
+        <span class="see-all-label">See all discography</span>
+      </a>
     </section>
 
     <section class="group">
