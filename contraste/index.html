@@ -183,9 +183,9 @@
   .track-row{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     padding:15px 0;
-    border-bottom:1px solid var(--glass-border);
+    border-bottom:1px solid rgba(243,233,218,0.06);
   }
   .track-row:last-child{ border-bottom:none; }
   .track-num{
@@ -196,7 +196,6 @@
     color:var(--paper-dim);
   }
   .track-title{
-    flex:1;
     font-family:'Archivo',sans-serif;
     font-weight:600;
     font-size:15px;
@@ -266,6 +265,22 @@
 
     <h1>contraste</h1>
 
+    <div class="tracklist">
+      <div class="track-row">
+        <span class="track-num">1</span>
+        <span class="track-title">Vis (feat. Tomos)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">2</span>
+        <span class="track-title">Subliminal (feat. Tomos &amp; Giulia)</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">3</span>
+        <span class="track-title">Future Ex (feat. Tomos)</span>
+      </div>
+    </div>
+
     <div class="section-label"><span>Listen</span></div>
     <div class="links">
       <a class="link-row" href="https://open.spotify.com/artist/5KAH5twb9qJLtX9ZAvQGzc" target="_blank" rel="noopener">
@@ -299,23 +314,6 @@
         <span class="link-label">YouTube</span>
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-    </div>
-
-    <div class="section-label"><span>Tracklist</span></div>
-    <div class="tracklist">
-      <div class="track-row">
-        <span class="track-num">1</span>
-        <span class="track-title">Vis (feat. Tomos)</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">2</span>
-        <span class="track-title">Subliminal (feat. Tomos &amp; Giulia)</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">3</span>
-        <span class="track-title">Future Ex (feat. Tomos)</span>
-      </div>
     </div>
 
     <footer>
