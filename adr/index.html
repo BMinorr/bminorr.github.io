@@ -177,6 +177,41 @@
     text-underline-offset:6px;
   }
 
+  .about-card{
+    width:100%;
+    padding:4px 18px;
+    border-radius:14px;
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+  }
+  .about-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(243,233,218,0.06);
+  }
+  .about-row:last-child{ border-bottom:none; }
+  .about-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    flex:none;
+  }
+  .about-value{
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--paper);
+  }
+
   footer{
     width:100%;
     display:flex;
@@ -261,6 +296,14 @@
         <span class="link-label">YouTube</span>
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
+    </div>
+
+    <div class="section-label"><span>About this release</span></div>
+    <div class="about-card">
+      <div class="about-row">
+        <span class="about-label">Released</span>
+        <span class="about-value">08.05.2026</span>
+      </div>
     </div>
 
     <footer>
