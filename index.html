@@ -206,23 +206,17 @@
     letter-spacing:0.12em;
     text-transform:uppercase;
   }
-  .spotlight-featured-play{
-    position:absolute;
-    right:14px;
-    bottom:14px;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:rgba(23,18,14,0.55);
-    backdrop-filter:blur(2px);
+  .spotlight-title-row{
     display:flex;
     align-items:center;
-    justify-content:center;
-    color:var(--paper);
+    gap:8px;
+    width:100%;
   }
+  .spotlight-title-row .link-arrow{ margin-left:auto; }
+  .spotlight-featured .spotlight-title-row{ margin-top:14px; }
   .spotlight-featured-caption{
     display:block;
-    margin:14px 2px 2px;
+    margin:0;
     font-family:'Archivo',sans-serif;
     font-weight:700;
     font-size:19px;
@@ -296,24 +290,9 @@
     object-fit:cover;
     display:block;
   }
-  .spotlight-art svg{ opacity:0.85; }
-  .spotlight-play{
-    position:absolute;
-    right:8px;
-    bottom:8px;
-    width:24px;
-    height:24px;
-    border-radius:50%;
-    background:rgba(23,18,14,0.55);
-    backdrop-filter:blur(2px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--paper);
-  }
+  .spotlight-card .spotlight-title-row{ margin-top:9px; }
   .spotlight-caption{
     display:block;
-    margin-top:9px;
     font-family:'Archivo',sans-serif;
     font-weight:600;
     font-size:13.5px;
@@ -476,68 +455,62 @@
         <div class="spotlight-featured-art">
           <img src="covers/buze-pe-buze.png" alt="buze pe buze cover art">
           <span class="spotlight-tag">Latest</span>
-          <span class="spotlight-featured-play" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-          </span>
         </div>
-        <span class="spotlight-featured-caption">buze pe buze</span>
+        <div class="spotlight-title-row">
+          <span class="spotlight-featured-caption">buze pe buze</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
         <span class="release-meta">Single · 2026</span>
       </a>
 
       <div class="spotlight-scroll">
-        <a class="spotlight-card" href="#" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
+        <a class="spotlight-card" href="https://youtu.be/JtY-4zHbpuU" target="_blank" rel="noopener">
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">lately w/ Rosu</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
-          <span class="spotlight-caption">contraste</span>
-          <span class="release-meta"><span class="explicit-tag">E</span>Single · 2024</span>
+          <span class="release-meta">Single · 2026</span>
         </a>
         <a class="spotlight-card" href="#" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">contraste</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
-          <span class="spotlight-caption">cam dor</span>
+          <span class="release-meta"><span class="explicit-tag">E</span>EP · 2024</span>
+        </a>
+        <a class="spotlight-card" href="#" target="_blank" rel="noopener">
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">21 iunie</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+          <span class="release-meta"><span class="explicit-tag">E</span>Album · 2024</span>
+        </a>
+        <a class="spotlight-card" href="#" target="_blank" rel="noopener">
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">cam dor</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
           <span class="release-meta"><span class="explicit-tag">E</span>Single · 2023</span>
         </a>
         <a class="spotlight-card" href="#" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">henny</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
-          <span class="spotlight-caption">henny</span>
           <span class="release-meta">Single · 2022</span>
         </a>
         <a class="spotlight-card" href="#" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
+          <div class="spotlight-art"></div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">majora</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
-          <span class="spotlight-caption">majora</span>
           <span class="release-meta">Single · 2021</span>
-        </a>
-        <a class="spotlight-card" href="https://youtu.be/JtY-4zHbpuU" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
-          </div>
-          <span class="spotlight-caption">lately w/ Rosu</span>
-          <span class="release-meta">Single · 2025</span>
-        </a>
-        <a class="spotlight-card" href="https://youtu.be/n1vDs9453Xs" target="_blank" rel="noopener">
-          <div class="spotlight-art">
-            <span class="spotlight-play" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg>
-            </span>
-          </div>
-          <span class="spotlight-caption">subliminal w/ Tomos &amp; Giulia</span>
-          <span class="release-meta">Single · 2025</span>
         </a>
       </div>
     </section>
