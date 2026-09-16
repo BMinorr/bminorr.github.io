@@ -106,7 +106,7 @@
   .section-label span{
     font-family:'IBM Plex Mono',monospace;
     font-weight:700;
-    font-size:11.5px;
+    font-size:13px;
     letter-spacing:0.16em;
     text-transform:uppercase;
     color:var(--paper);
@@ -116,7 +116,7 @@
     width:100%;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:8px;
     margin-bottom:36px;
   }
 
@@ -198,6 +198,12 @@
   @media (max-width:380px){
     .link-row{ padding:14px 14px; font-size:15px; }
   }
+
+  body.light-cover h1{ color:var(--ink); }
+  body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
+  body.light-cover .section-label span{ color:var(--ink-dim); }
+  body.light-cover footer{ color:var(--ink-dim); }
+  body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
 <body oncontextmenu="return false">
@@ -256,5 +262,31 @@
   </div>
 </div>
 
+
+<script>
+(function(){
+  var bg = getComputedStyle(document.querySelector('.sky-bg')).backgroundImage;
+  var m = bg.match(/url\(["']?(.*?)["']?\)/);
+  if(!m) return;
+  var img = new Image();
+  img.onload = function(){
+    var w = 24, h = 24;
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    try{
+      var data = ctx.getImageData(0, 0, w, h).data;
+      var sum = 0, count = 0;
+      for(var i=0; i<data.length; i+=4){
+        sum += 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
+        count++;
+      }
+      if ((sum/count) > 180) document.body.classList.add('light-cover');
+    }catch(e){}
+  };
+  img.src = m[1];
+})();
+</script>
 </body>
 </html>
