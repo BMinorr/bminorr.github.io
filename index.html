@@ -224,13 +224,14 @@
   .release-meta{
     display:flex;
     align-items:center;
-    gap:5px;
+    gap:4px;
     margin:3px 2px 0;
     font-family:'IBM Plex Mono',monospace;
     font-size:11px;
     letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--paper-dim);
+    white-space:nowrap;
   }
   .explicit-tag{
     display:flex;
@@ -290,6 +291,8 @@
     display:block;
   }
   .spotlight-card .spotlight-title-row{ margin-top:9px; }
+  .spotlight-card .release-meta{ font-size:9.5px; letter-spacing:0.03em; }
+  .spotlight-card .explicit-tag{ width:12px; height:12px; font-size:7.5px; }
   .spotlight-caption{
     display:block;
     font-family:'Archivo',sans-serif;
@@ -340,6 +343,7 @@
     gap:8px;
     margin:10px 2px 2px;
   }
+  .social-meta .link-arrow{ margin-left:auto; }
   .social-meta .link-icon{
     width:28px;
     height:28px;
@@ -403,6 +407,11 @@
     letter-spacing:0.06em;
     color:var(--paper-dim);
     margin-left:7px;
+  }
+
+  .link-arrow{
+    flex:none;
+    color:var(--paper-dim);
   }
 
   footer{
@@ -530,6 +539,7 @@
             <img src="covers/icons/spotify.webp" alt="">
           </span>
           <span class="link-label">Spotify</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
         <a class="link-row" href="https://music.apple.com/ro/artist/b-mi%C3%B1or/1596993264" target="_blank" rel="noopener">
@@ -537,6 +547,7 @@
             <img src="covers/icons/apple-music.webp" alt="">
           </span>
           <span class="link-label">Apple Music</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
         <a class="link-row" href="https://music.youtube.com/@bminorr" target="_blank" rel="noopener">
@@ -544,6 +555,7 @@
             <img src="covers/icons/youtube-music.webp" alt="">
           </span>
           <span class="link-label">YouTube Music</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
         <a class="link-row" href="https://www.youtube.com/@bminorr" target="_blank" rel="noopener">
@@ -551,6 +563,7 @@
             <img src="covers/icons/youtube.webp" alt="">
           </span>
           <span class="link-label">YouTube</span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
         <a class="link-row" href="https://soundcloud.com/bminour" target="_blank" rel="noopener">
@@ -558,6 +571,7 @@
             <img src="covers/icons/soundcloud.webp" alt="">
           </span>
           <span class="link-label">SoundCloud<span class="link-sub">archive</span></span>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
       </div>
     </section>
@@ -574,6 +588,7 @@
               <img src="covers/icons/instagram.webp" alt="">
             </span>
             <span>Instagram</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
         </a>
 
@@ -586,6 +601,7 @@
               <img src="covers/icons/tiktok.webp" alt="">
             </span>
             <span>TikTok</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </div>
         </a>
       </div>
