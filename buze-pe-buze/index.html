@@ -24,6 +24,7 @@
 
   html{ overscroll-behavior-y:none; }
   *{box-sizing:border-box;}
+  img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
   body{
     background:var(--sky-fallback);
     color:var(--ink);
@@ -204,7 +205,7 @@
   }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
 <div class="sky-bg"></div>
 
