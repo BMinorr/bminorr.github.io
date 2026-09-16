@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nu fac nimic w/ Andy — B Minor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ink:#17120e;
+    --ink-dim:rgba(23,18,14,0.62);
+    --sky-fallback:#b7b7b7;
+    --surface-2:#2c221a;
+    --paper:#f3e9da;
+    --paper-dim:#c7b6a1;
+    --copper:#e08a45;
+    --line:rgba(243,233,218,0.14);
+    --glass:rgba(14,11,8,0.62);
+    --glass-hover:rgba(14,11,8,0.74);
+    --glass-border:rgba(243,233,218,0.2);
+  }
+
+  html{ overscroll-behavior-y:none; }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--sky-fallback);
+    color:var(--ink);
+    font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    margin:0;
+    padding:0;
+    overscroll-behavior-y:none;
+  }
+
+  .sky-bg{
+    position:fixed;
+    inset:-30px;
+    z-index:-1;
+    background-image:url(../covers/nu-fac-nimic-square.png);
+    background-size:cover;
+    background-position:center;
+    filter:blur(45px) brightness(0.75);
+  }
+
+  .stage{
+    position:relative;
+    min-height:100vh;
+    max-width:480px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 20px 48px;
+    overflow-x:hidden;
+  }
+  @media (min-width:700px){
+    .stage{ zoom:1.25; }
+  }
+
+  .page{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:440px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* ---- cover art ---- */
+  .cover{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:28px;
+    background:linear-gradient(150deg, var(--surface-2), var(--ink));
+    box-shadow:0 12px 32px rgba(0,0,0,0.28);
+  }
+  .cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:900;
+    font-size:clamp(38px, 10vw, 50px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin:0 0 36px;
+    text-wrap:balance;
+    text-align:center;
+  }
+
+  .section-label{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    margin-bottom:14px;
+  }
+  .section-label span{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--paper);
+  }
+
+  .links{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:36px;
+  }
+
+  .link-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    padding:16px 18px;
+    border-radius:14px;
+    color:var(--paper);
+    text-decoration:none;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    transition:background .18s ease;
+  }
+  .link-row:active, .link-row:focus-visible{
+    background:var(--glass-hover);
+  }
+  .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
+
+  .link-icon{
+    width:38px;
+    height:38px;
+    flex:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .link-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .link-label{ flex:1; }
+
+  .link-arrow{
+    flex:none;
+    color:var(--paper-dim);
+  }
+
+  .feat-link{
+    color:var(--paper);
+    text-decoration:underline;
+    text-decoration-color:var(--paper-dim);
+    text-underline-offset:6px;
+  }
+
+  footer{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    color:var(--paper);
+  }
+  .keychip{
+    display:flex;
+    align-items:center;
+  }
+  .keychip svg{ display:block; }
+  .back-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1px solid var(--paper-dim);
+    padding-bottom:1px;
+  }
+  footer p{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    line-height:1.7;
+    text-align:center;
+    margin:0;
+  }
+
+  @media (max-width:380px){
+    .link-row{ padding:14px 14px; font-size:15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+
+<div class="stage">
+  <div class="page">
+
+    <div class="cover">
+      <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
+    </div>
+
+    <h1>nu fac nimic w/ <a class="feat-link" href="#" target="_blank" rel="noopener">Andy</a></h1>
+
+    <div class="section-label"><span>Listen</span></div>
+    <div class="links">
+      <a class="link-row" href="https://open.spotify.com/artist/5KAH5twb9qJLtX9ZAvQGzc" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../covers/icons/spotify.webp" alt="">
+        </span>
+        <span class="link-label">Spotify</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://music.apple.com/ro/artist/b-mi%C3%B1or/1596993264" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../covers/icons/apple-music.webp" alt="">
+        </span>
+        <span class="link-label">Apple Music</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://music.youtube.com/@bminorr" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../covers/icons/youtube-music.webp" alt="">
+        </span>
+        <span class="link-label">YouTube Music</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://www.youtube.com/@bminorr" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../covers/icons/youtube.webp" alt="">
+        </span>
+        <span class="link-label">YouTube</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+    <footer>
+      <a class="back-link" href="../">← All links</a>
+      <div class="keychip" aria-hidden="true">
+        <svg width="46" height="22" viewBox="0 0 46 22" aria-hidden="true">
+          <g stroke="var(--paper-dim)" stroke-width="1">
+            <line x1="0" y1="3" x2="46" y2="3"/>
+            <line x1="0" y1="7.5" x2="46" y2="7.5"/>
+            <line x1="0" y1="12" x2="46" y2="12"/>
+            <line x1="0" y1="16.5" x2="46" y2="16.5"/>
+            <line x1="0" y1="21" x2="46" y2="21"/>
+          </g>
+          <text x="10" y="8" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
+          <text x="24" y="17" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
+        </svg>
+      </div>
+      <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
