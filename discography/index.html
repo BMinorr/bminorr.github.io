@@ -22,7 +22,7 @@
     --glass-border:rgba(243,233,218,0.2);
   }
 
-  html{ overscroll-behavior-y:none; }
+  html{ overscroll-behavior:none; }
   *{box-sizing:border-box;}
   img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
   body{
@@ -31,7 +31,7 @@
     font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
     margin:0;
     padding:0;
-    overscroll-behavior-y:none;
+    overscroll-behavior:none;
   }
 
   .sky-bg{
@@ -82,8 +82,8 @@
 
   .view-toggle{
     display:flex;
-    gap:4px;
-    padding:4px;
+    gap:3px;
+    padding:3px;
     border-radius:999px;
     background:var(--glass);
     border:1px solid var(--glass-border);
@@ -96,8 +96,8 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    width:40px;
-    height:36px;
+    width:30px;
+    height:27px;
     border:none;
     border-radius:999px;
     background:transparent;
@@ -106,7 +106,7 @@
     -webkit-tap-highlight-color:transparent;
     transition:background .18s ease, color .18s ease;
   }
-  .view-toggle button svg{ width:17px; height:17px; display:block; }
+  .view-toggle button svg{ width:13px; height:13px; display:block; }
   .view-toggle button[aria-pressed="true"]{
     background:var(--glass-hover);
     color:var(--paper);
@@ -195,13 +195,6 @@
     color:var(--paper-dim);
   }
 
-  /* ---- key signature chip ---- */
-  .keychip{
-    display:flex;
-    align-items:center;
-  }
-  .keychip svg{ display:block; }
-
   footer{
     width:100%;
     display:flex;
@@ -254,14 +247,14 @@
     <div id="view-type" class="disco-view">
       <div class="disco-heading">Albums &amp; EPs</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../contraste/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../contraste/">
           <div class="disco-art">
             <img src="../covers/contraste-square.jpg" alt="contraste cover art">
           </div>
           <span class="disco-caption">contraste</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>EP · 2024</span>
         </a>
-        <a class="disco-card" href="../21-iunie/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../21-iunie/">
           <div class="disco-art">
             <img src="../covers/21-iunie-square.jpg" alt="21 iunie cover art">
           </div>
@@ -272,28 +265,28 @@
 
       <div class="disco-heading">Singles</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../buze-pe-buze/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../buze-pe-buze/">
           <div class="disco-art">
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
           </div>
           <span class="disco-caption">buze pe buze</span>
           <span class="disco-meta">Single · 2026</span>
         </a>
-        <a class="disco-card" href="../cam-dor/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../cam-dor/">
           <div class="disco-art">
             <img src="../covers/cam-dor-square.jpg" alt="cam dor cover art">
           </div>
           <span class="disco-caption">cam dor</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Single · 2023</span>
         </a>
-        <a class="disco-card" href="../henny/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../henny/">
           <div class="disco-art">
             <img src="../covers/henny-square.jpg" alt="henny cover art">
           </div>
           <span class="disco-caption">henny</span>
           <span class="disco-meta">Single · 2022</span>
         </a>
-        <a class="disco-card" href="../majora/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../majora/">
           <div class="disco-art">
             <img src="../covers/majora-square.jpg" alt="majora cover art">
           </div>
@@ -304,49 +297,49 @@
 
       <div class="disco-heading">Features</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../lately/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../lately/">
           <div class="disco-art">
             <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
           </div>
           <span class="disco-caption">lately w/ Rosu</span>
           <span class="disco-meta">Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../gone/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../gone/">
           <div class="disco-art">
             <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
           </div>
           <span class="disco-caption">gone w/ Florinswag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../monroe/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
           </div>
           <span class="disco-caption">monroe w/ Richharddd</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../adr/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../adr/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
           </div>
           <span class="disco-caption">a.d.r. w/ T Bag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../nu-fac-nimic/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../nu-fac-nimic/">
           <div class="disco-art">
             <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
           </div>
           <span class="disco-caption">nu fac nimic w/ Andy</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../spection/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../spection/">
           <div class="disco-art">
             <img src="../covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
           </div>
           <span class="disco-caption">&#39;spection w/ Cerb</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
         </a>
-        <a class="disco-card" href="../referinta/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../referinta/">
           <div class="disco-art">
             <img src="../covers/referinta-square.png" alt="referinta w/ T Bag cover art">
           </div>
@@ -359,42 +352,42 @@
     <div id="view-year" class="disco-view" hidden>
       <div class="disco-heading">2026</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../buze-pe-buze/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../buze-pe-buze/">
           <div class="disco-art">
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
           </div>
           <span class="disco-caption">buze pe buze</span>
           <span class="disco-meta">Single</span>
         </a>
-        <a class="disco-card" href="../lately/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../lately/">
           <div class="disco-art">
             <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
           </div>
           <span class="disco-caption">lately w/ Rosu</span>
           <span class="disco-meta">Feature</span>
         </a>
-        <a class="disco-card" href="../gone/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../gone/">
           <div class="disco-art">
             <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
           </div>
           <span class="disco-caption">gone w/ Florinswag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
         </a>
-        <a class="disco-card" href="../monroe/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
           </div>
           <span class="disco-caption">monroe w/ Richharddd</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
         </a>
-        <a class="disco-card" href="../adr/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../adr/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
           </div>
           <span class="disco-caption">a.d.r. w/ T Bag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
         </a>
-        <a class="disco-card" href="../nu-fac-nimic/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../nu-fac-nimic/">
           <div class="disco-art">
             <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
           </div>
@@ -405,14 +398,14 @@
 
       <div class="disco-heading">2025</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../spection/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../spection/">
           <div class="disco-art">
             <img src="../covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
           </div>
           <span class="disco-caption">&#39;spection w/ Cerb</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature</span>
         </a>
-        <a class="disco-card" href="../referinta/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../referinta/">
           <div class="disco-art">
             <img src="../covers/referinta-square.png" alt="referinta w/ T Bag cover art">
           </div>
@@ -423,14 +416,14 @@
 
       <div class="disco-heading">2024</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../contraste/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../contraste/">
           <div class="disco-art">
             <img src="../covers/contraste-square.jpg" alt="contraste cover art">
           </div>
           <span class="disco-caption">contraste</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>EP</span>
         </a>
-        <a class="disco-card" href="../21-iunie/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../21-iunie/">
           <div class="disco-art">
             <img src="../covers/21-iunie-square.jpg" alt="21 iunie cover art">
           </div>
@@ -441,7 +434,7 @@
 
       <div class="disco-heading">2023</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../cam-dor/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../cam-dor/">
           <div class="disco-art">
             <img src="../covers/cam-dor-square.jpg" alt="cam dor cover art">
           </div>
@@ -452,7 +445,7 @@
 
       <div class="disco-heading">2022</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../henny/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../henny/">
           <div class="disco-art">
             <img src="../covers/henny-square.jpg" alt="henny cover art">
           </div>
@@ -463,7 +456,7 @@
 
       <div class="disco-heading">2021</div>
       <div class="disco-grid">
-        <a class="disco-card" href="../majora/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../majora/">
           <div class="disco-art">
             <img src="../covers/majora-square.jpg" alt="majora cover art">
           </div>
@@ -475,91 +468,91 @@
 
     <div id="view-flat" class="disco-view" hidden>
       <div class="disco-grid">
-        <a class="disco-card" href="../buze-pe-buze/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../buze-pe-buze/">
           <div class="disco-art">
             <img src="../covers/buze-pe-buze-square.png" alt="buze pe buze cover art">
           </div>
           <span class="disco-caption">buze pe buze</span>
           <span class="disco-meta">Single · 2026</span>
         </a>
-        <a class="disco-card" href="../lately/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../lately/">
           <div class="disco-art">
             <img src="../covers/lately-square.png" alt="lately w/ Rosu cover art">
           </div>
           <span class="disco-caption">lately w/ Rosu</span>
           <span class="disco-meta">Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../gone/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../gone/">
           <div class="disco-art">
             <img src="../covers/gone-square.png" alt="gone w/ Florinswag cover art">
           </div>
           <span class="disco-caption">gone w/ Florinswag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../monroe/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../monroe/">
           <div class="disco-art">
             <img src="../covers/monroe-square.png" alt="monroe w/ Richharddd cover art">
           </div>
           <span class="disco-caption">monroe w/ Richharddd</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../adr/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../adr/">
           <div class="disco-art">
             <img src="../covers/adr-square.png" alt="a.d.r. w/ T Bag cover art">
           </div>
           <span class="disco-caption">a.d.r. w/ T Bag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../nu-fac-nimic/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../nu-fac-nimic/">
           <div class="disco-art">
             <img src="../covers/nu-fac-nimic-square.png" alt="nu fac nimic w/ Andy cover art">
           </div>
           <span class="disco-caption">nu fac nimic w/ Andy</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2026</span>
         </a>
-        <a class="disco-card" href="../spection/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../spection/">
           <div class="disco-art">
             <img src="../covers/spection-w-cerb.jpeg" alt="'spection w/ Cerb cover art">
           </div>
           <span class="disco-caption">&#39;spection w/ Cerb</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
         </a>
-        <a class="disco-card" href="../referinta/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../referinta/">
           <div class="disco-art">
             <img src="../covers/referinta-square.png" alt="referinta w/ T Bag cover art">
           </div>
           <span class="disco-caption">referinta w/ T Bag</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Feature · 2025</span>
         </a>
-        <a class="disco-card" href="../contraste/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../contraste/">
           <div class="disco-art">
             <img src="../covers/contraste-square.jpg" alt="contraste cover art">
           </div>
           <span class="disco-caption">contraste</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>EP · 2024</span>
         </a>
-        <a class="disco-card" href="../21-iunie/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../21-iunie/">
           <div class="disco-art">
             <img src="../covers/21-iunie-square.jpg" alt="21 iunie cover art">
           </div>
           <span class="disco-caption">21 iunie</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Album · 2024</span>
         </a>
-        <a class="disco-card" href="../cam-dor/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../cam-dor/">
           <div class="disco-art">
             <img src="../covers/cam-dor-square.jpg" alt="cam dor cover art">
           </div>
           <span class="disco-caption">cam dor</span>
           <span class="disco-meta"><span class="disco-explicit">E</span>Single · 2023</span>
         </a>
-        <a class="disco-card" href="../henny/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../henny/">
           <div class="disco-art">
             <img src="../covers/henny-square.jpg" alt="henny cover art">
           </div>
           <span class="disco-caption">henny</span>
           <span class="disco-meta">Single · 2022</span>
         </a>
-        <a class="disco-card" href="../majora/" target="_blank" rel="noopener">
+        <a class="disco-card" href="../majora/">
           <div class="disco-art">
             <img src="../covers/majora-square.jpg" alt="majora cover art">
           </div>
@@ -571,19 +564,6 @@
 
     <footer>
       <a class="back-link" href="../">← All links</a>
-      <div class="keychip" aria-hidden="true">
-        <svg width="46" height="22" viewBox="0 0 46 22" aria-hidden="true">
-          <g stroke="var(--ink-dim)" stroke-width="1">
-            <line x1="0" y1="3" x2="46" y2="3"/>
-            <line x1="0" y1="7.5" x2="46" y2="7.5"/>
-            <line x1="0" y1="12" x2="46" y2="12"/>
-            <line x1="0" y1="16.5" x2="46" y2="16.5"/>
-            <line x1="0" y1="21" x2="46" y2="21"/>
-          </g>
-          <text x="10" y="8" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
-          <text x="24" y="17" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
-        </svg>
-      </div>
       <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
     </footer>
 

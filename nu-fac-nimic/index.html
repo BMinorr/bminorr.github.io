@@ -22,7 +22,7 @@
     --glass-border:rgba(243,233,218,0.2);
   }
 
-  html{ overscroll-behavior-y:none; }
+  html{ overscroll-behavior:none; }
   *{box-sizing:border-box;}
   img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
   body{
@@ -31,7 +31,7 @@
     font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
     margin:0;
     padding:0;
-    overscroll-behavior-y:none;
+    overscroll-behavior:none;
   }
 
   .sky-bg{
@@ -185,11 +185,6 @@
     gap:16px;
     color:var(--paper);
   }
-  .keychip{
-    display:flex;
-    align-items:center;
-  }
-  .keychip svg{ display:block; }
   .back-link{
     font-family:'IBM Plex Mono',monospace;
     font-size:11.5px;
@@ -264,19 +259,6 @@
 
     <footer>
       <a class="back-link" href="../">← All links</a>
-      <div class="keychip" aria-hidden="true">
-        <svg width="46" height="22" viewBox="0 0 46 22" aria-hidden="true">
-          <g stroke="var(--paper-dim)" stroke-width="1">
-            <line x1="0" y1="3" x2="46" y2="3"/>
-            <line x1="0" y1="7.5" x2="46" y2="7.5"/>
-            <line x1="0" y1="12" x2="46" y2="12"/>
-            <line x1="0" y1="16.5" x2="46" y2="16.5"/>
-            <line x1="0" y1="21" x2="46" y2="21"/>
-          </g>
-          <text x="10" y="8" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
-          <text x="24" y="17" text-anchor="middle" font-size="13" fill="var(--paper)">♯</text>
-        </svg>
-      </div>
       <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
     </footer>
 
