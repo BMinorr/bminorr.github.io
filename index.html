@@ -717,7 +717,12 @@
     });
   }
   refresh();
-  window.addEventListener('resize', refresh);
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    refresh();
+  });
 })();
 </script>
 </body>

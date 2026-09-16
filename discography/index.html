@@ -750,7 +750,10 @@
   });
 
   processCaptions(views.type);
+  var lastWidth = window.innerWidth;
   window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
     Object.keys(views).forEach(function(key){
       if(!views[key].hidden) processCaptions(views[key]);
     });
