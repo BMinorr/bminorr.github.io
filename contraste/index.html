@@ -98,9 +98,17 @@
     line-height:1.05;
     letter-spacing:-0.01em;
     color:var(--paper);
-    margin:0 0 16px;
+    margin:0 0 6px;
     text-wrap:balance;
     text-align:center;
+  }
+  .feat-line{
+    font-family:var(--h1-font);
+    font-weight:700;
+    font-size:20px;
+    color:var(--paper-dim);
+    text-align:center;
+    margin:0 0 16px;
   }
 
   .section-label{
@@ -258,6 +266,47 @@
     object-fit:cover;
     display:block;
   }
+  .watch-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:30px;
+    height:30px;
+    border-radius:9px;
+    overflow:hidden;
+    background:var(--glass-hover);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(10px) saturate(160%);
+    -webkit-backdrop-filter:blur(10px) saturate(160%);
+  }
+  .watch-badge img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .watch-play{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:38px;
+    height:38px;
+    border-radius:999px;
+    background:var(--glass-hover);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(10px) saturate(160%);
+    -webkit-backdrop-filter:blur(10px) saturate(160%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 1px 1px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .watch-play svg{
+    width:15px;
+    height:15px;
+    color:var(--paper);
+    margin-left:2px;
+  }
   .watch-caption{
     display:block;
     margin-top:14px;
@@ -327,6 +376,7 @@
   }
 
   body.light-cover h1{ color:var(--ink); }
+  body.light-cover .feat-line{ color:var(--ink-dim); }
   body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
@@ -345,20 +395,21 @@
     </div>
 
     <h1>contraste</h1>
+    <p class="feat-line">w/ <a class="feat-link" href="https://www.instagram.com/tomoshhh1" target="_blank" rel="noopener">Tomos</a></p>
 
     <div class="tracklist">
       <div class="track-row">
         <span class="track-num">1</span>
-        <span class="track-title">vis (feat. <a class="feat-link" href="https://www.instagram.com/tomoshhh1" target="_blank" rel="noopener">Tomos</a>)</span>
+        <span class="track-title">vis</span>
         <span class="explicit-tag">E</span>
       </div>
       <div class="track-row">
         <span class="track-num">2</span>
-        <span class="track-title">subliminal (feat. <a class="feat-link" href="https://www.instagram.com/tomoshhh1" target="_blank" rel="noopener">Tomos</a> &amp; <a class="feat-link" href="https://www.instagram.com/giulia_gabriella_" target="_blank" rel="noopener">Giulia</a>)</span>
+        <span class="track-title">subliminal (feat. <a class="feat-link" href="https://www.instagram.com/giulia_gabriella_" target="_blank" rel="noopener">Giulia</a>)</span>
       </div>
       <div class="track-row">
         <span class="track-num">3</span>
-        <span class="track-title">future ex (feat. <a class="feat-link" href="https://www.instagram.com/tomoshhh1" target="_blank" rel="noopener">Tomos</a>)</span>
+        <span class="track-title">future ex</span>
       </div>
     </div>
 
@@ -366,6 +417,8 @@
     <a class="watch-card" href="https://youtu.be/n1vDs9453Xs" target="_blank" rel="noopener">
       <div class="watch-art">
         <img src="../covers/subliminal-watch.jpg" alt="subliminal video">
+        <span class="watch-badge"><img src="../covers/icons/youtube.webp" alt=""></span>
+        <span class="watch-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
       </div>
       <span class="watch-caption">subliminal</span>
     </a>
