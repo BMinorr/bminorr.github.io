@@ -78,9 +78,6 @@
     margin:0 0 24px;
     text-wrap:balance;
     text-align:center;
-    -webkit-tap-highlight-color:transparent;
-    user-select:none;
-    -webkit-user-select:none;
   }
 
   .disco-view[hidden]{ display:none; }
@@ -94,6 +91,47 @@
     letter-spacing:0.14em;
     text-transform:uppercase;
     margin:0 0 14px;
+  }
+
+  .view-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    gap:12px;
+    margin:0 0 14px;
+  }
+  .view-toolbar-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .view-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    padding:7px 14px;
+    border-radius:999px;
+    background:rgba(14,11,8,0.4);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    color:var(--paper-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .18s ease, color .18s ease;
+  }
+  .view-pill:active{
+    background:var(--glass-hover);
+    color:var(--paper);
   }
 
   .disco-grid{
@@ -177,7 +215,6 @@
   }
 
   #view-flat .disco-grid{
-    margin-top:31px;
     margin-bottom:10px;
   }
 
@@ -260,6 +297,17 @@
     text-align:center;
     margin:0;
   }
+
+  @media (hover: hover) and (pointer: fine){
+    .disco-card:hover,
+    .link-row:hover{
+      background:var(--glass-hover);
+    }
+    .view-pill:hover{
+      background:var(--glass-hover);
+      color:var(--paper);
+    }
+  }
 </style>
 </head>
 <body oncontextmenu="return false">
@@ -271,8 +319,12 @@
 
     <h1 id="disco-title">Discography</h1>
 
+    <div class="view-toolbar">
+      <span class="view-toolbar-label" id="view-first-heading">Albums &amp; EPs</span>
+      <button class="view-pill" id="view-pill" type="button">By Type</button>
+    </div>
+
     <div id="view-type" class="disco-view">
-      <div class="disco-heading">Albums &amp; EPs</div>
       <div class="disco-grid">
         <a class="disco-card" href="../contraste/">
           <div class="disco-art">
@@ -405,7 +457,6 @@
     </div>
 
     <div id="view-year" class="disco-view" hidden>
-      <div class="disco-heading">2026</div>
       <div class="disco-grid">
         <a class="disco-card" href="../gone/">
           <div class="disco-art">
@@ -549,7 +600,6 @@
 
 
     <div id="view-genre" class="disco-view" hidden>
-      <div class="disco-heading">Rap</div>
       <div class="disco-grid">
         <a class="disco-card" href="../adr/">
           <div class="disco-art">
@@ -875,12 +925,22 @@
     flat: document.getElementById('view-flat')
   };
   var order = ['type', 'year', 'genre', 'flat'];
+  var meta = {
+    type: { heading: 'Albums & EPs', pill: 'By Type' },
+    year: { heading: '2026', pill: 'By Year' },
+    genre: { heading: 'Rap', pill: 'By Genre' },
+    flat: { heading: '', pill: 'All' }
+  };
   var current = 0;
+  var headingEl = document.getElementById('view-first-heading');
+  var pillEl = document.getElementById('view-pill');
 
-  document.getElementById('disco-title').addEventListener('click', function(){
+  pillEl.addEventListener('click', function(){
     current = (current + 1) % order.length;
     var target = order[current];
     Object.keys(views).forEach(function(key){ views[key].hidden = key !== target; });
+    headingEl.textContent = meta[target].heading;
+    pillEl.textContent = meta[target].pill;
     processCaptions(views[target]);
   });
 
