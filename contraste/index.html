@@ -222,6 +222,47 @@
     text-underline-offset:2px;
   }
 
+  .watch-card{
+    display:block;
+    width:100%;
+    padding:12px;
+    border-radius:18px;
+    text-decoration:none;
+    color:var(--paper);
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+    transition:background .18s ease;
+  }
+  .watch-card:active, .watch-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .watch-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    background:linear-gradient(150deg, var(--surface-2), var(--ink));
+    overflow:hidden;
+  }
+  .watch-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .watch-caption{
+    display:block;
+    margin-top:14px;
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    line-height:1.3;
+  }
+
   .about-card{
     width:100%;
     padding:18px;
@@ -294,6 +335,12 @@
 
     <h1>contraste</h1>
 
+    <div class="section-label"><span>Watch</span></div>
+    <a class="watch-card" href="#">
+      <div class="watch-art"></div>
+      <span class="watch-caption">subliminal</span>
+    </a>
+
     <div class="tracklist">
       <div class="track-row">
         <span class="track-num">1</span>
@@ -310,7 +357,7 @@
       </div>
     </div>
 
-    <div class="section-label"><span>Listen</span></div>
+    <div class="section-label"><span>Stream</span></div>
     <div class="links">
       <a class="link-row" href="https://open.spotify.com/album/5RIBQUm1jv78PILbKVa88m" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
