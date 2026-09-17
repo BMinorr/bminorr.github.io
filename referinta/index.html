@@ -20,6 +20,9 @@
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
+    --h1-font:'Fraunces',Georgia,serif;
+    --bg-image:url(../covers/referinta-square.jpg);
+    --bg-color:var(--sky-fallback);
   }
 
   html{ overscroll-behavior:none; }
@@ -38,7 +41,8 @@
     position:fixed;
     inset:-30px;
     z-index:-1;
-    background-image:url(../covers/referinta-square.jpg);
+    background-image:var(--bg-image);
+    background-color:var(--bg-color);
     background-size:cover;
     background-position:center;
     filter:blur(45px) brightness(0.75);
@@ -88,15 +92,23 @@
   }
 
   h1{
-    font-family:'Fraunces',Georgia,serif;
+    font-family:var(--h1-font);
     font-weight:900;
     font-size:clamp(38px, 10vw, 50px);
     line-height:1.05;
     letter-spacing:-0.01em;
     color:var(--paper);
-    margin:0 0 36px;
+    margin:0 0 6px;
     text-wrap:balance;
     text-align:center;
+  }
+  .feat-line{
+    font-family:var(--h1-font);
+    font-weight:700;
+    font-size:20px;
+    color:var(--paper-dim);
+    text-align:center;
+    margin:0 0 36px;
   }
 
   .section-label{
@@ -249,6 +261,7 @@
   }
 
   body.light-cover h1{ color:var(--ink); }
+  body.light-cover .feat-line{ color:var(--ink-dim); }
   body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
@@ -266,7 +279,8 @@
       <img src="../covers/referinta-square.jpg" alt="referinta w/ T Bag cover art">
     </div>
 
-    <h1>referinta w/ <a class="feat-link" href="https://www.instagram.com/tbag.music" target="_blank" rel="noopener">T Bag</a></h1>
+    <h1>referinta</h1>
+    <p class="feat-line">w/ <a class="feat-link" href="https://www.instagram.com/tbag.music" target="_blank" rel="noopener">T Bag</a></p>
 
     <div class="section-label"><span>Listen</span></div>
     <div class="links">
