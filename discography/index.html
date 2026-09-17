@@ -227,14 +227,6 @@
     display:block;
   }
   .link-label{ flex:1; }
-  .link-sub{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:400;
-    font-size:12px;
-    letter-spacing:0.06em;
-    color:var(--paper-dim);
-    margin-left:7px;
-  }
   .link-arrow{
     flex:none;
     color:var(--paper-dim);
@@ -670,14 +662,14 @@
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/soundcloud.webp" alt="">
           </span>
-          <span class="link-label">SoundCloud<span class="link-sub">archive</span></span>
+          <span class="link-label">SoundCloud</span>
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
       </div>
     </div>
 
     <footer>
-      <a class="back-link" href="../">← All links</a>
+      <a class="back-link" href="../">← Back to B</a>
       <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
     </footer>
 
@@ -709,7 +701,8 @@
     el.classList.remove('marquee');
     track.style.animation = 'none';
     if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
-    var overflow = copy1.scrollWidth - el.clientWidth;
+    var copyPadding = parseFloat(getComputedStyle(copy1).paddingRight) || 0;
+    var overflow = (copy1.scrollWidth - copyPadding) - el.clientWidth;
     if(overflow > 2){
       var copy2 = copy1.cloneNode(true);
       track.appendChild(copy2);
