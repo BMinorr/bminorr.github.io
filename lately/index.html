@@ -165,6 +165,19 @@
 
   .link-label{ flex:1; }
 
+  .link-row.is-unavailable{
+    opacity:0.45;
+    cursor:default;
+  }
+  .link-unavailable{
+    flex:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    color:var(--paper-dim);
+    white-space:nowrap;
+  }
+
   .link-arrow{
     flex:none;
     color:var(--paper-dim);
@@ -251,21 +264,21 @@
 
     <div class="section-label"><span>Listen</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/artist/00ABABtfEWas3OKaGT1i49" target="_blank" rel="noopener">
+      <div class="link-row is-unavailable">
         <span class="link-icon" aria-hidden="true">
           <img src="../covers/icons/spotify.webp" alt="">
         </span>
         <span class="link-label">Spotify</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
+        <span class="link-unavailable">(not available)</span>
+      </div>
 
-      <a class="link-row" href="https://music.apple.com/ro/artist/rosu/1705334462" target="_blank" rel="noopener">
+      <div class="link-row is-unavailable">
         <span class="link-icon" aria-hidden="true">
           <img src="../covers/icons/apple-music.webp" alt="">
         </span>
         <span class="link-label">Apple Music</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
+        <span class="link-unavailable">(not available)</span>
+      </div>
 
       <a class="link-row" href="https://music.youtube.com/watch?v=JtY-4zHbpuU" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
