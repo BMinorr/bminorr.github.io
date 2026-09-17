@@ -62,6 +62,11 @@
     .stage{ zoom:1.25; }
   }
 
+  .hero-wrap{
+    width:100%;
+    max-width:3000px;
+    margin:0 auto;
+  }
   .hero-photo{
     position:relative;
     z-index:1;
@@ -70,8 +75,8 @@
     padding-top:clamp(44.44%, calc(100% - 55.56% * (100vw - 480px) / 920px), 100%);
     margin-bottom:28px;
     overflow:hidden;
-    -webkit-mask-image:linear-gradient(to bottom, black calc(100% - 100px), transparent 100%);
-    mask-image:linear-gradient(to bottom, black calc(100% - 100px), transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%);
+    mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%);
   }
   .hero-photo img{
     position:absolute;
@@ -484,8 +489,10 @@
 
 <div class="sky-bg"></div>
 
-<div class="hero-photo">
-  <img src="covers/hero.jpg" alt="B Minor">
+<div class="hero-wrap">
+  <div class="hero-photo">
+    <img src="covers/hero.jpg" alt="B Minor">
+  </div>
 </div>
 
 <div class="stage">
