@@ -64,7 +64,7 @@
 
   .hero-wrap{
     width:100%;
-    max-width:3000px;
+    max-width:1400px;
     margin:0 auto;
   }
   .hero-photo{
@@ -75,8 +75,16 @@
     padding-top:clamp(44.44%, calc(100% - 55.56% * (100vw - 480px) / 920px), 100%);
     margin-bottom:28px;
     overflow:hidden;
-    -webkit-mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%);
-    mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%), linear-gradient(to bottom, black calc(100% - 90px), transparent 100%);
+    -webkit-mask-composite:source-in;
+    mask-image:radial-gradient(ellipse 72% 62% at 50% 42%, black 58%, transparent 100%), linear-gradient(to bottom, black calc(100% - 90px), transparent 100%);
+    mask-composite:intersect;
+  }
+  @media (min-width:700px){
+    .hero-photo{
+      -webkit-mask-image:radial-gradient(ellipse 46% 62% at 50% 42%, black 58%, transparent 100%), linear-gradient(to bottom, black calc(100% - 90px), transparent 100%);
+      mask-image:radial-gradient(ellipse 46% 62% at 50% 42%, black 58%, transparent 100%), linear-gradient(to bottom, black calc(100% - 90px), transparent 100%);
+    }
   }
   .hero-photo img{
     position:absolute;
