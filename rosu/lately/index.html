@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>blitzkrieg w/ T Bag & Asmo — B Minor</title>
+<title>lately feat. B Minor — B Minor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -21,7 +21,7 @@
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
     --h1-font:'Fraunces',Georgia,serif;
-    --bg-image:url(../../covers/bg/adr-square.jpg);
+    --bg-image:url(../../covers/bg/lately-square.jpg);
     --bg-color:var(--sky-fallback);
   }
 
@@ -204,6 +204,80 @@
     text-underline-offset:6px;
   }
 
+  .watch-card{
+    display:block;
+    width:100%;
+    padding:12px;
+    border-radius:18px;
+    text-decoration:none;
+    color:var(--paper);
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+    transition:background .18s ease;
+  }
+  .watch-card:active, .watch-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .watch-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    background:linear-gradient(150deg, var(--surface-2), var(--ink));
+    overflow:hidden;
+  }
+  .watch-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .watch-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:30px;
+    height:30px;
+    border-radius:9px;
+    overflow:hidden;
+    background:var(--glass-hover);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(10px) saturate(160%);
+    -webkit-backdrop-filter:blur(10px) saturate(160%);
+  }
+  .watch-badge img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .watch-play{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    width:38px;
+    height:38px;
+    border-radius:999px;
+    background:var(--glass-hover);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(10px) saturate(160%);
+    -webkit-backdrop-filter:blur(10px) saturate(160%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 1px 1px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .watch-play svg{
+    width:15px;
+    height:15px;
+    color:var(--paper);
+    margin-left:2px;
+  }
+
   .about-card{
     width:100%;
     padding:18px;
@@ -257,7 +331,8 @@
   }
 
   @media (hover: hover) and (pointer: fine){
-    .link-row:hover{
+    .link-row:hover,
+    .watch-card:hover{
       background:var(--glass-hover);
     }
   }
@@ -270,7 +345,7 @@
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="t-bag" data-features="b-minor,asmo">
+<body oncontextmenu="return false" data-artists="rosu" data-features="b-minor">
 
 <div class="sky-bg"></div>
 
@@ -278,23 +353,24 @@
   <div class="page">
 
     <div class="cover">
-      <img src="../../covers/adr-square.jpg" alt="blitzkrieg w/ T Bag &amp; Asmo cover art">
+      <img src="../../covers/lately-square.jpg" alt="lately w/ Rosu cover art">
     </div>
 
-    <h1>blitzkrieg</h1>
-    <p class="feat-line">w/ <a class="feat-link" href="https://www.instagram.com/tbag.music" target="_blank" rel="noopener">T Bag</a> &amp; <a class="feat-link" href="https://www.instagram.com/raresasmo" target="_blank" rel="noopener">Asmo</a></p>
+    <h1>lately</h1>
+    <p class="feat-line">feat. <a class="feat-link" href="../../">B Minor</a></p>
 
-    <div class="section-label"><span>Listen</span></div>
+    <div class="section-label"><span>Watch</span></div>
+    <a class="watch-card" href="https://youtu.be/JtY-4zHbpuU" target="_blank" rel="noopener">
+      <div class="watch-art">
+        <img src="../../covers/lately-watch.jpg" alt="lately w/ Rosu video">
+        <span class="watch-badge"><img src="../../covers/icons/youtube.webp" alt=""></span>
+        <span class="watch-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>
+    </a>
+
+    <div class="section-label"><span>Stream</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/track/42AGDu0D65UxQ5I2o14c89" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <img src="../../covers/icons/spotify.webp" alt="">
-        </span>
-        <span class="link-label">Spotify</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-
-      <a class="link-row" href="https://music.youtube.com/watch?v=cBqGP0lSiSI" target="_blank" rel="noopener">
+      <a class="link-row" href="https://music.youtube.com/watch?v=JtY-4zHbpuU" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube-music.webp" alt="">
         </span>
@@ -302,13 +378,14 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <a class="link-row" href="https://youtu.be/cBqGP0lSiSI" target="_blank" rel="noopener">
+      <div class="link-row is-unavailable">
         <span class="link-icon" aria-hidden="true">
-          <img src="../../covers/icons/youtube.webp" alt="">
+          <img src="../../covers/icons/spotify.webp" alt="">
         </span>
-        <span class="link-label">YouTube</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
+        <span class="link-label">Spotify</span>
+        <span class="link-unavailable">(not available)</span>
+      </div>
+
       <div class="link-row is-unavailable">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/apple-music.webp" alt="">
@@ -316,17 +393,16 @@
         <span class="link-label">Apple Music</span>
         <span class="link-unavailable">(not available)</span>
       </div>
-
     </div>
 
     <div class="section-label"><span>About</span></div>
     <div class="about-card">
-      <div class="about-row">Released on 08.05.2026</div>
-      <div class="about-row">Genre: Rap</div>
+      <div class="about-row">Released on 09.08.2026</div>
+      <div class="about-row">Genre: R&amp;B</div>
     </div>
 
     <footer>
-      <a class="back-link" href="../../">← Back to B</a>
+      <a class="back-link" href="https://www.instagram.com/rosusubcetate" target="_blank" rel="noopener">← Back to Rosu</a>
       <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
     </footer>
 
