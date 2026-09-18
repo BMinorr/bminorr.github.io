@@ -278,7 +278,6 @@
     align-items:center;
     gap:6px;
     width:max-content;
-    animation:covers-scroll 28s linear infinite;
   }
   .see-all-covers-track img{
     width:32px;
@@ -287,10 +286,6 @@
     object-fit:cover;
     display:block;
     flex:none;
-  }
-  @keyframes covers-scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
   }
   .see-all-label{
     display:block;
@@ -562,20 +557,6 @@
             <img src="covers/card/gone-square.jpg" alt="" decoding="async">
             <img src="covers/bg/ce-nu-putem-fi-square.jpg" alt="" decoding="async">
             <img src="covers/bg/nu-fac-nimic-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/henny-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/buze-pe-buze-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/spection-w-cerb.jpg" alt="" decoding="async">
-            <img src="covers/bg/contraste-square.jpg" alt="" decoding="async">
-            <img src="covers/card/monroe-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/cam-dor-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/referinta-square.jpg" alt="" decoding="async">
-            <img src="covers/card/lately-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/majora-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/adr-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/21-iunie-square.jpg" alt="" decoding="async">
-            <img src="covers/card/gone-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/ce-nu-putem-fi-square.jpg" alt="" decoding="async">
-            <img src="covers/bg/nu-fac-nimic-square.jpg" alt="" decoding="async">
           </div>
         </div>
         <span class="see-all-label">See all discography</span>
@@ -704,11 +685,40 @@
       el.classList.add('marquee');
     }
   }
+  var tickerCounter = 0;
+  function setupCoverTicker(container){
+    var track = container.querySelector('.see-all-covers-track');
+    if(!track) return;
+    if(!track._baseImgs){
+      track._baseImgs = Array.prototype.slice.call(track.children);
+    }
+    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
+    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var baseWidth = 0;
+    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
+    if(baseWidth <= 0) return;
+    var containerWidth = container.clientWidth;
+    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
+    for(var c = 1; c < copies; c++){
+      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
+    }
+    var pxPerSecond = 19;
+    var seconds = baseWidth / pxPerSecond;
+    var pct = 100 / copies;
+    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
+    document.head.appendChild(styleTag);
+    track._tickerStyleTag = styleTag;
+    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
+  }
   function refresh(){
     document.querySelectorAll('.spotlight-caption').forEach(function(el){
       setupMarquee(el);
       measureMarquee(el);
     });
+    document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
   }
   refresh();
   var lastWidth = window.innerWidth;

@@ -149,6 +149,7 @@
   }
 
   /* ---- liquid glass surface, shared by every card/button ---- */
+  .spotlight-featured,
   .spotlight-card,
   .link-row,
   .see-all-btn{
@@ -157,6 +158,48 @@
     backdrop-filter:blur(14px) saturate(160%);
     -webkit-backdrop-filter:blur(14px) saturate(160%);
     box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* ---- spotlight: latest release ---- */
+  .spotlight-featured{
+    display:block;
+    width:100%;
+    padding:12px;
+    border-radius:18px;
+    text-decoration:none;
+    color:var(--paper);
+    margin-bottom:16px;
+    transition:background .18s ease;
+  }
+  .spotlight-featured:active,
+  .spotlight-featured:focus-visible{
+    background:var(--glass-hover);
+  }
+  .spotlight-featured-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:12px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .spotlight-featured-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .spotlight-featured .spotlight-title-row{ margin-top:14px; }
+  .spotlight-featured-caption{
+    display:block;
+    margin:0;
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    line-height:1.3;
   }
 
   .release-meta{
@@ -189,11 +232,11 @@
     letter-spacing:0;
   }
 
-  /* ---- spotlight: all releases (only 4 so far, 2-col grid) ---- */
+  /* ---- spotlight: 3 most recent ---- */
   .spotlight-grid{
     width:100%;
     display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
+    grid-template-columns:repeat(3, minmax(0, 1fr));
     gap:12px;
     margin-bottom:16px;
   }
@@ -225,7 +268,6 @@
     align-items:center;
     gap:6px;
     width:max-content;
-    animation:covers-scroll 20s linear infinite;
   }
   .see-all-covers-track img{
     width:32px;
@@ -234,10 +276,6 @@
     object-fit:cover;
     display:block;
     flex:none;
-  }
-  @keyframes covers-scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
   }
   .see-all-label{
     display:block;
@@ -385,6 +423,7 @@
   }
 
   @media (hover: hover) and (pointer: fine){
+    .spotlight-featured:hover,
     .spotlight-card:hover,
     .link-row:hover,
     .see-all-btn:hover{
@@ -412,6 +451,16 @@
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
+      <a class="spotlight-featured" href="blitzkrieg/">
+        <div class="spotlight-featured-art">
+          <img src="../covers/card/adr-square.jpg" alt="blitzkrieg w/ B Minor &amp; Asmo cover art">
+        </div>
+        <div class="spotlight-title-row">
+          <span class="spotlight-featured-caption">blitzkrieg w/ B Minor &amp; Asmo</span>
+        </div>
+        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
+      </a>
+
       <div class="spotlight-grid">
         <a class="spotlight-card" href="adr/">
           <div class="spotlight-art">
@@ -422,12 +471,12 @@
           </div>
           <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
         </a>
-        <a class="spotlight-card" href="blitzkrieg/">
+        <a class="spotlight-card" href="adam/">
           <div class="spotlight-art">
-            <img src="../covers/card/adr-square.jpg" alt="blitzkrieg w/ B Minor & Asmo cover art">
+            <img src="../covers/card/adam-square.jpg" alt="Adam cover art">
           </div>
           <div class="spotlight-title-row">
-            <span class="spotlight-caption">blitzkrieg w/ B Minor &amp; Asmo</span>
+            <span class="spotlight-caption">Adam</span>
           </div>
           <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
         </a>
@@ -440,24 +489,13 @@
           </div>
           <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2025</span></span>
         </a>
-        <a class="spotlight-card" href="ce-nu-putem-fi/">
-          <div class="spotlight-art">
-            <img src="../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">ce nu putem fi w/ B Minor</span>
-          </div>
-          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2025</span></span>
-        </a>
       </div>
 
       <a class="see-all-btn" href="discography/">
         <div class="see-all-covers" aria-hidden="true">
           <div class="see-all-covers-track">
             <img src="../covers/card/adr-square.jpg" alt="" decoding="async">
-            <img src="../covers/card/referinta-square.jpg" alt="" decoding="async">
-            <img src="../covers/card/ce-nu-putem-fi-square.jpg" alt="" decoding="async">
-            <img src="../covers/card/adr-square.jpg" alt="" decoding="async">
+            <img src="../covers/card/adam-square.jpg" alt="" decoding="async">
             <img src="../covers/card/referinta-square.jpg" alt="" decoding="async">
             <img src="../covers/card/ce-nu-putem-fi-square.jpg" alt="" decoding="async">
           </div>
@@ -570,11 +608,40 @@
       el.classList.add('marquee');
     }
   }
+  var tickerCounter = 0;
+  function setupCoverTicker(container){
+    var track = container.querySelector('.see-all-covers-track');
+    if(!track) return;
+    if(!track._baseImgs){
+      track._baseImgs = Array.prototype.slice.call(track.children);
+    }
+    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
+    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var baseWidth = 0;
+    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
+    if(baseWidth <= 0) return;
+    var containerWidth = container.clientWidth;
+    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
+    for(var c = 1; c < copies; c++){
+      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
+    }
+    var pxPerSecond = 19;
+    var seconds = baseWidth / pxPerSecond;
+    var pct = 100 / copies;
+    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
+    document.head.appendChild(styleTag);
+    track._tickerStyleTag = styleTag;
+    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
+  }
   function refresh(){
     document.querySelectorAll('.spotlight-caption').forEach(function(el){
       setupMarquee(el);
       measureMarquee(el);
     });
+    document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
   }
   refresh();
   var lastWidth = window.innerWidth;
