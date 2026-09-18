@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>blitzkrieg feat. B Minor & Asmo — B Minor</title>
+<title>zwitter — T Bag</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -100,17 +100,9 @@
     line-height:1.05;
     letter-spacing:-0.01em;
     color:var(--paper);
-    margin:0 0 6px;
+    margin:0 0 36px;
     text-wrap:balance;
     text-align:center;
-  }
-  .feat-line{
-    font-family:var(--h1-font);
-    font-weight:700;
-    font-size:20px;
-    color:var(--paper-dim);
-    text-align:center;
-    margin:0 0 36px;
   }
 
   .section-label{
@@ -159,6 +151,18 @@
     background:var(--glass-hover);
   }
   .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
+  .link-row.is-unavailable{
+    opacity:0.45;
+    cursor:default;
+  }
+  .link-unavailable{
+    flex:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    color:var(--paper-dim);
+    white-space:nowrap;
+  }
 
   .link-icon{
     width:38px;
@@ -179,29 +183,61 @@
 
   .link-label{ flex:1; }
 
-  .link-row.is-unavailable{
-    opacity:0.45;
-    cursor:default;
-  }
-  .link-unavailable{
-    flex:none;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;
-    letter-spacing:0.04em;
-    color:var(--paper-dim);
-    white-space:nowrap;
-  }
-
   .link-arrow{
     flex:none;
     color:var(--paper-dim);
   }
 
+  .tracklist{
+    width:100%;
+    padding:2px 18px;
+    border-radius:14px;
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+  }
+  .track-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(243,233,218,0.06);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{
+    flex:none;
+    width:16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--paper-dim);
+  }
+  .track-title{
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--paper);
+  }
+  .explicit-tag{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:16px;
+    height:16px;
+    flex:none;
+    border:1px solid var(--paper-dim);
+    border-radius:3px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--paper-dim);
+  }
   .feat-link{
     color:var(--paper);
     text-decoration:underline;
     text-decoration-color:var(--paper-dim);
-    text-underline-offset:6px;
+    text-underline-offset:2px;
   }
 
   .about-card{
@@ -263,14 +299,13 @@
   }
 
   body.light-cover h1{ color:var(--ink); }
-  body.light-cover .feat-line{ color:var(--ink-dim); }
   body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="t-bag" data-features="b-minor,asmo">
+<body oncontextmenu="return false" data-artists="t-bag" data-features="">
 
 <div class="sky-bg"></div>
 
@@ -278,15 +313,40 @@
   <div class="page">
 
     <div class="cover">
-      <img src="../../covers/adr-square.jpg" alt="blitzkrieg w/ T Bag &amp; Asmo cover art">
+      <img src="../../covers/adr-square.jpg" alt="zwitter cover art">
     </div>
 
-    <h1>blitzkrieg</h1>
-    <p class="feat-line">feat. <a class="feat-link" href="../../">B Minor</a> &amp; <a class="feat-link" href="../../asmo/">Asmo</a></p>
+    <h1>zwitter</h1>
 
-    <div class="section-label"><span>Listen</span></div>
+    <div class="tracklist">
+      <div class="track-row">
+        <span class="track-num">1</span>
+        <span class="track-title">Blitzkrieg (feat. <a class="feat-link" href="../../">B Minor</a> &amp; <a class="feat-link" href="../../asmo/">Asmo</a>)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">2</span>
+        <span class="track-title">Wanna Cook?</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">3</span>
+        <span class="track-title">a.d.r. (feat. <a class="feat-link" href="../../">B Minor</a>)</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">4</span>
+        <span class="track-title">Adorno Interlude</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">5</span>
+        <span class="track-title">Cutia de O&#355;el - DEMO</span>
+      </div>
+    </div>
+
+    <div class="section-label"><span>Stream</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/track/42AGDu0D65UxQ5I2o14c89" target="_blank" rel="noopener">
+      <a class="link-row" href="https://open.spotify.com/album/6jVQVGWMK9BKy39JJmKurX" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/spotify.webp" alt="">
         </span>
@@ -294,7 +354,15 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <a class="link-row" href="https://music.youtube.com/watch?v=cBqGP0lSiSI" target="_blank" rel="noopener">
+      <div class="link-row is-unavailable">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/apple-music.webp" alt="">
+        </span>
+        <span class="link-label">Apple Music</span>
+        <span class="link-unavailable">(not available)</span>
+      </div>
+
+      <a class="link-row" href="https://music.youtube.com/playlist?list=OLAK5uy_klNrxBTusN_dKczotQlJnAP1fGADh2f7o" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube-music.webp" alt="">
         </span>
@@ -309,14 +377,6 @@
         <span class="link-label">YouTube</span>
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
-      <div class="link-row is-unavailable">
-        <span class="link-icon" aria-hidden="true">
-          <img src="../../covers/icons/apple-music.webp" alt="">
-        </span>
-        <span class="link-label">Apple Music</span>
-        <span class="link-unavailable">(not available)</span>
-      </div>
-
     </div>
 
     <div class="section-label"><span>About</span></div>
@@ -327,7 +387,7 @@
 
     <footer>
       <a class="back-link" href="../">← Back to T Bag</a>
-      <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
+      <p>© 2026 T BAG<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>

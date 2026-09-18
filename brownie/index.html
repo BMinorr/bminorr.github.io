@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Florinswag</title>
+<title>Brownie!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -21,7 +21,7 @@
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
-    --bg-image:url(../covers/florinswag-profile.jpg);
+    --bg-image:url(../covers/generic-avatar.jpg);
     --bg-color:var(--sky-fallback);
   }
 
@@ -226,55 +226,7 @@
     letter-spacing:0;
   }
 
-  /* ---- links (streaming + socials) ---- */
-
-  .see-all-btn{
-    display:flex;
-    flex-direction:column;
-    width:100%;
-    padding:15px 18px;
-    border-radius:14px;
-    text-decoration:none;
-    color:var(--paper);
-    transition:background .18s ease;
-    overflow:hidden;
-  }
-  .see-all-btn:active, .see-all-btn:focus-visible{
-    background:var(--glass-hover);
-  }
-  .see-all-covers{
-    width:100%;
-    height:32px;
-    overflow:hidden;
-    margin-bottom:10px;
-    -webkit-mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-    mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-  }
-  .see-all-covers-track{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    width:max-content;
-  }
-  .see-all-covers-track img{
-    width:32px;
-    height:32px;
-    border-radius:7px;
-    object-fit:cover;
-    display:block;
-    flex:none;
-  }
-  .see-all-label{
-    display:block;
-    width:100%;
-    text-align:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-  }
-
+  /* ---- links (streaming) ---- */
   .links{
     width:100%;
     display:flex;
@@ -367,41 +319,32 @@
   }
 </style>
 </head>
-<body oncontextmenu="return false" data-artist="florinswag">
+<body oncontextmenu="return false" data-artist="brownie">
 
 <div class="sky-bg"></div>
 
 <div class="hero-wrap">
   <div class="hero-photo">
-    <img src="../covers/florinswag-profile.jpg" alt="Florinswag" fetchpriority="high" decoding="async">
+    <img src="../covers/generic-avatar.jpg" alt="Brownie!" fetchpriority="high" decoding="async">
   </div>
 </div>
 
 <div class="stage">
   <div class="page">
 
-    <h1>Florinswag</h1>
+    <h1>Brownie!</h1>
 
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
-      <a class="spotlight-featured" href="1000devoci/">
+      <a class="spotlight-featured" href="winniepooh/">
         <div class="spotlight-featured-art">
-          <img src="../covers/card/gone-square.jpg" alt="1000DEVOCI cover art">
+          <img src="../covers/card/gone-square.jpg" alt="##winniepooh cover art">
         </div>
         <div class="spotlight-title-row">
-          <span class="spotlight-featured-caption">1000DEVOCI</span>
+          <span class="spotlight-featured-caption">##winniepooh</span>
         </div>
-        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Album</span><span class="meta-year">2026</span></span>
-      </a>
-
-      <a class="see-all-btn" href="discography/">
-        <div class="see-all-covers" aria-hidden="true">
-          <div class="see-all-covers-track">
-            <img src="../covers/card/gone-square.jpg" alt="" decoding="async">
-          </div>
-        </div>
-        <span class="see-all-label">See all discography</span>
+        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
       </a>
     </section>
 
@@ -443,59 +386,12 @@
       </div>
     </section>
 
-    <section class="group">
-      <div class="section-label"><span>Socials</span></div>
-      <div class="links">
-        <a class="link-row" href="https://www.instagram.com/33florin3" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">
-            <img src="../covers/icons/instagram.webp" alt="">
-          </span>
-          <span class="link-label">Instagram</span>
-          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </a>
-      </div>
-    </section>
-
     <footer>
-      <p>© 2026 FLORINSWAG<br>ALL RIGHTS RESERVED</p>
+      <p>© 2026 BROWNIE<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>
 </div>
 
-
-<script>
-(function(){
-  var tickerCounter = 0;
-  function setupCoverTicker(container){
-    var track = container.querySelector('.see-all-covers-track');
-    if(!track) return;
-    if(!track._baseImgs){
-      track._baseImgs = Array.prototype.slice.call(track.children);
-    }
-    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
-    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
-    var gap = parseFloat(getComputedStyle(track).gap) || 0;
-    var baseWidth = 0;
-    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
-    if(baseWidth <= 0) return;
-    var containerWidth = container.clientWidth;
-    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
-    for(var c = 1; c < copies; c++){
-      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
-    }
-    var pxPerSecond = 19;
-    var seconds = baseWidth / pxPerSecond;
-    var pct = 100 / copies;
-    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
-    var styleTag = document.createElement('style');
-    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
-    document.head.appendChild(styleTag);
-    track._tickerStyleTag = styleTag;
-    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
-  }
-  document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
-})();
-</script>
 </body>
 </html>

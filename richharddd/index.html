@@ -21,6 +21,8 @@
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
+    --bg-image:url(../covers/richharddd-profile.jpg);
+    --bg-color:var(--sky-fallback);
   }
 
   html{
@@ -43,10 +45,11 @@
     position:fixed;
     inset:-30px;
     z-index:-1;
-    background-image:url(../covers/sky.jpg);
+    background-image:var(--bg-image);
+    background-color:var(--bg-color);
     background-size:cover;
     background-position:center;
-    filter:grayscale(1) blur(6px);
+    filter:blur(45px) brightness(0.75);
   }
 
   .stage{
@@ -57,11 +60,44 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding:48px 20px 48px;
+    padding:0 20px 48px;
     overflow-x:hidden;
   }
   @media (min-width:700px){
     .stage{ zoom:1.25; }
+  }
+
+  .hero-wrap{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+  }
+  .hero-photo{
+    position:relative;
+    z-index:1;
+    width:100%;
+    height:0;
+    padding-top:clamp(44.44%, calc(100% - 55.56% * (100vw - 480px) / 920px), 100%);
+    margin-bottom:0;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom, black 78%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 78%, transparent 100%);
+  }
+  @media (min-width:700px){
+    .hero-photo{
+      -webkit-mask-image:linear-gradient(to bottom, black 78%, transparent 100%), linear-gradient(to right, transparent 0, black 120px), linear-gradient(to left, transparent 0, black 120px);
+      -webkit-mask-composite:source-in, source-in;
+      mask-image:linear-gradient(to bottom, black 78%, transparent 100%), linear-gradient(to right, transparent 0, black 120px), linear-gradient(to left, transparent 0, black 120px);
+      mask-composite:intersect;
+    }
+  }
+  .hero-photo img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
 
   .page{
@@ -191,6 +227,54 @@
   }
 
   /* ---- links (streaming + socials) ---- */
+
+  .see-all-btn{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:15px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+    overflow:hidden;
+  }
+  .see-all-btn:active, .see-all-btn:focus-visible{
+    background:var(--glass-hover);
+  }
+  .see-all-covers{
+    width:100%;
+    height:32px;
+    overflow:hidden;
+    margin-bottom:10px;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+  .see-all-covers-track{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    width:max-content;
+  }
+  .see-all-covers-track img{
+    width:32px;
+    height:32px;
+    border-radius:7px;
+    object-fit:cover;
+    display:block;
+    flex:none;
+  }
+  .see-all-label{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+
   .links{
     width:100%;
     display:flex;
@@ -287,6 +371,12 @@
 
 <div class="sky-bg"></div>
 
+<div class="hero-wrap">
+  <div class="hero-photo">
+    <img src="../covers/richharddd-profile.jpg" alt="Richharddd" fetchpriority="high" decoding="async">
+  </div>
+</div>
+
 <div class="stage">
   <div class="page">
 
@@ -295,14 +385,23 @@
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
-      <a class="spotlight-featured" href="monroe/">
+      <a class="spotlight-featured" href="richtar/">
         <div class="spotlight-featured-art">
-          <img src="../covers/card/monroe-square.jpg" alt="monroe w/ B Minor cover art">
+          <img src="../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
         </div>
         <div class="spotlight-title-row">
-          <span class="spotlight-featured-caption">monroe w/ B Minor</span>
+          <span class="spotlight-featured-caption">Rich$Tar</span>
         </div>
-        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
+        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Album</span><span class="meta-year">2026</span></span>
+      </a>
+
+      <a class="see-all-btn" href="discography/">
+        <div class="see-all-covers" aria-hidden="true">
+          <div class="see-all-covers-track">
+            <img src="../covers/card/monroe-square.jpg" alt="" decoding="async">
+          </div>
+        </div>
+        <span class="see-all-label">See all discography</span>
       </a>
     </section>
 
@@ -364,5 +463,39 @@
   </div>
 </div>
 
+
+<script>
+(function(){
+  var tickerCounter = 0;
+  function setupCoverTicker(container){
+    var track = container.querySelector('.see-all-covers-track');
+    if(!track) return;
+    if(!track._baseImgs){
+      track._baseImgs = Array.prototype.slice.call(track.children);
+    }
+    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
+    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var baseWidth = 0;
+    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
+    if(baseWidth <= 0) return;
+    var containerWidth = container.clientWidth;
+    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
+    for(var c = 1; c < copies; c++){
+      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
+    }
+    var pxPerSecond = 19;
+    var seconds = baseWidth / pxPerSecond;
+    var pct = 100 / copies;
+    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
+    document.head.appendChild(styleTag);
+    track._tickerStyleTag = styleTag;
+    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
+  }
+  document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
+})();
+</script>
 </body>
 </html>

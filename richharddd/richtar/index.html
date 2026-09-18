@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wanna Cook? — T Bag</title>
+<title>Rich$Tar — Richharddd</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -21,7 +21,7 @@
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
     --h1-font:'Fraunces',Georgia,serif;
-    --bg-image:url(../../covers/bg/adr-square.jpg);
+    --bg-image:url(../../covers/bg/monroe-square.jpg);
     --bg-color:var(--sky-fallback);
   }
 
@@ -75,7 +75,6 @@
     align-items:center;
   }
 
-  /* ---- cover art ---- */
   .cover{
     position:relative;
     width:100%;
@@ -188,6 +187,58 @@
     color:var(--paper-dim);
   }
 
+  .tracklist{
+    width:100%;
+    padding:2px 18px;
+    border-radius:14px;
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    margin-bottom:36px;
+  }
+  .track-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(243,233,218,0.06);
+  }
+  .track-row:last-child{ border-bottom:none; }
+  .track-num{
+    flex:none;
+    width:16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--paper-dim);
+  }
+  .track-title{
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--paper);
+  }
+  .explicit-tag{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:16px;
+    height:16px;
+    flex:none;
+    border:1px solid var(--paper-dim);
+    border-radius:3px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--paper-dim);
+  }
+  .feat-link{
+    color:var(--paper);
+    text-decoration:underline;
+    text-decoration-color:var(--paper-dim);
+    text-underline-offset:2px;
+  }
+
   .about-card{
     width:100%;
     padding:18px;
@@ -247,12 +298,13 @@
   }
 
   body.light-cover h1{ color:var(--ink); }
+  body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="t-bag" data-features="">
+<body oncontextmenu="return false" data-artists="richharddd" data-features="">
 
 <div class="sky-bg"></div>
 
@@ -260,14 +312,58 @@
   <div class="page">
 
     <div class="cover">
-      <img src="../../covers/adr-square.jpg" alt="Wanna Cook? cover art">
+      <img src="../../covers/monroe-square.jpg" alt="Rich$Tar cover art">
     </div>
 
-    <h1>Wanna Cook?</h1>
+    <h1>Rich$Tar</h1>
 
-    <div class="section-label"><span>Listen</span></div>
+    <div class="tracklist">
+      <div class="track-row">
+        <span class="track-num">1</span>
+        <span class="track-title">Szn De Richharddd</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">2</span>
+        <span class="track-title">Field Trip</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">3</span>
+        <span class="track-title">Camaro</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">4</span>
+        <span class="track-title">Which One? (feat. <a class="feat-link" href="../../bxbutzu/">bxbutzu</a>)</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">5</span>
+        <span class="track-title">Meteowarning</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">6</span>
+        <span class="track-title">Monroe (feat. <a class="feat-link" href="../../b-minor/">B Minor</a>)</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">7</span>
+        <span class="track-title">Caramel (feat. <a class="feat-link" href="../../asmo/">Asmo</a> &amp; <a class="feat-link" href="../../florinswag/">Florinswag</a>)</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">8</span>
+        <span class="track-title">Briliant</span>
+        <span class="explicit-tag">E</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">9</span>
+        <span class="track-title">Babyboi</span>
+      </div>
+      <div class="track-row">
+        <span class="track-num">10</span>
+        <span class="track-title">Adresa Mea (feat. <a class="feat-link" href="../../karla/">karla</a>)</span>
+      </div>
+    </div>
+
+    <div class="section-label"><span>Stream</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/track/57hu3HJSjGpunVG5YgYIpF" target="_blank" rel="noopener">
+      <a class="link-row" href="https://open.spotify.com/album/5fNXW7pb4ktjbNVH2wvgKn" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/spotify.webp" alt="">
         </span>
@@ -283,7 +379,7 @@
         <span class="link-unavailable">(not available)</span>
       </div>
 
-      <a class="link-row" href="https://music.youtube.com/watch?v=N-X05FwIyCU" target="_blank" rel="noopener">
+      <a class="link-row" href="https://music.youtube.com/browse/MPREb_eYurdgsgiDb" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube-music.webp" alt="">
         </span>
@@ -291,7 +387,7 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <a class="link-row" href="https://youtu.be/N-X05FwIyCU" target="_blank" rel="noopener">
+      <a class="link-row" href="https://youtu.be/qv1Fl5uHqt8" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube.webp" alt="">
         </span>
@@ -302,13 +398,13 @@
 
     <div class="section-label"><span>About</span></div>
     <div class="about-card">
-      <div class="about-row">Released on 08.05.2026</div>
-      <div class="about-row">Genre: Rap</div>
+      <div class="about-row">Released on 23.06.2026</div>
+      <div class="about-row">Genre: Trap</div>
     </div>
 
     <footer>
-      <a class="back-link" href="../">← Back to T Bag</a>
-      <p>© 2026 T BAG<br>ALL RIGHTS RESERVED</p>
+      <a class="back-link" href="../">← Back to Richharddd</a>
+      <p>© 2026 RICHHARDDD<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>
@@ -318,7 +414,7 @@
 <script>
 (function(){
   var bg = getComputedStyle(document.querySelector('.sky-bg')).backgroundImage;
-  var m = bg.match(/url\(["']?(.*?)["']?\)/);
+  var m = bg.match(/url\(["\']?(.*?)["\']?\)/);
   if(!m) return;
   var img = new Image();
   img.onload = function(){
