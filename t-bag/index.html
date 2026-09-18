@@ -21,6 +21,8 @@
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
+    --bg-image:url(../covers/t-bag-profile.jpg);
+    --bg-color:var(--sky-fallback);
   }
 
   html{
@@ -43,10 +45,11 @@
     position:fixed;
     inset:-30px;
     z-index:-1;
-    background-image:url(../covers/sky.jpg);
+    background-image:var(--bg-image);
+    background-color:var(--bg-color);
     background-size:cover;
     background-position:center;
-    filter:grayscale(1) blur(6px);
+    filter:blur(45px) brightness(0.75);
   }
 
   .stage{
@@ -440,7 +443,7 @@
 
 <div class="hero-wrap">
   <div class="hero-photo">
-    <img src="../covers/hero-placeholder.svg" alt="T Bag" fetchpriority="high" decoding="async">
+    <img src="../covers/t-bag-profile.jpg" alt="T Bag" fetchpriority="high" decoding="async">
   </div>
 </div>
 
@@ -464,6 +467,15 @@
       </a>
 
       <div class="spotlight-grid">
+        <a class="spotlight-card" href="wanna-cook/">
+          <div class="spotlight-art">
+            <img src="../covers/card/adr-square.jpg" alt="Wanna Cook? cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">Wanna Cook?</span>
+          </div>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
+        </a>
         <a class="spotlight-card" href="adr/">
           <div class="spotlight-art">
             <img src="../covers/card/adr-square.jpg" alt="a.d.r. w/ B Minor cover art">
@@ -473,23 +485,14 @@
           </div>
           <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
         </a>
-        <a class="spotlight-card" href="adam/">
+        <a class="spotlight-card" href="adorno-interlude/">
           <div class="spotlight-art">
-            <img src="../covers/card/adam-square.jpg" alt="Adam cover art">
+            <img src="../covers/card/adr-square.jpg" alt="Adorno Interlude cover art">
           </div>
           <div class="spotlight-title-row">
-            <span class="spotlight-caption">Adam</span>
+            <span class="spotlight-caption">Adorno Interlude</span>
           </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2026</span></span>
-        </a>
-        <a class="spotlight-card" href="referinta/">
-          <div class="spotlight-art">
-            <img src="../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
-          </div>
-          <div class="spotlight-title-row">
-            <span class="spotlight-caption">referinta w/ B Minor</span>
-          </div>
-          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Single</span><span class="meta-year">2025</span></span>
+          <span class="release-meta"><span class="meta-left">Single</span><span class="meta-year">2026</span></span>
         </a>
       </div>
 
