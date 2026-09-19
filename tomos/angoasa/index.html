@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paradise Lost — T Bag</title>
+<title>angoasa w/ B Minor — Tomos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -21,7 +21,7 @@
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
     --h1-font:'Fraunces',Georgia,serif;
-    --bg-image:url(../../covers/bg/ce-nu-putem-fi-square.jpg);
+    --bg-image:url(../../covers/bg/21-iunie-square.jpg);
     --bg-color:var(--sky-fallback);
   }
 
@@ -99,9 +99,17 @@
     line-height:1.05;
     letter-spacing:-0.01em;
     color:var(--paper);
-    margin:0 0 36px;
+    margin:0 0 6px;
     text-wrap:balance;
     text-align:center;
+  }
+  .feat-line{
+    font-family:var(--h1-font);
+    font-weight:700;
+    font-size:20px;
+    color:var(--paper-dim);
+    text-align:center;
+    margin:0 0 36px;
   }
 
   .section-label{
@@ -150,18 +158,6 @@
     background:var(--glass-hover);
   }
   .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
-  .link-row.is-unavailable{
-    opacity:0.45;
-    cursor:default;
-  }
-  .link-unavailable{
-    flex:none;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;
-    letter-spacing:0.04em;
-    color:var(--paper-dim);
-    white-space:nowrap;
-  }
 
   .link-icon{
     width:38px;
@@ -187,56 +183,11 @@
     color:var(--paper-dim);
   }
 
-  .tracklist{
-    width:100%;
-    padding:2px 18px;
-    border-radius:14px;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    margin-bottom:36px;
-  }
-  .track-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:15px 0;
-    border-bottom:1px solid rgba(243,233,218,0.06);
-  }
-  .track-row:last-child{ border-bottom:none; }
-  .track-num{
-    flex:none;
-    width:16px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    color:var(--paper-dim);
-  }
-  .track-title{
-    font-family:'Archivo',sans-serif;
-    font-weight:600;
-    font-size:15px;
-    color:var(--paper);
-  }
-  .explicit-tag{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:16px;
-    height:16px;
-    flex:none;
-    border:1px solid var(--paper-dim);
-    border-radius:3px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10px;
-    color:var(--paper-dim);
-  }
   .feat-link{
     color:var(--paper);
     text-decoration:underline;
     text-decoration-color:var(--paper-dim);
-    text-underline-offset:2px;
+    text-underline-offset:6px;
   }
 
   .about-card{
@@ -298,13 +249,14 @@
   }
 
   body.light-cover h1{ color:var(--ink); }
+  body.light-cover .feat-line{ color:var(--ink-dim); }
   body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="t-bag" data-features="">
+<body oncontextmenu="return false" data-artists="b-minor" data-features="tomos">
 
 <div class="sky-bg"></div>
 
@@ -312,72 +264,15 @@
   <div class="page">
 
     <div class="cover">
-      <img src="../../covers/ce-nu-putem-fi-square.jpg" alt="Paradise Lost cover art">
+      <img src="../../covers/21-iunie-square.jpg" alt="angoasa cover art">
     </div>
 
-    <h1>Paradise Lost</h1>
+    <h1>angoasa</h1>
+    <p class="feat-line">w/ <a class="feat-link" href="../../">B Minor</a></p>
 
-    <div class="tracklist">
-      <div class="track-row">
-        <span class="track-num">1</span>
-        <span class="track-title">Pandemonium</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">2</span>
-        <span class="track-title">Titani (feat. <a class="feat-link" href="../../acronim/">ACRONIM</a>)</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">3</span>
-        <span class="track-title">Alfa &amp; Omega (feat. <a class="feat-link" href="../../bpc/">BPC</a>)</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">4</span>
-        <span class="track-title">Hephaestus / Alfa &amp; Omega II</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">5</span>
-        <span class="track-title">Ce Nu Putem Fi (feat. <a class="feat-link" href="../../b-minor/">B Minor</a>)</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">6</span>
-        <span class="track-title">VALHALLA</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">7</span>
-        <span class="track-title">Din Nou (feat. <a class="feat-link" href="../../miszmo/">miszmo</a>)</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">8</span>
-        <span class="track-title">Manson</span>
-        <span class="explicit-tag">E</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">9</span>
-        <span class="track-title">Paradise Lost</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">10</span>
-        <span class="track-title">Memento Mori (feat. <a class="feat-link" href="../../reske/">Reske</a>)</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">11</span>
-        <span class="track-title">Heron</span>
-      </div>
-      <div class="track-row">
-        <span class="track-num">12</span>
-        <span class="track-title">John, 1:9</span>
-      </div>
-    </div>
-
-    <div class="section-label"><span>Stream</span></div>
+    <div class="section-label"><span>Listen</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/album/47nT402zF9z4bb0O7Kl53r" target="_blank" rel="noopener">
+      <a class="link-row" href="https://open.spotify.com/track/7J8wUPX1nOPT5la9tx90u2" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/spotify.webp" alt="">
         </span>
@@ -385,15 +280,15 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <div class="link-row is-unavailable">
+      <a class="link-row" href="https://music.apple.com/us/song/angoasa-feat-tomos/1806000520" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/apple-music.webp" alt="">
         </span>
         <span class="link-label">Apple Music</span>
-        <span class="link-unavailable">(not available)</span>
-      </div>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
 
-      <a class="link-row" href="https://music.youtube.com/browse/MPREb_iInVSVH4mYg" target="_blank" rel="noopener">
+      <a class="link-row" href="https://music.youtube.com/watch?v=AiXmrZSAwKc" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube-music.webp" alt="">
         </span>
@@ -401,7 +296,7 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <a class="link-row" href="https://youtu.be/u0MVd1Apjxw" target="_blank" rel="noopener">
+      <a class="link-row" href="https://youtu.be/AiXmrZSAwKc" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/youtube.webp" alt="">
         </span>
@@ -412,13 +307,13 @@
 
     <div class="section-label"><span>About</span></div>
     <div class="about-card">
-      <div class="about-row">Released on 30.05.2025</div>
+      <div class="about-row">Released on 21.06.2024</div>
       <div class="about-row">Genre: Rap</div>
     </div>
 
     <footer>
-      <a class="back-link" href="../">← Back to T Bag</a>
-      <p>© 2026 T BAG<br>ALL RIGHTS RESERVED</p>
+      <a class="back-link" href="../">← Back to Tomos</a>
+      <p>© 2026 TOMOS<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>
@@ -428,7 +323,7 @@
 <script>
 (function(){
   var bg = getComputedStyle(document.querySelector('.sky-bg')).backgroundImage;
-  var m = bg.match(/url\(["\']?(.*?)["\']?\)/);
+  var m = bg.match(/url\(["']?(.*?)["']?\)/);
   if(!m) return;
   var img = new Image();
   img.onload = function(){
