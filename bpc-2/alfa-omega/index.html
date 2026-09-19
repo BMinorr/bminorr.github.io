@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ce nu putem fi feat. B Minor — B Minor</title>
+<title>Alfa & Omega w/ T Bag — BPC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -75,7 +75,6 @@
     align-items:center;
   }
 
-  /* ---- cover art ---- */
   .cover{
     position:relative;
     width:100%;
@@ -159,6 +158,18 @@
     background:var(--glass-hover);
   }
   .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
+  .link-row.is-unavailable{
+    opacity:0.45;
+    cursor:default;
+  }
+  .link-unavailable{
+    flex:none;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    color:var(--paper-dim);
+    white-space:nowrap;
+  }
 
   .link-icon{
     width:38px;
@@ -178,19 +189,6 @@
   }
 
   .link-label{ flex:1; }
-
-  .link-row.is-unavailable{
-    opacity:0.45;
-    cursor:default;
-  }
-  .link-unavailable{
-    flex:none;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;
-    letter-spacing:0.04em;
-    color:var(--paper-dim);
-    white-space:nowrap;
-  }
 
   .link-arrow{
     flex:none;
@@ -270,7 +268,7 @@
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="t-bag" data-features="b-minor">
+<body oncontextmenu="return false" data-artists="t-bag" data-features="bpc-2">
 
 <div class="sky-bg"></div>
 
@@ -278,15 +276,15 @@
   <div class="page">
 
     <div class="cover">
-      <img src="../../covers/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ T Bag cover art">
+      <img src="../../covers/ce-nu-putem-fi-square.jpg" alt="Alfa & Omega cover art">
     </div>
 
-    <h1>ce nu putem fi</h1>
-    <p class="feat-line">feat. <a class="feat-link" href="../../">B Minor</a></p>
+    <h1>Alfa & Omega</h1>
+    <p class="feat-line">w/ <a class="feat-link" href="../../t-bag/">T Bag</a></p>
 
     <div class="section-label"><span>Listen</span></div>
     <div class="links">
-      <a class="link-row" href="https://open.spotify.com/track/2lvz6B2PWGRc1dL1S2GWDc" target="_blank" rel="noopener">
+      <a class="link-row" href="https://open.spotify.com/track/48LTblIlrSjfg0LgTwsGmj" target="_blank" rel="noopener">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/spotify.webp" alt="">
         </span>
@@ -294,21 +292,6 @@
         <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
       </a>
 
-      <a class="link-row" href="https://music.youtube.com/watch?v=6bLiBj2o0fI" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <img src="../../covers/icons/youtube-music.webp" alt="">
-        </span>
-        <span class="link-label">YouTube Music</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
-
-      <a class="link-row" href="https://youtu.be/ZO8LZT2_jhs" target="_blank" rel="noopener">
-        <span class="link-icon" aria-hidden="true">
-          <img src="../../covers/icons/youtube.webp" alt="">
-        </span>
-        <span class="link-label">YouTube</span>
-        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-      </a>
       <div class="link-row is-unavailable">
         <span class="link-icon" aria-hidden="true">
           <img src="../../covers/icons/apple-music.webp" alt="">
@@ -317,6 +300,21 @@
         <span class="link-unavailable">(not available)</span>
       </div>
 
+      <a class="link-row" href="https://music.youtube.com/watch?v=-XCgfasPTbI" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/youtube-music.webp" alt="">
+        </span>
+        <span class="link-label">YouTube Music</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://youtu.be/-XCgfasPTbI" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/youtube.webp" alt="">
+        </span>
+        <span class="link-label">YouTube</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
     </div>
 
     <div class="section-label"><span>About</span></div>
@@ -326,8 +324,8 @@
     </div>
 
     <footer>
-      <a class="back-link" href="../">← Back to T Bag</a>
-      <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
+      <a class="back-link" href="../">← Back to BPC</a>
+      <p>© 2026 BPC<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>
@@ -337,7 +335,7 @@
 <script>
 (function(){
   var bg = getComputedStyle(document.querySelector('.sky-bg')).backgroundImage;
-  var m = bg.match(/url\(["']?(.*?)["']?\)/);
+  var m = bg.match(/url\(["\']?(.*?)["\']?\)/);
   if(!m) return;
   var img = new Image();
   img.onload = function(){
