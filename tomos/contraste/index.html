@@ -4,388 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>contraste with B Minor — B Minor</title>
+<meta name="description" content="contraste with B Minor. EP, 3 tracks. Released 21.11.2024. Listen on Spotify, Apple Music, YouTube Music and YouTube.">
+<meta name="theme-color" content="#2f2c25">
+<link rel="canonical" href="https://bminorr.github.io/tomos/contraste/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="B Minor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="contraste with B Minor — B Minor">
+<meta property="og:description" content="contraste with B Minor. EP, 3 tracks. Released 21.11.2024. Listen on Spotify, Apple Music, YouTube Music and YouTube.">
+<meta property="og:url" content="https://bminorr.github.io/tomos/contraste/">
+<meta property="og:image" content="https://bminorr.github.io/covers/contraste-square.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../style.css">
 <style>
-  :root{
-    --ink:#17120e;
-    --ink-dim:rgba(23,18,14,0.62);
-    --sky-fallback:#b7b7b7;
-    --surface-2:#2c221a;
-    --paper:#f3e9da;
-    --paper-dim:#c7b6a1;
-    --copper:#e08a45;
-    --line:rgba(243,233,218,0.14);
-    --glass:rgba(14,11,8,0.62);
-    --glass-hover:rgba(14,11,8,0.74);
-    --glass-border:rgba(243,233,218,0.2);
-    --h1-font:'Fraunces',Georgia,serif;
-    --bg-image:url(../../covers/bg/contraste-square.jpg);
-    --bg-color:var(--sky-fallback);
-  }
+:root{
+  --bg-image:url(/covers/bg/contraste-square.jpg);
+}
+.feat-line{
+  font-family:var(--h1-font);
+  font-weight:700;
+  font-size:20px;
+  color:var(--paper-dim);
+  text-align:center;
+  margin:0 0 16px;
+}
 
-  html{ overscroll-behavior:none; }
-  *{box-sizing:border-box;}
-  img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
-  body{
-    background:var(--sky-fallback);
-    color:var(--ink);
-    font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
-    margin:0;
-    padding:0;
-    overscroll-behavior:none;
-    -webkit-user-select:none;
-    user-select:none;
-  }
-
-  .sky-bg{
-    position:fixed;
-    inset:-30px;
-    z-index:-1;
-    background-image:var(--bg-image);
-    background-color:var(--bg-color);
-    background-size:cover;
-    background-position:center;
-    filter:blur(45px) brightness(0.75);
-  }
-
-  .stage{
-    position:relative;
-    min-height:100vh;
-    max-width:480px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:20px 20px 48px;
-    overflow-x:hidden;
-  }
-  @media (min-width:700px){
-    .stage{ zoom:1.25; }
-  }
-
-  .page{
-    position:relative;
-    z-index:1;
-    width:100%;
-    max-width:440px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
-
-  /* ---- cover art ---- */
-  .cover{
-    position:relative;
-    width:100%;
-    aspect-ratio:1/1;
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:28px;
-    background:linear-gradient(150deg, var(--surface-2), var(--ink));
-    box-shadow:0 12px 32px rgba(0,0,0,0.28);
-  }
-  .cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-
-  h1{
-    font-family:var(--h1-font);
-    font-weight:900;
-    font-size:clamp(38px, 10vw, 50px);
-    line-height:1.05;
-    letter-spacing:-0.01em;
-    color:var(--paper);
-    margin:0 0 6px;
-    text-wrap:balance;
-    text-align:center;
-  }
-  .feat-line{
-    font-family:var(--h1-font);
-    font-weight:700;
-    font-size:20px;
-    color:var(--paper-dim);
-    text-align:center;
-    margin:0 0 16px;
-  }
-
-  .section-label{
-    display:flex;
-    justify-content:center;
-    width:100%;
-    margin-bottom:14px;
-  }
-  .section-label span{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--paper);
-  }
-
-  .links{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    margin-bottom:36px;
-  }
-
-  .link-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    width:100%;
-    padding:16px 18px;
-    border-radius:14px;
-    color:var(--paper);
-    text-decoration:none;
-    font-family:'Archivo',sans-serif;
-    font-weight:600;
-    font-size:16px;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    transition:background .18s ease;
-  }
-  .link-row:active, .link-row:focus-visible{
-    background:var(--glass-hover);
-  }
-  .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
-
-  .link-icon{
-    width:38px;
-    height:38px;
-    flex:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-    overflow:hidden;
-  }
-  .link-icon img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-
-  .link-label{ flex:1; }
-
-  .link-arrow{
-    flex:none;
-    color:var(--paper-dim);
-  }
-
-  .tracklist{
-    width:100%;
-    padding:2px 18px;
-    border-radius:14px;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    margin-bottom:36px;
-  }
-  .track-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:15px 0;
-    border-bottom:1px solid rgba(243,233,218,0.06);
-  }
-  .track-row:last-child{ border-bottom:none; }
-  .track-num{
-    flex:none;
-    width:16px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    color:var(--paper-dim);
-  }
-  .track-title{
-    font-family:'Archivo',sans-serif;
-    font-weight:600;
-    font-size:15px;
-    color:var(--paper);
-  }
-  .explicit-tag{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:16px;
-    height:16px;
-    flex:none;
-    border:1px solid var(--paper-dim);
-    border-radius:3px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10px;
-    color:var(--paper-dim);
-  }
-  .feat-link{
-    color:var(--paper);
-    text-decoration:underline;
-    text-decoration-color:var(--paper-dim);
-    text-underline-offset:2px;
-  }
-
-  .watch-card{
-    display:block;
-    width:100%;
-    padding:12px;
-    border-radius:18px;
-    text-decoration:none;
-    color:var(--paper);
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    margin-bottom:36px;
-    transition:background .18s ease;
-  }
-  .watch-card:active, .watch-card:focus-visible{
-    background:var(--glass-hover);
-  }
-  .watch-art{
-    position:relative;
-    width:100%;
-    aspect-ratio:16/9;
-    border-radius:12px;
-    background:linear-gradient(150deg, var(--surface-2), var(--ink));
-    overflow:hidden;
-  }
-  .watch-art img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .watch-badge{
-    position:absolute;
-    top:10px;
-    left:10px;
-    width:30px;
-    height:30px;
-    border-radius:9px;
-    overflow:hidden;
-    background:var(--glass-hover);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(10px) saturate(160%);
-    -webkit-backdrop-filter:blur(10px) saturate(160%);
-  }
-  .watch-badge img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .watch-play{
-    position:absolute;
-    bottom:10px;
-    right:10px;
-    width:38px;
-    height:38px;
-    border-radius:999px;
-    background:var(--glass-hover);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(10px) saturate(160%);
-    -webkit-backdrop-filter:blur(10px) saturate(160%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 1px 1px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15);
-  }
-  .watch-play svg{
-    width:15px;
-    height:15px;
-    color:var(--paper);
-    margin-left:2px;
-  }
-  .watch-caption{
-    display:block;
-    margin-top:14px;
-    font-family:'Archivo',sans-serif;
-    font-weight:700;
-    font-size:19px;
-    line-height:1.3;
-  }
-
-  .about-card{
-    width:100%;
-    padding:18px;
-    border-radius:14px;
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    margin-bottom:36px;
-  }
-  .about-row{
-    font-family:'Archivo',sans-serif;
-    font-weight:600;
-    font-size:15px;
-    color:var(--paper);
-    text-align:left;
-  }
-
-  footer{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:16px;
-    color:var(--paper);
-  }
-  .back-link{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--paper);
-    text-decoration:none;
-    border-bottom:1px solid var(--paper-dim);
-    padding-bottom:1px;
-  }
-  footer p{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.08em;
-    line-height:1.7;
-    text-align:center;
-    margin:0;
-  }
-
-  @media (max-width:380px){
-    .link-row{ padding:14px 14px; font-size:15px; }
-  }
-
-  @media (hover: hover) and (pointer: fine){
-    .link-row:hover,
-    .watch-card:hover{
-      background:var(--glass-hover);
-    }
-  }
-
-  body.light-cover h1{ color:var(--ink); }
-  body.light-cover .feat-line{ color:var(--ink-dim); }
-  body.light-cover .feat-line .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
-  body.light-cover .section-label span{ color:var(--ink-dim); }
-  body.light-cover footer{ color:var(--ink-dim); }
-  body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
+.feat-link{
+  color:var(--paper);
+  text-decoration:underline;
+  text-decoration-color:var(--paper-dim);
+  text-underline-offset:2px;
+}
 </style>
 </head>
-<body class="dark-cover" oncontextmenu="return false" data-artists="b-minor,tomos" data-features="">
+<body class="page-release dark-cover" oncontextmenu="return false" data-artists="b-minor,tomos" data-features="">
 
 <div class="sky-bg"></div>
 
@@ -479,6 +136,12 @@
 (function(){
   var el = document.querySelector('.sky-bg');
   if(!el) return;
+  var forced = document.body.getAttribute('data-text');
+  if(forced){
+    document.body.classList.toggle('light-cover', forced === 'dark');
+    document.body.classList.toggle('dark-cover', forced === 'light');
+    return;
+  }
   var cs = getComputedStyle(el);
   var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
   if(!m) return;

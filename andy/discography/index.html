@@ -4,262 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Discography — Andy</title>
+<meta name="description" content="Andy: full discography, albums, EPs, singles and features.">
+<meta name="theme-color" content="#595c5e">
+<link rel="canonical" href="https://bminorr.github.io/andy/discography/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="B Minor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Discography — Andy">
+<meta property="og:description" content="Andy: full discography, albums, EPs, singles and features.">
+<meta property="og:url" content="https://bminorr.github.io/andy/discography/">
+<meta property="og:image" content="https://bminorr.github.io/covers/nu-fac-nimic-square.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../style.css">
 <style>
-  :root{
-    --ink:#17120e;
-    --ink-dim:rgba(23,18,14,0.62);
-    --sky-fallback:#b7b7b7;
-    --surface-2:#2c221a;
-    --paper:#f3e9da;
-    --paper-dim:#c7b6a1;
-    --copper:#e08a45;
-    --line:rgba(243,233,218,0.14);
-    --glass:rgba(14,11,8,0.62);
-    --glass-hover:rgba(14,11,8,0.74);
-    --glass-border:rgba(243,233,218,0.2);    --bg-image:url(../../covers/andy-profile.jpg);
-    --bg-color:var(--sky-fallback);
-  }
-
-  html{ overscroll-behavior:none; }
-  *{box-sizing:border-box;}
-  img{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
-  body{
-    background:var(--sky-fallback);
-    color:var(--ink);
-    font-family:'Archivo',-apple-system,'Helvetica Neue',Arial,sans-serif;
-    margin:0;
-    padding:0;
-    overscroll-behavior:none;
-    -webkit-user-select:none;
-    user-select:none;
-  }
-
-  .sky-bg{
-    position:fixed;
-    inset:-30px;
-    z-index:-1;
-    background-image:var(--bg-image);
-    background-color:var(--bg-color);
-    background-size:cover;
-    background-position:center;
-    filter:blur(45px) brightness(0.75);
-  }
-
-  .stage{
-    position:relative;
-    min-height:100vh;
-    max-width:480px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:48px 20px 48px;
-    overflow-x:hidden;
-  }
-  @media (min-width:700px){
-    .stage{ zoom:1.25; }
-  }
-
-  .page{
-    position:relative;
-    z-index:1;
-    width:100%;
-    max-width:440px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
-
-  h1{
-    font-family:'Fraunces',Georgia,serif;
-    font-weight:900;
-    font-size:clamp(38px, 10vw, 50px);
-    line-height:1.05;
-    letter-spacing:-0.01em;
-    margin:0 0 48px;
-    text-wrap:balance;
-    text-align:center;
-  }
-
-  .disco-view[hidden]{ display:none; }
-
-  .view-toolbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    width:100%;
-    gap:12px;
-    margin:0 0 14px;
-  }
-  .view-toolbar-label{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:16px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-  }
-  .view-pill{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    flex:none;
-    width:calc((100% - 20px) * 2 / 9);
-    padding:7px 0;
-    border-radius:999px;
-    background:rgba(14,11,8,0.4);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    color:var(--paper-dim);
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
-    transition:background .18s ease, color .18s ease;
-  }
-  .view-pill:active{
-    background:var(--glass-hover);
-    color:var(--paper);
-  }
-
-  .disco-grid{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:10px;
-    margin-bottom:28px;
-  }
-  .disco-card{
-    display:block;
-    padding:8px;
-    border-radius:14px;
-    text-decoration:none;
-    color:var(--paper);
-    background:var(--glass);
-    border:1px solid var(--glass-border);
-    backdrop-filter:blur(14px) saturate(160%);
-    -webkit-backdrop-filter:blur(14px) saturate(160%);
-    box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
-    transition:background .18s ease;
-  }
-  .disco-card:active,
-  .disco-card:focus-visible{
-    background:var(--glass-hover);
-  }
-  .disco-art{
-    position:relative;
-    width:100%;
-    aspect-ratio:1/1;
-    border-radius:9px;
-    overflow:hidden;
-  }
-  .disco-art img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .disco-caption{
-    display:block;
-    margin-top:8px;
-    overflow:hidden;
-    white-space:nowrap;
-    font-family:'Archivo',sans-serif;
-    font-weight:600;
-    font-size:12px;
-    line-height:1.25;
-  }
-  .disco-meta{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-top:3px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:8.5px;
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-    color:var(--paper-dim);
-    white-space:nowrap;
-  }
-  .disco-meta-left{
-    display:flex;
-    align-items:center;
-    gap:3px;
-  }
-  .disco-explicit{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:11px;
-    height:11px;
-    flex:none;
-    border:1px solid var(--paper-dim);
-    border-radius:3px;
-    font-size:7px;
-    line-height:1;
-    color:var(--paper-dim);
-  }
-
-  #view-flat .disco-grid{
-    margin-bottom:10px;
-  }
-
-  footer{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:16px;
-    color:var(--ink-dim);
-  }
-  .back-link{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--ink-dim);
-    text-decoration:none;
-    border-bottom:1px solid var(--ink-dim);
-    padding-bottom:1px;
-  }
-  footer p{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:11px;
-    letter-spacing:0.08em;
-    line-height:1.7;
-    text-align:center;
-    margin:0;
-  }
-
-  @media (hover: hover) and (pointer: fine){
-    .disco-card:hover{
-      background:var(--glass-hover);
-    }
-    .view-pill:hover{
-      background:var(--glass-hover);
-      color:var(--paper);
-    }
-  }
-
-  /* ---- adaptive text colour: dark backgrounds get light text ---- */
-  body.dark-cover h1,
-  body.dark-cover .view-toolbar-label,
-  body.dark-cover .disco-heading,
-  body.dark-cover .section-label span,
-  body.dark-cover footer{ color:var(--paper); }
-  body.dark-cover .tagline{ color:var(--paper-dim); }
-  body.dark-cover .back-link{ color:var(--paper); border-bottom-color:var(--paper-dim); }
+:root{
+  --bg-image:url(/covers/andy-profile.jpg);
+}
 </style>
 </head>
-<body class="dark-cover" oncontextmenu="return false">
+<body class="page-disco dark-cover" oncontextmenu="return false">
 
 <div class="sky-bg"></div>
 
@@ -362,6 +130,12 @@
 (function(){
   var el = document.querySelector('.sky-bg');
   if(!el) return;
+  var forced = document.body.getAttribute('data-text');
+  if(forced){
+    document.body.classList.toggle('light-cover', forced === 'dark');
+    document.body.classList.toggle('dark-cover', forced === 'light');
+    return;
+  }
   var cs = getComputedStyle(el);
   var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
   if(!m) return;
