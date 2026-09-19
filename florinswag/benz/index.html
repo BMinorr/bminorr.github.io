@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BENZ feat. Deyuu — Florinswag</title>
+<meta name="description" content="BENZ feat. Deyuu. Released 24.10.2025. Listen on Spotify, Apple Music, YouTube Music and YouTube.">
+<meta name="theme-color" content="#2a4d56">
+<link rel="canonical" href="https://bminorr.github.io/florinswag/benz/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="B Minor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BENZ feat. Deyuu — Florinswag">
+<meta property="og:description" content="BENZ feat. Deyuu. Released 24.10.2025. Listen on Spotify, Apple Music, YouTube Music and YouTube.">
+<meta property="og:url" content="https://bminorr.github.io/florinswag/benz/">
+<meta property="og:image" content="https://bminorr.github.io/covers/benz-square.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../../style.css">
+<style>
+:root{
+  --bg-image:url(/covers/bg/benz-square.jpg);
+}
+</style>
+</head>
+<body class="page-release dark-cover" oncontextmenu="return false" data-artists="florinswag" data-features="deyuu">
+
+<div class="sky-bg"></div>
+
+<div class="stage">
+  <div class="page">
+
+    <div class="cover">
+      <img src="../../covers/benz-square.jpg" alt="BENZ w/ Deyuu cover art">
+    </div>
+
+    <h1>BENZ</h1>
+    <p class="feat-line">feat. <a class="feat-link" href="../../deyuu/">Deyuu</a></p>
+
+    <div class="section-label"><span>Listen</span></div>
+    <div class="links">
+      <a class="link-row" href="https://open.spotify.com/track/0u7NTdKIT6UauwKuwoXScZ" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/spotify.webp" alt="">
+        </span>
+        <span class="link-label">Spotify</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://music.apple.com/us/album/benz-feat-deyuu/1848312952?i=1848312955" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/apple-music.webp" alt="">
+        </span>
+        <span class="link-label">Apple Music</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://music.youtube.com/watch?v=RzFdVW2g3gY" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/youtube-music.webp" alt="">
+        </span>
+        <span class="link-label">YouTube Music</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+
+      <a class="link-row" href="https://youtu.be/RzFdVW2g3gY" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <img src="../../covers/icons/youtube.webp" alt="">
+        </span>
+        <span class="link-label">YouTube</span>
+        <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+    <div class="section-label"><span>About</span></div>
+    <div class="about-card">
+      <div class="about-row">Released on 24.10.2025</div>
+      <div class="about-row">Genre: Trap</div>
+    </div>
+
+    <footer>
+      <a class="back-link" href="../">← Back to Florinswag</a>
+      <p>© 2026 FLORINSWAG<br>ALL RIGHTS RESERVED</p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var el = document.querySelector('.sky-bg');
+  if(!el) return;
+  var forced = document.body.getAttribute('data-text');
+  if(forced){
+    document.body.classList.toggle('light-cover', forced === 'dark');
+    document.body.classList.toggle('dark-cover', forced === 'light');
+    return;
+  }
+  var cs = getComputedStyle(el);
+  var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+  if(!m) return;
+  var fm = cs.filter.match(/brightness\(([\d.]+)\)/);
+  var k = fm ? parseFloat(fm[1]) : 1;
+  var img = new Image();
+  img.onload = function(){
+    var w = 24, h = 24;
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    try{
+      var data = ctx.getImageData(0, 0, w, h).data;
+      var sum = 0, count = 0;
+      for(var i=0; i<data.length; i+=4){
+        sum += 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
+        count++;
+      }
+      var bright = (sum/count) * k > 135;
+      document.body.classList.toggle('light-cover', bright);
+      document.body.classList.toggle('dark-cover', !bright);
+    }catch(e){}
+  };
+  img.src = m[1];
+})();
+</script>
+</body>
+</html>

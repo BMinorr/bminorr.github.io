@@ -45,14 +45,36 @@
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
-      <a class="spotlight-featured" href="de-ce-ma-misc-in-zigzag/">
+      <a class="spotlight-featured" href="atat-de-greu/">
         <div class="spotlight-featured-art">
-          <img src="../covers/card/nu-fac-nimic-square.jpg" alt="De ce ma misc in ZigZag cover art">
+          <img src="../covers/card/atat-de-greu-square.jpg" alt="Atat de greu w/ Andy cover art">
         </div>
         <div class="spotlight-title-row">
-          <span class="spotlight-featured-caption">De ce ma misc in ZigZag</span>
+          <span class="spotlight-featured-caption">Atat de greu w/ Andy</span>
         </div>
         <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+      </a>
+
+      <div class="spotlight-grid">
+        <a class="spotlight-card" href="de-ce-ma-misc-in-zigzag/">
+          <div class="spotlight-art">
+            <img src="../covers/card/nu-fac-nimic-square.jpg" alt="De ce ma misc in ZigZag w/ Andy cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">De ce ma misc in ZigZag w/ Andy</span>
+          </div>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        </a>
+      </div>
+
+      <a class="see-all-btn" href="discography/">
+        <div class="see-all-covers" aria-hidden="true">
+          <div class="see-all-covers-track">
+            <img src="../covers/card/atat-de-greu-square.jpg" alt="" decoding="async">
+            <img src="../covers/card/nu-fac-nimic-square.jpg" alt="" decoding="async">
+          </div>
+        </div>
+        <span class="see-all-label">See all discography</span>
       </a>
     </section>
 
@@ -101,6 +123,97 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function setupMarquee(el){
+    if (el.dataset.marqueeReady) return;
+    var text = el.textContent;
+    el.textContent = '';
+    var track = document.createElement('span');
+    track.className = 'marquee-track';
+    var copy1 = document.createElement('span');
+    copy1.className = 'marquee-copy';
+    copy1.textContent = text;
+    track.appendChild(copy1);
+    el.appendChild(track);
+    el.dataset.marqueeReady = '1';
+  }
+  var marqueeCounter = 0;
+  function measureMarquee(el){
+    var track = el.querySelector('.marquee-track');
+    var copy1 = el.querySelector('.marquee-copy');
+    if(!track || !copy1) return;
+    var extra = track.querySelectorAll('.marquee-copy');
+    for(var i = 1; i < extra.length; i++) extra[i].remove();
+    el.classList.remove('marquee');
+    track.style.animation = 'none';
+    if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
+    var copyPadding = parseFloat(getComputedStyle(copy1).paddingRight) || 0;
+    var overflow = (copy1.scrollWidth - copyPadding) - el.clientWidth;
+    if(overflow > 2){
+      var copy2 = copy1.cloneNode(true);
+      track.appendChild(copy2);
+      var scrollSeconds = Math.max(4, 3 + overflow / 18);
+      var pauseSeconds = 3;
+      var total = scrollSeconds + pauseSeconds;
+      var pausePct = (scrollSeconds / total) * 100;
+      var animName = 'marquee-anim-' + (marqueeCounter++);
+      var styleTag = document.createElement('style');
+      styleTag.textContent = '@keyframes ' + animName + '{' +
+        '0%{transform:translateX(0);}' +
+        pausePct.toFixed(3) + '%{transform:translateX(-50%);}' +
+        '100%{transform:translateX(-50%);}' +
+      '}';
+      document.head.appendChild(styleTag);
+      track._marqueeStyleTag = styleTag;
+      track.style.animation = animName + ' ' + total + 's linear infinite';
+      el.classList.add('marquee');
+    }
+  }
+  var tickerCounter = 0;
+  function setupCoverTicker(container){
+    var track = container.querySelector('.see-all-covers-track');
+    if(!track) return;
+    if(!track._baseImgs){
+      track._baseImgs = Array.prototype.slice.call(track.children);
+    }
+    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
+    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var baseWidth = 0;
+    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
+    if(baseWidth <= 0) return;
+    var containerWidth = container.clientWidth;
+    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
+    for(var c = 1; c < copies; c++){
+      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
+    }
+    var pxPerSecond = 19;
+    var seconds = baseWidth / pxPerSecond;
+    var pct = 100 / copies;
+    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
+    document.head.appendChild(styleTag);
+    track._tickerStyleTag = styleTag;
+    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
+  }
+  function refresh(){
+    document.querySelectorAll('.spotlight-caption').forEach(function(el){
+      setupMarquee(el);
+      measureMarquee(el);
+    });
+    document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
+  }
+  refresh();
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    refresh();
+  });
+})();
+</script>
 <script>
 (function(){
   var el = document.querySelector('.sky-bg');
