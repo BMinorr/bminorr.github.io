@@ -142,7 +142,8 @@
 
   /* ---- liquid glass surface, shared by every card/button ---- */
   .spotlight-featured,
-  .link-row{
+  .link-row,
+  .see-all-btn{
     background:var(--glass);
     border:1px solid var(--glass-border);
     backdrop-filter:blur(14px) saturate(160%);
@@ -361,7 +362,8 @@
 
   @media (hover: hover) and (pointer: fine){
     .spotlight-featured:hover,
-    .link-row:hover{
+    .link-row:hover,
+    .see-all-btn:hover{
       background:var(--glass-hover);
     }
   }
@@ -409,37 +411,37 @@
     <section class="group">
       <div class="section-label"><span>Streaming</span></div>
       <div class="links">
-        <div class="link-row is-unavailable">
+        <a class="link-row" href="https://open.spotify.com/artist/6CZfgjv0WMWxUkTNwt3r4t" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/spotify.webp" alt="">
           </span>
           <span class="link-label">Spotify</span>
-          <span class="link-unavailable">(not available)</span>
-        </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
 
-        <div class="link-row is-unavailable">
+        <a class="link-row" href="https://music.apple.com/us/artist/andy/1858243295" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/apple-music.webp" alt="">
           </span>
           <span class="link-label">Apple Music</span>
-          <span class="link-unavailable">(not available)</span>
-        </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
 
-        <div class="link-row is-unavailable">
+        <a class="link-row" href="https://music.youtube.com/channel/UCsFYJ6iIf9j449jtny3NnDQ" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/youtube-music.webp" alt="">
           </span>
           <span class="link-label">YouTube Music</span>
-          <span class="link-unavailable">(not available)</span>
-        </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
 
-        <div class="link-row is-unavailable">
+        <a class="link-row" href="https://www.youtube.com/channel/UCsFYJ6iIf9j449jtny3NnDQ" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/youtube.webp" alt="">
           </span>
           <span class="link-label">YouTube</span>
-          <span class="link-unavailable">(not available)</span>
-        </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
       </div>
     </section>
 

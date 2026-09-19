@@ -82,12 +82,56 @@
     text-align:center;
   }
 
+  .disco-view[hidden]{ display:none; }
+
+  .view-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    gap:12px;
+    margin:0 0 14px;
+  }
+  .view-toolbar-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .view-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    width:calc((100% - 20px) * 2 / 9);
+    padding:7px 0;
+    border-radius:999px;
+    background:rgba(14,11,8,0.4);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    color:var(--paper-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .18s ease, color .18s ease;
+  }
+  .view-pill:active{
+    background:var(--glass-hover);
+    color:var(--paper);
+  }
+
   .disco-grid{
     width:100%;
     display:grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
     gap:10px;
-    margin-bottom:36px;
+    margin-bottom:28px;
   }
   .disco-card{
     display:block;
@@ -129,8 +173,6 @@
     font-size:12px;
     line-height:1.25;
   }
-  .marquee-track{ display:inline-flex; }
-  .marquee-copy{ white-space:nowrap; padding-right:32px; }
   .disco-meta{
     display:flex;
     align-items:center;
@@ -160,6 +202,10 @@
     font-size:7px;
     line-height:1;
     color:var(--paper-dim);
+  }
+
+  #view-flat .disco-grid{
+    margin-bottom:10px;
   }
 
   footer{
@@ -195,6 +241,10 @@
     .disco-card:hover{
       background:var(--glass-hover);
     }
+    .view-pill:hover{
+      background:var(--glass-hover);
+      color:var(--paper);
+    }
   }
 </style>
 </head>
@@ -205,16 +255,59 @@
 <div class="stage">
   <div class="page">
 
-    <h1>Discography</h1>
+    <h1 id="disco-title">Discography</h1>
 
-    <div class="disco-grid">
-      <a class="disco-card" href="../richtar/">
-        <div class="disco-art">
-          <img src="../../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
-        </div>
-        <span class="disco-caption">Rich$Tar</span>
-        <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2026</span></span>
-      </a>
+    <div class="view-toolbar">
+      <span class="view-toolbar-label" id="view-first-heading">Album</span>
+      <button class="view-pill" id="view-pill" type="button">By Type</button>
+    </div>
+
+    <div id="view-type" class="disco-view">
+      <div class="disco-grid">
+        <a class="disco-card" href="../richtar/">
+          <div class="disco-art">
+            <img src="../../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
+          </div>
+          <span class="disco-caption">Rich$Tar</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-year" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../richtar/">
+          <div class="disco-art">
+            <img src="../../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
+          </div>
+          <span class="disco-caption">Rich$Tar</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-genre" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../richtar/">
+          <div class="disco-art">
+            <img src="../../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
+          </div>
+          <span class="disco-caption">Rich$Tar</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-flat" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../richtar/">
+          <div class="disco-art">
+            <img src="../../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
+          </div>
+          <span class="disco-caption">Rich$Tar</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Album</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
     </div>
 
     <footer>
@@ -227,54 +320,32 @@
 
 <script>
 (function(){
-  function setupMarquee(el){
-    if (el.dataset.marqueeReady) return;
-    var text = el.textContent;
-    el.textContent = '';
-    var track = document.createElement('span');
-    track.className = 'marquee-track';
-    var copy1 = document.createElement('span');
-    copy1.className = 'marquee-copy';
-    copy1.textContent = text;
-    track.appendChild(copy1);
-    el.appendChild(track);
-    el.dataset.marqueeReady = '1';
-  }
-  var marqueeCounter = 0;
-  function measureMarquee(el){
-    var track = el.querySelector('.marquee-track');
-    var copy1 = el.querySelector('.marquee-copy');
-    if(!track || !copy1) return;
-    var extra = track.querySelectorAll('.marquee-copy');
-    for(var i = 1; i < extra.length; i++) extra[i].remove();
-    track.style.animation = 'none';
-    if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
-    var copyPadding = parseFloat(getComputedStyle(copy1).paddingRight) || 0;
-    var overflow = (copy1.scrollWidth - copyPadding) - el.clientWidth;
-    if(overflow > 2){
-      var copy2 = copy1.cloneNode(true);
-      track.appendChild(copy2);
-      var scrollSeconds = Math.max(4, 3 + overflow / 18);
-      var pauseSeconds = 3;
-      var total = scrollSeconds + pauseSeconds;
-      var pausePct = (scrollSeconds / total) * 100;
-      var animName = 'marquee-anim-' + (marqueeCounter++);
-      var styleTag = document.createElement('style');
-      styleTag.textContent = '@keyframes ' + animName + '{' +
-        '0%{transform:translateX(0);}' +
-        pausePct.toFixed(3) + '%{transform:translateX(-50%);}' +
-        '100%{transform:translateX(-50%);}' +
-      '}';
-      document.head.appendChild(styleTag);
-      track._marqueeStyleTag = styleTag;
-      track.style.animation = animName + ' ' + total + 's linear infinite';
-    }
-  }
-  document.querySelectorAll('.disco-caption').forEach(function(el){
-    setupMarquee(el);
-    measureMarquee(el);
+  var views = {
+    type: document.getElementById('view-type'),
+    year: document.getElementById('view-year'),
+    genre: document.getElementById('view-genre'),
+    flat: document.getElementById('view-flat')
+  };
+  var order = ['type', 'year', 'genre', 'flat'];
+  var meta = {
+    type: { heading: 'Album', pill: 'By Type' },
+    year: { heading: '2026', pill: 'By Year' },
+    genre: { heading: 'Trap', pill: 'By Genre' },
+    flat: { heading: '', pill: 'All' }
+  };
+  var current = 0;
+  var headingEl = document.getElementById('view-first-heading');
+  var pillEl = document.getElementById('view-pill');
+
+  pillEl.addEventListener('click', function(){
+    current = (current + 1) % order.length;
+    var target = order[current];
+    Object.keys(views).forEach(function(key){ views[key].hidden = key !== target; });
+    headingEl.textContent = meta[target].heading;
+    pillEl.textContent = meta[target].pill;
   });
 })();
 </script>
+
 </body>
 </html>

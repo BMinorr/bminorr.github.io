@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Richharddd</title>
+<title>B Minor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap">
@@ -21,8 +21,6 @@
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
     --glass-border:rgba(243,233,218,0.2);
-    --bg-image:url(../covers/generic-avatar.jpg);
-    --bg-color:var(--sky-fallback);
   }
 
   html{
@@ -45,11 +43,10 @@
     position:fixed;
     inset:-30px;
     z-index:-1;
-    background-image:var(--bg-image);
-    background-color:var(--bg-color);
+    background-image:url(../covers/sky.jpg);
     background-size:cover;
     background-position:center;
-    filter:blur(45px) brightness(0.75);
+    filter:grayscale(1) blur(6px);
   }
 
   .stage{
@@ -116,9 +113,24 @@
     font-size:clamp(52px, 15vw, 72px);
     line-height:1;
     letter-spacing:-0.01em;
-    margin:0 0 36px;
+    margin:0 0 12px;
     text-wrap:balance;
     text-align:center;
+  }
+
+  .tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin:0 0 36px;
+    text-align:center;
+  }
+  .tagline i{
+    font-style:normal;
+    margin:0 8px;
   }
 
   /* ---- section groups ---- */
@@ -142,6 +154,8 @@
 
   /* ---- liquid glass surface, shared by every card/button ---- */
   .spotlight-featured,
+  .spotlight-card,
+  .social-card,
   .link-row,
   .see-all-btn{
     background:var(--glass);
@@ -151,7 +165,7 @@
     box-shadow:0 1px 1px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
   }
 
-  /* ---- spotlight: only known release ---- */
+  /* ---- spotlight: featured release ---- */
   .spotlight-featured{
     display:block;
     width:100%;
@@ -159,6 +173,7 @@
     border-radius:18px;
     text-decoration:none;
     color:var(--paper);
+    margin-bottom:16px;
     transition:background .18s ease;
   }
   .spotlight-featured:active,
@@ -187,8 +202,8 @@
     align-items:center;
     gap:8px;
     width:100%;
-    margin-top:14px;
   }
+  .spotlight-featured .spotlight-title-row{ margin-top:14px; }
   .spotlight-featured-caption{
     display:block;
     margin:0;
@@ -227,7 +242,14 @@
     letter-spacing:0;
   }
 
-  /* ---- links (streaming + socials) ---- */
+  /* ---- spotlight: 3 most recent ---- */
+  .spotlight-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+    margin-bottom:16px;
+  }
 
   .see-all-btn{
     display:flex;
@@ -276,6 +298,106 @@
     text-transform:uppercase;
   }
 
+  .spotlight-card{
+    padding:9px;
+    border-radius:15px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+  }
+  .spotlight-card:active,
+  .spotlight-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .spotlight-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:10px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .spotlight-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .spotlight-card .spotlight-title-row{ margin-top:9px; }
+  .spotlight-card .release-meta{ font-size:8px; letter-spacing:0.02em; }
+  .spotlight-card .explicit-tag{ width:11px; height:11px; font-size:7px; }
+  .spotlight-caption{
+    display:block;
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    line-height:1.3;
+  }
+  .marquee-track{ display:inline-flex; }
+  .marquee-copy{ white-space:nowrap; padding-right:32px; }
+
+  /* ---- socials grid ---- */
+  .social-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  .social-card{
+    display:block;
+    padding:9px;
+    border-radius:15px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+  }
+  .social-card:active,
+  .social-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .social-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:10px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .social-art svg{ width:42px; height:42px; opacity:0.32; }
+  .social-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .social-meta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:10px 2px 2px;
+  }
+  .social-meta .link-arrow{ margin-left:auto; }
+  .social-meta .link-icon{
+    width:28px;
+    height:28px;
+    border-radius:8px;
+  }
+  .social-meta span{
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+  }
+
+  /* ---- links ---- */
   .links{
     width:100%;
     display:flex;
@@ -301,18 +423,6 @@
     background:var(--glass-hover);
   }
   .link-row:focus-visible{ outline:2px solid var(--copper); outline-offset:2px; }
-  .link-row.is-unavailable{
-    opacity:0.45;
-    cursor:default;
-  }
-  .link-unavailable{
-    flex:none;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px;
-    letter-spacing:0.04em;
-    color:var(--paper-dim);
-    white-space:nowrap;
-  }
 
   .link-icon{
     width:38px;
@@ -362,6 +472,8 @@
 
   @media (hover: hover) and (pointer: fine){
     .spotlight-featured:hover,
+    .spotlight-card:hover,
+    .social-card:hover,
     .link-row:hover,
     .see-all-btn:hover{
       background:var(--glass-hover);
@@ -369,49 +481,92 @@
   }
 </style>
 </head>
-<body oncontextmenu="return false" data-artist="richharddd">
+<body oncontextmenu="return false" data-artist="b-minor">
 
 <div class="sky-bg"></div>
 
 <div class="hero-wrap">
   <div class="hero-photo">
-    <img src="../covers/generic-avatar.jpg" alt="Richharddd" fetchpriority="high" decoding="async">
+    <img src="../covers/hero.jpg" alt="B Minor" fetchpriority="high" decoding="async">
   </div>
 </div>
 
 <div class="stage">
   <div class="page">
 
-    <h1>Richharddd</h1>
+    <h1>B Minor</h1>
+    <p class="tagline">Singer<i>/</i>Writer<i>/</i>Producer</p>
 
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
-      <a class="spotlight-featured" href="richtar/">
+      <a class="spotlight-featured" href="buze-pe-buze/">
         <div class="spotlight-featured-art">
-          <img src="../covers/card/monroe-square.jpg" alt="Rich$Tar cover art">
+          <img src="../covers/buze-pe-buze.jpg" alt="buze pe buze cover art">
         </div>
         <div class="spotlight-title-row">
-          <span class="spotlight-featured-caption">Rich$Tar</span>
+          <span class="spotlight-featured-caption">buze pe buze</span>
         </div>
-        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Album</span><span class="meta-year">2026</span></span>
+        <span class="release-meta">Single · 2026</span>
       </a>
+
+      <div class="spotlight-grid">
+        <a class="spotlight-card" href="gone/">
+          <div class="spotlight-art">
+            <img src="../covers/card/gone-square.jpg" alt="gone w/ Florinswag cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">gone w/ Florinswag</span>
+          </div>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        </a>
+        <a class="spotlight-card" href="lately/">
+          <div class="spotlight-art">
+            <img src="../covers/card/lately-square.jpg" alt="lately w/ Rosu cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">lately w/ Rosu</span>
+          </div>
+          <span class="release-meta"><span class="meta-left">Feature</span><span class="meta-year">2026</span></span>
+        </a>
+        <a class="spotlight-card" href="monroe/">
+          <div class="spotlight-art">
+            <img src="../covers/card/monroe-square.jpg" alt="monroe w/ Richharddd cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">monroe w/ Richharddd</span>
+          </div>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        </a>
+      </div>
 
       <a class="see-all-btn" href="discography/">
         <div class="see-all-covers" aria-hidden="true">
           <div class="see-all-covers-track">
+            <img src="../covers/bg/henny-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/buze-pe-buze-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/spection-w-cerb.jpg" alt="" decoding="async">
+            <img src="../covers/bg/contraste-square.jpg" alt="" decoding="async">
             <img src="../covers/card/monroe-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/cam-dor-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/referinta-square.jpg" alt="" decoding="async">
+            <img src="../covers/card/lately-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/majora-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/adr-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/21-iunie-square.jpg" alt="" decoding="async">
+            <img src="../covers/card/gone-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/ce-nu-putem-fi-square.jpg" alt="" decoding="async">
+            <img src="../covers/bg/nu-fac-nimic-square.jpg" alt="" decoding="async">
           </div>
         </div>
         <span class="see-all-label">See all discography</span>
       </a>
     </section>
 
-
     <section class="group">
       <div class="section-label"><span>Streaming</span></div>
       <div class="links">
-        <a class="link-row" href="https://open.spotify.com/artist/43Mmkut424GAeC30HOwmVL" target="_blank" rel="noopener">
+        <a class="link-row" href="https://open.spotify.com/artist/5KAH5twb9qJLtX9ZAvQGzc" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/spotify.webp" alt="">
           </span>
@@ -419,7 +574,7 @@
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
-        <a class="link-row" href="https://music.apple.com/us/artist/richharddd/1850745113" target="_blank" rel="noopener">
+        <a class="link-row" href="https://music.apple.com/ro/artist/b-mi%C3%B1or/1596993264" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/apple-music.webp" alt="">
           </span>
@@ -427,7 +582,7 @@
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
-        <a class="link-row" href="https://music.youtube.com/channel/UCmVm54PJ8q8GLGJ8Yy71FXQ" target="_blank" rel="noopener">
+        <a class="link-row" href="https://music.youtube.com/@bminorr" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/youtube-music.webp" alt="">
           </span>
@@ -435,7 +590,7 @@
           <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
 
-        <a class="link-row" href="https://www.youtube.com/channel/UCmVm54PJ8q8GLGJ8Yy71FXQ" target="_blank" rel="noopener">
+        <a class="link-row" href="https://www.youtube.com/@bminorr" target="_blank" rel="noopener">
           <span class="link-icon" aria-hidden="true">
             <img src="../covers/icons/youtube.webp" alt="">
           </span>
@@ -447,27 +602,89 @@
 
     <section class="group">
       <div class="section-label"><span>Socials</span></div>
-      <div class="links">
-        <a class="link-row" href="https://www.instagram.com/24.georgeee" target="_blank" rel="noopener">
-          <span class="link-icon" aria-hidden="true">
-            <img src="../covers/icons/instagram.webp" alt="">
-          </span>
-          <span class="link-label">Instagram</span>
-          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      <div class="social-grid">
+        <a class="social-card" href="https://www.instagram.com/stephgramus" target="_blank" rel="noopener">
+          <div class="social-art">
+            <img src="../covers/instagram.jpg" alt="Instagram">
+          </div>
+          <div class="social-meta">
+            <span class="link-icon" aria-hidden="true">
+              <img src="../covers/icons/instagram.webp" alt="">
+            </span>
+            <span>Instagram</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+        </a>
+
+        <a class="social-card" href="https://www.tiktok.com/@bminour" target="_blank" rel="noopener">
+          <div class="social-art">
+            <img src="../covers/tiktok.jpg" alt="TikTok">
+          </div>
+          <div class="social-meta">
+            <span class="link-icon" aria-hidden="true">
+              <img src="../covers/icons/tiktok.webp" alt="">
+            </span>
+            <span>TikTok</span>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
         </a>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 RICHHARDDD<br>ALL RIGHTS RESERVED</p>
+      <p>© 2026 B MINOR<br>ALL RIGHTS RESERVED</p>
     </footer>
 
   </div>
 </div>
 
-
 <script>
 (function(){
+  function setupMarquee(el){
+    if (el.dataset.marqueeReady) return;
+    var text = el.textContent;
+    el.textContent = '';
+    var track = document.createElement('span');
+    track.className = 'marquee-track';
+    var copy1 = document.createElement('span');
+    copy1.className = 'marquee-copy';
+    copy1.textContent = text;
+    track.appendChild(copy1);
+    el.appendChild(track);
+    el.dataset.marqueeReady = '1';
+  }
+  var marqueeCounter = 0;
+  function measureMarquee(el){
+    var track = el.querySelector('.marquee-track');
+    var copy1 = el.querySelector('.marquee-copy');
+    if(!track || !copy1) return;
+    var extra = track.querySelectorAll('.marquee-copy');
+    for(var i = 1; i < extra.length; i++) extra[i].remove();
+    el.classList.remove('marquee');
+    track.style.animation = 'none';
+    if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
+    var copyPadding = parseFloat(getComputedStyle(copy1).paddingRight) || 0;
+    var overflow = (copy1.scrollWidth - copyPadding) - el.clientWidth;
+    if(overflow > 2){
+      var copy2 = copy1.cloneNode(true);
+      track.appendChild(copy2);
+      var scrollSeconds = Math.max(4, 3 + overflow / 18);
+      var pauseSeconds = 3;
+      var total = scrollSeconds + pauseSeconds;
+      var pausePct = (scrollSeconds / total) * 100;
+      var animName = 'marquee-anim-' + (marqueeCounter++);
+      var styleTag = document.createElement('style');
+      styleTag.textContent = '@keyframes ' + animName + '{' +
+        '0%{transform:translateX(0);}' +
+        pausePct.toFixed(3) + '%{transform:translateX(-50%);}' +
+        '100%{transform:translateX(-50%);}' +
+      '}';
+      document.head.appendChild(styleTag);
+      track._marqueeStyleTag = styleTag;
+      track.style.animation = animName + ' ' + total + 's linear infinite';
+      el.classList.add('marquee');
+    }
+  }
   var tickerCounter = 0;
   function setupCoverTicker(container){
     var track = container.querySelector('.see-all-covers-track');
@@ -496,7 +713,20 @@
     track._tickerStyleTag = styleTag;
     track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
   }
-  document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
+  function refresh(){
+    document.querySelectorAll('.spotlight-caption').forEach(function(el){
+      setupMarquee(el);
+      measureMarquee(el);
+    });
+    document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
+  }
+  refresh();
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    refresh();
+  });
 })();
 </script>
 </body>

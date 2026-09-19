@@ -82,12 +82,67 @@
     text-align:center;
   }
 
+  .disco-view[hidden]{ display:none; }
+
+  .disco-heading{
+    width:100%;
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+
+  .view-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    gap:12px;
+    margin:0 0 14px;
+  }
+  .view-toolbar-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+  }
+  .view-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    width:calc((100% - 20px) * 2 / 9);
+    padding:7px 0;
+    border-radius:999px;
+    background:rgba(14,11,8,0.4);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    color:var(--paper-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .18s ease, color .18s ease;
+  }
+  .view-pill:active{
+    background:var(--glass-hover);
+    color:var(--paper);
+  }
+
   .disco-grid{
     width:100%;
     display:grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
     gap:10px;
-    margin-bottom:36px;
+    margin-bottom:28px;
   }
   .disco-card{
     display:block;
@@ -162,6 +217,10 @@
     color:var(--paper-dim);
   }
 
+  #view-flat .disco-grid{
+    margin-bottom:10px;
+  }
+
   footer{
     width:100%;
     display:flex;
@@ -195,6 +254,10 @@
     .disco-card:hover{
       background:var(--glass-hover);
     }
+    .view-pill:hover{
+      background:var(--glass-hover);
+      color:var(--paper);
+    }
   }
 </style>
 </head>
@@ -205,37 +268,151 @@
 <div class="stage">
   <div class="page">
 
-    <h1>Discography</h1>
+    <h1 id="disco-title">Discography</h1>
 
-    <div class="disco-grid">
-      <a class="disco-card" href="../zwitter/">
-        <div class="disco-art">
-          <img src="../../covers/card/adr-square.jpg" alt="zwitter cover art">
-        </div>
-        <span class="disco-caption">zwitter</span>
-        <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2026</span></span>
-      </a>
-      <a class="disco-card" href="../adam/">
-        <div class="disco-art">
-          <img src="../../covers/card/adam-square.jpg" alt="Adam cover art">
-        </div>
-        <span class="disco-caption">Adam</span>
-        <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2026</span></span>
-      </a>
-      <a class="disco-card" href="../referinta/">
-        <div class="disco-art">
-          <img src="../../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
-        </div>
-        <span class="disco-caption">referinta w/ B Minor</span>
-        <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2025</span></span>
-      </a>
-      <a class="disco-card" href="../ce-nu-putem-fi/">
-        <div class="disco-art">
-          <img src="../../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
-        </div>
-        <span class="disco-caption">ce nu putem fi w/ B Minor</span>
-        <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2025</span></span>
-      </a>
+    <div class="view-toolbar">
+      <span class="view-toolbar-label" id="view-first-heading">EP</span>
+      <button class="view-pill" id="view-pill" type="button">By Type</button>
+    </div>
+
+    <div id="view-type" class="disco-view">
+      <div class="disco-grid">
+        <a class="disco-card" href="../zwitter/">
+          <div class="disco-art">
+            <img src="../../covers/card/adr-square.jpg" alt="zwitter cover art">
+          </div>
+          <span class="disco-caption">zwitter</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
+
+      <div class="disco-heading">Singles</div>
+      <div class="disco-grid">
+        <a class="disco-card" href="../adam/">
+          <div class="disco-art">
+            <img src="../../covers/card/adam-square.jpg" alt="Adam cover art">
+          </div>
+          <span class="disco-caption">Adam</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../referinta/">
+          <div class="disco-art">
+            <img src="../../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">referinta w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+        <a class="disco-card" href="../ce-nu-putem-fi/">
+          <div class="disco-art">
+            <img src="../../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">ce nu putem fi w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-year" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../zwitter/">
+          <div class="disco-art">
+            <img src="../../covers/card/adr-square.jpg" alt="zwitter cover art">
+          </div>
+          <span class="disco-caption">zwitter</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../adam/">
+          <div class="disco-art">
+            <img src="../../covers/card/adam-square.jpg" alt="Adam cover art">
+          </div>
+          <span class="disco-caption">Adam</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2026</span></span>
+        </a>
+      </div>
+
+      <div class="disco-heading">2025</div>
+      <div class="disco-grid">
+        <a class="disco-card" href="../referinta/">
+          <div class="disco-art">
+            <img src="../../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">referinta w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+        <a class="disco-card" href="../ce-nu-putem-fi/">
+          <div class="disco-art">
+            <img src="../../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">ce nu putem fi w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-genre" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../zwitter/">
+          <div class="disco-art">
+            <img src="../../covers/card/adr-square.jpg" alt="zwitter cover art">
+          </div>
+          <span class="disco-caption">zwitter</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../adam/">
+          <div class="disco-art">
+            <img src="../../covers/card/adam-square.jpg" alt="Adam cover art">
+          </div>
+          <span class="disco-caption">Adam</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../referinta/">
+          <div class="disco-art">
+            <img src="../../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">referinta w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+        <a class="disco-card" href="../ce-nu-putem-fi/">
+          <div class="disco-art">
+            <img src="../../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">ce nu putem fi w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="view-flat" class="disco-view" hidden>
+      <div class="disco-grid">
+        <a class="disco-card" href="../zwitter/">
+          <div class="disco-art">
+            <img src="../../covers/card/adr-square.jpg" alt="zwitter cover art">
+          </div>
+          <span class="disco-caption">zwitter</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>EP</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../adam/">
+          <div class="disco-art">
+            <img src="../../covers/card/adam-square.jpg" alt="Adam cover art">
+          </div>
+          <span class="disco-caption">Adam</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2026</span></span>
+        </a>
+        <a class="disco-card" href="../referinta/">
+          <div class="disco-art">
+            <img src="../../covers/card/referinta-square.jpg" alt="referinta w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">referinta w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left"><span class="disco-explicit">E</span>Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+        <a class="disco-card" href="../ce-nu-putem-fi/">
+          <div class="disco-art">
+            <img src="../../covers/card/ce-nu-putem-fi-square.jpg" alt="ce nu putem fi w/ B Minor cover art">
+          </div>
+          <span class="disco-caption">ce nu putem fi w/ B Minor</span>
+          <span class="disco-meta"><span class="disco-meta-left">Single</span><span class="disco-meta-year">2025</span></span>
+        </a>
+      </div>
     </div>
 
     <footer>
@@ -291,11 +468,50 @@
       track.style.animation = animName + ' ' + total + 's linear infinite';
     }
   }
-  document.querySelectorAll('.disco-caption').forEach(function(el){
-    setupMarquee(el);
-    measureMarquee(el);
+  function processCaptions(root){
+    root.querySelectorAll('.disco-caption').forEach(function(el){
+      setupMarquee(el);
+      measureMarquee(el);
+    });
+  }
+
+  var views = {
+    type: document.getElementById('view-type'),
+    year: document.getElementById('view-year'),
+    genre: document.getElementById('view-genre'),
+    flat: document.getElementById('view-flat')
+  };
+  var order = ['type', 'year', 'genre', 'flat'];
+  var meta = {
+    type: { heading: 'EP', pill: 'By Type' },
+    year: { heading: '2026', pill: 'By Year' },
+    genre: { heading: 'Rap', pill: 'By Genre' },
+    flat: { heading: '', pill: 'All' }
+  };
+  var current = 0;
+  var headingEl = document.getElementById('view-first-heading');
+  var pillEl = document.getElementById('view-pill');
+
+  pillEl.addEventListener('click', function(){
+    current = (current + 1) % order.length;
+    var target = order[current];
+    Object.keys(views).forEach(function(key){ views[key].hidden = key !== target; });
+    headingEl.textContent = meta[target].heading;
+    pillEl.textContent = meta[target].pill;
+    processCaptions(views[target]);
+  });
+
+  processCaptions(views.type);
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    Object.keys(views).forEach(function(key){
+      if(!views[key].hidden) processCaptions(views[key]);
+    });
   });
 })();
 </script>
+
 </body>
 </html>
