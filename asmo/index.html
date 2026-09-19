@@ -142,7 +142,9 @@
 
   /* ---- liquid glass surface, shared by every card/button ---- */
   .spotlight-featured,
-  .link-row{
+  .spotlight-card,
+  .link-row,
+  .see-all-btn{
     background:var(--glass);
     border:1px solid var(--glass-border);
     backdrop-filter:blur(14px) saturate(160%);
@@ -159,6 +161,7 @@
     text-decoration:none;
     color:var(--paper);
     transition:background .18s ease;
+    margin-bottom:16px;
   }
   .spotlight-featured:active,
   .spotlight-featured:focus-visible{
@@ -225,6 +228,113 @@
     font-size:9px;
     letter-spacing:0;
   }
+
+  /* ---- spotlight: 3 most recent ---- */
+  .spotlight-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+    margin-bottom:16px;
+  }
+
+  .see-all-btn{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    padding:15px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+    overflow:hidden;
+  }
+  .see-all-btn:active, .see-all-btn:focus-visible{
+    background:var(--glass-hover);
+  }
+  .see-all-covers{
+    width:100%;
+    height:32px;
+    overflow:hidden;
+    margin-bottom:10px;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+  .see-all-covers-track{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    width:max-content;
+  }
+  .see-all-covers-track img{
+    width:32px;
+    height:32px;
+    border-radius:7px;
+    object-fit:cover;
+    display:block;
+    flex:none;
+  }
+  .see-all-label{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+
+  .spotlight-card{
+    padding:9px;
+    border-radius:15px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:background .18s ease;
+  }
+  .spotlight-card:active,
+  .spotlight-card:focus-visible{
+    background:var(--glass-hover);
+  }
+  .spotlight-art{
+    position:relative;
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:10px;
+    background:var(--tint, linear-gradient(150deg, var(--surface-2), var(--ink)));
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .spotlight-art img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .spotlight-card .spotlight-title-row{ margin-top:9px; }
+  .spotlight-card .release-meta{ font-size:8px; letter-spacing:0.02em; }
+  .spotlight-card .explicit-tag{ width:11px; height:11px; font-size:7px; }
+  .spotlight-title-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    width:100%;
+  }
+  .spotlight-caption{
+    display:block;
+    flex:1;
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family:'Archivo',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    line-height:1.3;
+  }
+  .marquee-track{ display:inline-flex; }
+  .marquee-copy{ white-space:nowrap; padding-right:32px; }
 
   /* ---- links (streaming + socials) ---- */
   .links{
@@ -313,13 +423,27 @@
 
   @media (hover: hover) and (pointer: fine){
     .spotlight-featured:hover,
-    .link-row:hover{
+    .spotlight-card:hover,
+    .link-row:hover,
+    .see-all-btn:hover{
       background:var(--glass-hover);
     }
   }
+
+  /* ---- adaptive text colour: dark backgrounds get light text ---- */
+  body.dark-cover h1,
+  body.dark-cover .view-toolbar-label,
+  body.dark-cover .disco-heading,
+  body.dark-cover .section-label span,
+  body.dark-cover footer{ color:var(--paper); }
+  body.dark-cover .tagline{ color:var(--paper-dim); }
+  body.dark-cover .back-link{ color:var(--paper); border-bottom-color:var(--paper-dim); }
+
+  .spotlight-featured:last-child,
+  .spotlight-grid:last-child{ margin-bottom:0; }
 </style>
 </head>
-<body oncontextmenu="return false" data-artist="asmo">
+<body class="dark-cover" oncontextmenu="return false" data-artist="asmo">
 
 <div class="sky-bg"></div>
 
@@ -337,14 +461,36 @@
     <section class="group">
       <div class="section-label"><span>Spotlight</span></div>
 
-      <a class="spotlight-featured" href="blitzkrieg/">
+      <a class="spotlight-featured" href="caramel/">
         <div class="spotlight-featured-art">
-          <img src="../covers/card/adr-square.jpg" alt="blitzkrieg w/ T Bag & B Minor cover art">
+          <img src="../covers/card/monroe-square.jpg" alt="Caramel w/ Richharddd &amp; Florinswag cover art">
         </div>
         <div class="spotlight-title-row">
-          <span class="spotlight-featured-caption">blitzkrieg w/ T Bag &amp; B Minor</span>
+          <span class="spotlight-featured-caption">Caramel w/ Richharddd &amp; Florinswag</span>
         </div>
-        <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        <span class="release-meta"><span class="meta-left">Feature</span><span class="meta-year">2026</span></span>
+      </a>
+
+      <div class="spotlight-grid">
+        <a class="spotlight-card" href="blitzkrieg/">
+          <div class="spotlight-art">
+            <img src="../covers/card/adr-square.jpg" alt="blitzkrieg w/ T Bag &amp; B Minor cover art">
+          </div>
+          <div class="spotlight-title-row">
+            <span class="spotlight-caption">blitzkrieg w/ T Bag &amp; B Minor</span>
+          </div>
+          <span class="release-meta"><span class="meta-left"><span class="explicit-tag">E</span>Feature</span><span class="meta-year">2026</span></span>
+        </a>
+      </div>
+
+      <a class="see-all-btn" href="discography/">
+        <div class="see-all-covers" aria-hidden="true">
+          <div class="see-all-covers-track">
+            <img src="../covers/card/monroe-square.jpg" alt="" decoding="async">
+            <img src="../covers/card/adr-square.jpg" alt="" decoding="async">
+          </div>
+        </div>
+        <span class="see-all-label">See all discography</span>
       </a>
     </section>
 
@@ -406,5 +552,127 @@
   </div>
 </div>
 
+<script>
+(function(){
+  function setupMarquee(el){
+    if (el.dataset.marqueeReady) return;
+    var text = el.textContent;
+    el.textContent = '';
+    var track = document.createElement('span');
+    track.className = 'marquee-track';
+    var copy1 = document.createElement('span');
+    copy1.className = 'marquee-copy';
+    copy1.textContent = text;
+    track.appendChild(copy1);
+    el.appendChild(track);
+    el.dataset.marqueeReady = '1';
+  }
+  var marqueeCounter = 0;
+  function measureMarquee(el){
+    var track = el.querySelector('.marquee-track');
+    var copy1 = el.querySelector('.marquee-copy');
+    if(!track || !copy1) return;
+    var extra = track.querySelectorAll('.marquee-copy');
+    for(var i = 1; i < extra.length; i++) extra[i].remove();
+    el.classList.remove('marquee');
+    track.style.animation = 'none';
+    if(track._marqueeStyleTag){ track._marqueeStyleTag.remove(); track._marqueeStyleTag = null; }
+    var copyPadding = parseFloat(getComputedStyle(copy1).paddingRight) || 0;
+    var overflow = (copy1.scrollWidth - copyPadding) - el.clientWidth;
+    if(overflow > 2){
+      var copy2 = copy1.cloneNode(true);
+      track.appendChild(copy2);
+      var scrollSeconds = Math.max(4, 3 + overflow / 18);
+      var pauseSeconds = 3;
+      var total = scrollSeconds + pauseSeconds;
+      var pausePct = (scrollSeconds / total) * 100;
+      var animName = 'marquee-anim-' + (marqueeCounter++);
+      var styleTag = document.createElement('style');
+      styleTag.textContent = '@keyframes ' + animName + '{' +
+        '0%{transform:translateX(0);}' +
+        pausePct.toFixed(3) + '%{transform:translateX(-50%);}' +
+        '100%{transform:translateX(-50%);}' +
+      '}';
+      document.head.appendChild(styleTag);
+      track._marqueeStyleTag = styleTag;
+      track.style.animation = animName + ' ' + total + 's linear infinite';
+      el.classList.add('marquee');
+    }
+  }
+  var tickerCounter = 0;
+  function setupCoverTicker(container){
+    var track = container.querySelector('.see-all-covers-track');
+    if(!track) return;
+    if(!track._baseImgs){
+      track._baseImgs = Array.prototype.slice.call(track.children);
+    }
+    while(track.children.length > track._baseImgs.length) track.removeChild(track.lastChild);
+    if(track._tickerStyleTag){ track._tickerStyleTag.remove(); track._tickerStyleTag = null; }
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    var baseWidth = 0;
+    track._baseImgs.forEach(function(img){ baseWidth += img.getBoundingClientRect().width + gap; });
+    if(baseWidth <= 0) return;
+    var containerWidth = container.clientWidth;
+    var copies = Math.max(2, Math.ceil((containerWidth * 2) / baseWidth));
+    for(var c = 1; c < copies; c++){
+      track._baseImgs.forEach(function(img){ track.appendChild(img.cloneNode(true)); });
+    }
+    var pxPerSecond = 19;
+    var seconds = baseWidth / pxPerSecond;
+    var pct = 100 / copies;
+    var animName = 'covers-scroll-dyn-' + (tickerCounter++);
+    var styleTag = document.createElement('style');
+    styleTag.textContent = '@keyframes ' + animName + '{ from{transform:translateX(0);} to{transform:translateX(-' + pct.toFixed(4) + '%);} }';
+    document.head.appendChild(styleTag);
+    track._tickerStyleTag = styleTag;
+    track.style.animation = animName + ' ' + seconds.toFixed(2) + 's linear infinite';
+  }
+  function refresh(){
+    document.querySelectorAll('.spotlight-caption').forEach(function(el){
+      setupMarquee(el);
+      measureMarquee(el);
+    });
+    document.querySelectorAll('.see-all-covers').forEach(setupCoverTicker);
+  }
+  refresh();
+  var lastWidth = window.innerWidth;
+  window.addEventListener('resize', function(){
+    if(window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    refresh();
+  });
+})();
+</script>
+<script>
+(function(){
+  var el = document.querySelector('.sky-bg');
+  if(!el) return;
+  var cs = getComputedStyle(el);
+  var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+  if(!m) return;
+  var fm = cs.filter.match(/brightness\(([\d.]+)\)/);
+  var k = fm ? parseFloat(fm[1]) : 1;
+  var img = new Image();
+  img.onload = function(){
+    var w = 24, h = 24;
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    try{
+      var data = ctx.getImageData(0, 0, w, h).data;
+      var sum = 0, count = 0;
+      for(var i=0; i<data.length; i+=4){
+        sum += 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
+        count++;
+      }
+      var bright = (sum/count) * k > 135;
+      document.body.classList.toggle('light-cover', bright);
+      document.body.classList.toggle('dark-cover', !bright);
+    }catch(e){}
+  };
+  img.src = m[1];
+})();
+</script>
 </body>
 </html>

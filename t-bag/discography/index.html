@@ -19,7 +19,8 @@
     --line:rgba(243,233,218,0.14);
     --glass:rgba(14,11,8,0.62);
     --glass-hover:rgba(14,11,8,0.74);
-    --glass-border:rgba(243,233,218,0.2);
+    --glass-border:rgba(243,233,218,0.2);    --bg-image:url(../../covers/t-bag-profile.jpg);
+    --bg-color:var(--sky-fallback);
   }
 
   html{ overscroll-behavior:none; }
@@ -40,10 +41,11 @@
     position:fixed;
     inset:-30px;
     z-index:-1;
-    background-image:url(../../covers/sky.jpg);
+    background-image:var(--bg-image);
+    background-color:var(--bg-color);
     background-size:cover;
     background-position:center;
-    filter:grayscale(1) blur(6px);
+    filter:blur(45px) brightness(0.75);
   }
 
   .stage{
@@ -259,9 +261,18 @@
       color:var(--paper);
     }
   }
+
+  /* ---- adaptive text colour: dark backgrounds get light text ---- */
+  body.dark-cover h1,
+  body.dark-cover .view-toolbar-label,
+  body.dark-cover .disco-heading,
+  body.dark-cover .section-label span,
+  body.dark-cover footer{ color:var(--paper); }
+  body.dark-cover .tagline{ color:var(--paper-dim); }
+  body.dark-cover .back-link{ color:var(--paper); border-bottom-color:var(--paper-dim); }
 </style>
 </head>
-<body oncontextmenu="return false">
+<body class="light-cover" oncontextmenu="return false">
 
 <div class="sky-bg"></div>
 
@@ -577,5 +588,36 @@
 })();
 </script>
 
+<script>
+(function(){
+  var el = document.querySelector('.sky-bg');
+  if(!el) return;
+  var cs = getComputedStyle(el);
+  var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+  if(!m) return;
+  var fm = cs.filter.match(/brightness\(([\d.]+)\)/);
+  var k = fm ? parseFloat(fm[1]) : 1;
+  var img = new Image();
+  img.onload = function(){
+    var w = 24, h = 24;
+    var canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    var ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, w, h);
+    try{
+      var data = ctx.getImageData(0, 0, w, h).data;
+      var sum = 0, count = 0;
+      for(var i=0; i<data.length; i+=4){
+        sum += 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
+        count++;
+      }
+      var bright = (sum/count) * k > 135;
+      document.body.classList.toggle('light-cover', bright);
+      document.body.classList.toggle('dark-cover', !bright);
+    }catch(e){}
+  };
+  img.src = m[1];
+})();
+</script>
 </body>
 </html>

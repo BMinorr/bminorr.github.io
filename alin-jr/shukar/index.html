@@ -262,13 +262,13 @@
 
   body.light-cover h1{ color:var(--ink); }
   body.light-cover .feat-line{ color:var(--ink-dim); }
-  body.light-cover .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
+  body.light-cover .feat-line .feat-link{ color:var(--ink); text-decoration-color:var(--ink-dim); }
   body.light-cover .section-label span{ color:var(--ink-dim); }
   body.light-cover footer{ color:var(--ink-dim); }
   body.light-cover .back-link{ color:var(--ink-dim); border-bottom-color:var(--ink-dim); }
 </style>
 </head>
-<body oncontextmenu="return false" data-artists="florinswag" data-features="alin-jr,skyari,txfu">
+<body class="dark-cover" oncontextmenu="return false" data-artists="florinswag" data-features="alin-jr,skyari,txfu">
 
 <div class="sky-bg"></div>
 
@@ -334,9 +334,13 @@
 
 <script>
 (function(){
-  var bg = getComputedStyle(document.querySelector('.sky-bg')).backgroundImage;
-  var m = bg.match(/url\(["\']?(.*?)["\']?\)/);
+  var el = document.querySelector('.sky-bg');
+  if(!el) return;
+  var cs = getComputedStyle(el);
+  var m = cs.backgroundImage.match(/url\(["']?(.*?)["']?\)/);
   if(!m) return;
+  var fm = cs.filter.match(/brightness\(([\d.]+)\)/);
+  var k = fm ? parseFloat(fm[1]) : 1;
   var img = new Image();
   img.onload = function(){
     var w = 24, h = 24;
@@ -351,7 +355,9 @@
         sum += 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
         count++;
       }
-      if ((sum/count) > 180) document.body.classList.add('light-cover');
+      var bright = (sum/count) * k > 135;
+      document.body.classList.toggle('light-cover', bright);
+      document.body.classList.toggle('dark-cover', !bright);
     }catch(e){}
   };
   img.src = m[1];
